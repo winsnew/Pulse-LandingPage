@@ -1,45 +1,70 @@
+
 import { pricing } from "../constants"
+import { motion } from "framer-motion"
 
 const PricingList = () => {
     return (
-        <div className="flex gap-[1rem] max-lg:flex-wrap">
-            {pricing.map((item) => (
-                <div
+        <motion.div
+            className="flex flex-wrap gap-6 justify-center"
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+                hidden: {},
+                visible: {
+                    transition: {
+                        staggerChildren: 0.15
+                    }
+                }
+            }}
+            viewport={{ once: true }}
+        >
+            {pricing.map((item, idx) => (
+                <motion.div
                     key={item.id}
-                    className="w-[19rem] max-lg:w-full h-full px-6 bg-n-8 border border-n-6 rounded-[2rem] lg:w-auto even:py-14 odd:py-8 odd:my-4 [&>h4]:first:text-color-2 [&>h4]:even:text-color-1 [&>h4]:last:text-color-3"
+                    variants={{
+                        hidden: { opacity: 0, y: 30 },
+                        visible: { opacity: 1, y: 0 }
+                    }}
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.5 }}
+                    className={`w-full max-w-sm p-8 rounded-3xl shadow-lg border border-white/10 backdrop-blur-md bg-white/5 text-white relative overflow-hidden ${idx === 1 ? "border-primary shadow-primary/20" : ""
+                        }`}
                 >
-                    <h4 className="h4 mb-4">{item.title}</h4>
+                    {idx === 1 && (
+                        <span className="absolute top-4 right-4 bg-primary text-white text-xs px-3 py-1 rounded-full font-semibold uppercase tracking-widest shadow-md">
+                            Most Popular
+                        </span>
+                    )}
 
-                    <p className="body-2 min-h-[4rem] mb-3 text-n-1/50">
+                    <h4 className="text-2xl font-bold mb-2 text-primary">{item.title}</h4>
+
+                    <p className="text-sm text-white/70 min-h-[3rem] mb-4">
                         {item.description}
                     </p>
 
-                    <div className="flex items-center h-[5.5rem] mb-6">
+                    <div className="flex items-end mb-6">
                         {item.price && (
                             <>
-                                <div className="h3">$</div>
-                                <div className="text-[5.5rem] leading-none font-bold">
+                                <span className="text-2xl font-medium">$</span>
+                                <span className="text-5xl font-extrabold leading-none ml-1">
                                     {item.price}
-                                </div>
+                                </span>
                             </>
                         )}
                     </div>
 
-                    <ul>
+                    <ul className="space-y-4 text-sm text-white/80 border-t border-white/10 pt-4">
                         {item.features.map((feature, index) => (
-                            <li
-                                key={index}
-                                className="flex items-start py-5 border-t border-n-6"
-                            >
-                                {/* <img src={check} width={24} height={24} alt="Check" /> */}
-                                <p className="body-2 ml-4">{feature}</p>
+                            <li key={index} className="flex gap-2 items-start">
+                                <span className="mt-1 text-green-400">✔</span>
+                                <span>{feature}</span>
                             </li>
                         ))}
                     </ul>
-                </div>
+                </motion.div>
             ))}
-        </div>
-    )
+        </motion.div>
+    );
 }
 
 export default PricingList

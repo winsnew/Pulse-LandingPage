@@ -35,6 +35,12 @@
 
 }
 
+@layer utilities {
+  .bg-glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+}
+
 @layer components {
   .glass-card {
     @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl;
@@ -129,6 +135,34 @@
     border-radius: 50%;
     animation: float 6s ease-in-out infinite;
   }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-reverse {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 60s linear infinite;
+}
+
+.animate-scroll-reverse {
+  animation: scroll-reverse 60s linear infinite;
 }
 
 /* Custom scrollbar */
