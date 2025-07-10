@@ -8,7 +8,6 @@ Pulse is a sophisticated, real-time monitoring dashboard for cryptocurrency and 
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-3178C6?style=flat&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3.3-06B6D4?style=flat&logo=tailwind-css)
 
-
 ## ✨ Key Features
 
 - Real-time cryptocurrency market tracking
@@ -19,11 +18,11 @@ Pulse is a sophisticated, real-time monitoring dashboard for cryptocurrency and 
 
 ## 🚀 Tech Stack
 
--   **Framework**: [Next.js](https://nextjs.org/) (with App Router)
--   **Language**: [TypeScript](https://www.typescriptlang.org/)
--   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
--   **Charting**: [Recharts](https://recharts.org/) for data visualization.
--   **Animations**: Custom CSS animations, `tailwindcss-animate`, `embla-carousel-react` (for carousels).
+- **Framework**: [Next.js](https://nextjs.org/) (with App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Charting**: [Recharts](https://recharts.org/) for data visualization.
+- **Animations**: Custom CSS animations, `tailwindcss-animate`, `embla-carousel-react` (for carousels).
 
 ## 📂 Project Structure
 
@@ -36,10 +35,9 @@ The repository is organized to separate concerns, making it easy to navigate and
 │   ├── layout.tsx        # Root layout
 │   └── page.tsx          # Main dashboard page
 ├── components/           # Reusable React components
-│   ├── Sidebar.tsx       # Collapsible side navigation bar
-│   ├── TopBar.tsx        # Top header with search and user actions
-│   ├── ui/               # Core shadcn/ui components (Button, Card, etc.)
-│   └── widgets/          # High-level dashboard widgets
+│   ├── Constans/       # Collapsible side navigation bar
+│   ├── Customs/        # Top header with search and user actions
+│   └── Sections/          # High-level dashboard widgets
 │       ├── AssetRadar.tsx
 │       ├── InfluencerIntel.tsx
 │       ├── MarketViewAI.tsx
@@ -56,12 +54,14 @@ The repository is organized to separate concerns, making it easy to navigate and
 To run this project locally, follow these steps:
 
 1.  **Clone the repository:**
+
     ```bash
-    git clone https://github.com/tejinderb/pulse---ui-design.git
-    cd pulse---ui-design
+    git clone https://github.com/tejinderb/pulse-LandingPage.git
+    cd pulse-LandingPage
     ```
 
 2.  **Install dependencies:**
+
     ```bash
     npm install
     ```
@@ -75,6 +75,6 @@ The application will be available at `http://localhost:3000`.
 
 ### Available Scripts
 
--   `npm run dev`: Starts the development server.
--   `npm run build`: Creates a production-ready build of the application. The output is configured for static export.
--   `npm run start`: Starts the application from the production build (Note: requires a server, as this project uses 'output': 'export').
+- `npm run dev`: Starts the development server.
+- `npm run build`: Creates a production-ready build of the application. The output is configured for static export.
+- `npm run start`: Starts the application from the production build (Note: requires a server, as this project uses 'output': 'export').
