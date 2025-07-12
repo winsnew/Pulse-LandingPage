@@ -22,12 +22,13 @@ const ClientLabel = () => {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
+                    <div className="inline-flex items-center px-2 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
                         <div className="w-2 h-2 bg-primary rounded-full animate-ping" />
                         <span className="text-sm font-medium text-primary uppercase tracking-wider">
                             Trusted Worldwide
                         </span>
-                    </div>
+                    </div> 
+                    
 
                     <h3 className="mt-6 text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
                         Trusted by World-Class Teams

@@ -22,7 +22,7 @@ const Header: React.FC = () => {
 
     return (
         <header
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-n-6 ${open ? "bg-n-8" : "bg-n-8/90 backdrop-blur-lg"
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-n-6 ${open ? "bg-n-8" : "background-blur-md bg-black/70"
                 }`}
         >
             <div className="relative flex items-center justify-between px-4 py-4 lg:px-10">
