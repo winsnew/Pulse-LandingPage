@@ -7,9 +7,6 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion"
 import { navigation } from "../constants";
-import Button from "../customs/Button";
-import MenuSvg from "../customs/Menu";
-import { HamburgerMenu } from "../customs/Header";
 
 const Header: React.FC = () => {
     const pathname = usePathname();
