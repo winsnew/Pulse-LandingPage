@@ -18,7 +18,7 @@ const Hero = () => {
     const scaleImage = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
     return (
         <ScrollRevealWrapper>
-            <section className="pt-[10rem] md:pt-[10rem] -mt-[4.25rem]" id="hero">
+            <section className="pt-[10rem] -mt-[4.25rem]" id="hero">
                 <div className="container relative" ref={parallaxRef}>
                     <motion.div
                         className="relative z-10 max-w-full mx-auto text-center mb-20 md:mb-28 lg:mb-32"
