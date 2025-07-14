@@ -1,5 +1,4 @@
 "use client"
-import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Gradient } from "../customs/Heros";
@@ -19,10 +18,10 @@ const Hero = () => {
     const scaleImage = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
     return (
         <ScrollRevealWrapper>
-            <section className="pt-[10rem] -mt-[4.25rem]" id="hero">
+            <section className="pt-[6rem] md:pt-[10rem] -mt-[4.25rem]" id="hero">
                 <div className="container relative" ref={parallaxRef}>
                     <motion.div
-                        className="relative z-10 max-w-full mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]"
+                        className="relative z-10 max-w-full mx-auto text-center mb-20 md:mb-28 lg:mb-32"
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease: "easeOut" }}
@@ -76,7 +75,7 @@ const Hero = () => {
                             </div>
 
                             <motion.span
-                                className="text-sm text-slate-400 mt-2 text-center"
+                                className="text-sm text-slate-400 mt-2 text-center block"
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.8, duration: 0.6 }}
@@ -85,9 +84,6 @@ const Hero = () => {
                             </motion.span>
                         </motion.div>
                     </motion.div>
-                    <div className="max-w-full mx-auto mb-12">
-                        <ClientLabel />
-                    </div>
                     <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
                         <motion.div
                             className="relative z-10 p-0.5 rounded-2xl bg-transparent"
@@ -130,6 +126,9 @@ const Hero = () => {
                         >
                             <div className="w-full h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-500 blur-[120px] opacity-60 rounded-full" />
                         </motion.div>
+                    </div>
+                    <div className="max-w-full mx-auto mb-12">
+                        <ClientLabel />
                     </div>
                 </div>
 
