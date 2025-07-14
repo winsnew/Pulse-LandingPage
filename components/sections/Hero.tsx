@@ -2,7 +2,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Gradient } from "../customs/Heros";
-import ClientLabel from "./Clients";
 import ScrollRevealWrapper from "../customs/ScrollReveal";
 import Image from "next/image";
 import MotionLink from "../customs/MotionLink";
@@ -28,13 +27,13 @@ const Hero = () => {
                         viewport={{ once: true }}
                     >
                         <motion.h1
-                            className="h1 mb-6"
+                            className="h1 mb-6 font-extrabold tracking-tight text-white"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2, duration: 0.8 }}
                         >
                             Transform Your Business With Intelligent Analytics{" "}
-                            <span className="inline-block relative text-gradient bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                            <span className="inline-block bg-gradient-to-r from-[#4A00E0] to-[#8E2DE2] bg-clip-text text-transparent">
                                 Pulse
                             </span>
                         </motion.h1>
@@ -57,7 +56,7 @@ const Hero = () => {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                                 <MotionLink
                                     href="#"
-                                    className="px-8 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 shadow-lg shadow-purple-500/30 transition-all duration-300"
+                                    className="px-8 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:brightness-110 shadow-xl shadow-purple-500/30 transition-all duration-300 backdrop-blur-md border border-white/10"
                                     whileHover={{ scale: 1.06 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
@@ -66,7 +65,7 @@ const Hero = () => {
 
                                 <MotionLink
                                     href="#"
-                                    className="px-8 py-3 rounded-xl border border-slate-300 text-slate-300 hover:text-white hover:border-white transition-all duration-300"
+                                    className="px-8 py-3 rounded-xl text-slate-100 font-medium bg-white/5 border border-white/10 hover:border-white/20 hover:backdrop-blur-md hover:text-white transition-all duration-300"
                                     whileHover={{ scale: 1.06 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
@@ -84,7 +83,7 @@ const Hero = () => {
                             </motion.span>
                         </motion.div>
                     </motion.div>
-                    <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
+                    <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-5">
                         <motion.div
                             className="relative z-10 p-0.5 rounded-2xl bg-transparent"
                             initial={{ opacity: 0, y: 80, scale: 0.95, rotateX: 15 }}
@@ -101,7 +100,7 @@ const Hero = () => {
                             >
                                 <div className="h-[1.4rem] bg-transparent rounded-t-[0.9rem]" />
                                 <motion.div
-                                    className="rounded-b-[0.9rem] overflow-hidden"
+                                    className="rounded-b-[0.9rem] overflow-hidden hidden md:block"
                                     initial={{ opacity: 0, y: 40 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.4, duration: 1 }}
@@ -112,6 +111,21 @@ const Hero = () => {
                                         width={1024}
                                         height={690}
                                         alt="Dashboard"
+                                        priority
+                                    />
+                                </motion.div>
+                                <motion.div
+                                    className="rounded-b-[0.9rem] overflow-hidden block md:hidden"
+                                    initial={{ opacity: 0, y: 40 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.4, duration: 1 }}
+                                >
+                                    <Image
+                                        src="/assets/mobile.png"
+                                        className="w-full h-auto"
+                                        width={350}
+                                        height={700}
+                                        alt="Mobile Dashboard"
                                         priority
                                     />
                                 </motion.div>
@@ -126,9 +140,6 @@ const Hero = () => {
                         >
                             <div className="w-full h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-500 blur-[120px] opacity-60 rounded-full" />
                         </motion.div>
-                    </div>
-                    <div className="max-w-full mx-auto mb-12">
-                        <ClientLabel />
                     </div>
                 </div>
 
