@@ -28,7 +28,7 @@ const ClientLabel = () => {
                         <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-purple-500 to-primary rounded-full animate-pulse" />
                     </h2>
                     <p className="text-muted-foreground max-w-2xl mx-auto text-md">
-                        The world's leading teams build on our platform.
+                        The world&apos;s leading teams build on our platform.
                     </p>
                 </motion.div>
 

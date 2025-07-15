@@ -34,7 +34,6 @@ const ParticleBackground = () => {
         }> = [];
 
         const initParticles = () => {
-            const baseRadius = Math.min(window.innerWidth, window.innerHeight) * 0.3;
             particles = [];
 
             for (let i = 0; i < 300; i++) {
