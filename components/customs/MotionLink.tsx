@@ -1,18 +1,20 @@
 "use client";
 
 import Link, { LinkProps } from "next/link";
-import { motion } from "framer-motion";
-import { forwardRef } from "react";
-import { MotionProps } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
+import { AnchorHTMLAttributes, forwardRef } from "react";
 
-type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>;
-type CombinedProps = LinkProps & AnchorProps & MotionProps;
+// Gabungkan props dari <a>, Next.js Link, dan Motion
+type MotionLinkProps = LinkProps &
+    AnchorHTMLAttributes<HTMLAnchorElement> &
+    MotionProps;
 
-const MotionLink = forwardRef<HTMLAnchorElement, CombinedProps>(
-    ({ href, children, className, ...rest }, ref) => {
+const MotionLink = forwardRef<HTMLAnchorElement, MotionLinkProps>(
+    ({ href, children, ...rest }, ref) => {
         return (
-            <Link href={href} passHref>
-                <motion.a ref={ref} className={className} {...rest}>
+            <Link href={href} passHref legacyBehavior>
+                {/* motion.a agar bisa animasi */}
+                <motion.a ref={ref} {...rest}>
                     {children}
                 </motion.a>
             </Link>
@@ -23,3 +25,4 @@ const MotionLink = forwardRef<HTMLAnchorElement, CombinedProps>(
 MotionLink.displayName = "MotionLink";
 
 export default MotionLink;
+

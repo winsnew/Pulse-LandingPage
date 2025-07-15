@@ -1,7 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import {
     footerLinks,
-    builtWith,
     socialLinks
 } from "../constants";
 
@@ -12,7 +11,6 @@ const Footer = () => {
                 <div className="absolute top-0 left-0 w-96 h-96 rounded-full filter blur-3xl animate-pulse"></div>
                 <div className="absolute bottom-0 right-0 w-96 h-96 bg-transparent rounded-full filter blur-3xl animate-pulse delay-1000"></div>
             </div>
-            {/* Main Footer */}
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                     <div className="lg:col-span-2">

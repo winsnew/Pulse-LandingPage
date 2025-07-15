@@ -3,7 +3,7 @@ import {
     PricingPlan,
 } from "@/lib/types";
 import { Client, SocialLink } from "@/lib/types";
-import { Twitter, Linkedin, Github } from "lucide-react";
+import { Twitter, Linkedin, Facebook } from "lucide-react";
 
 //============================Component Data==============================
 
@@ -33,9 +33,9 @@ export const builtWith = [
 ];
 
 export const socialLinks: SocialLink[] = [
-    { name: "Twitter", icon: Twitter, href: "#" },
-    { name: "LinkedIn", icon: Linkedin, href: "#" },
-    { name: "GitHub", icon: Github, href: "#" }
+    { name: "Twitter", icon: Twitter, href: "https://x.com/Pulse_Platform1?t=rEq9QXsUDQaQK6d1J6EAUg&s=09" },
+    { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/pulse-platform/" },
+    { name: "Facebook", icon: Facebook, href: "https://www.facebook.com/profile.php?id=61574756803349" }
 ];
 
 export const navigation: NavigationItem[] = [
@@ -74,7 +74,7 @@ export const pricing: PricingPlan[] = [
         id: "2",
         title: "Enterprise",
         description: "Custom AI chatbot, advanced analytics, dedicated account",
-        price: null,
+        price: "109.99",
         features: [
             "An AI chatbot that can understand your queries",
             "Personalized recommendations based on your preferences",

@@ -22,16 +22,13 @@ const Header: React.FC = () => {
 
     return (
         <header
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-n-6 ${open ? "bg-n-8" : "background-blur-md bg-black/70"
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-n-6 ${open ? "bg-n-8" : "bg-transparent backdrop-blur-lg"
                 }`}
         >
             <div className="relative flex items-center justify-between px-4 py-4 lg:px-10">
-                {/* Logo kiri */}
                 <Link href="#hero" scroll={false} className="flex items-center shrink-0 z-10">
                     <Image src="/logo.png" width={48} height={48} alt="Pulse Logo" priority />
                 </Link>
-
-                {/* Navigasi Tengah */}
                 <nav
                     className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-6 xl:gap-10"
                     role="navigation"
@@ -45,8 +42,8 @@ const Header: React.FC = () => {
                                 scroll={false}
                                 onClick={closeMenu}
                                 className={`text-sm font-semibold uppercase tracking-wide transition-colors ${pathname === item.url
-                                        ? "text-white"
-                                        : "text-white/50 hover:text-white"
+                                    ? "text-white"
+                                    : "text-white/50 hover:text-white"
                                     }`}
                             >
                                 {item.title}
@@ -54,7 +51,6 @@ const Header: React.FC = () => {
                         ))}
                 </nav>
 
-                {/* Auth Buttons kanan */}
                 <div className="hidden lg:flex items-center gap-4 z-10">
                     <Link
                         href="#login"
@@ -72,7 +68,6 @@ const Header: React.FC = () => {
                     </Link>
                 </div>
 
-                {/* Toggle Button Mobile */}
                 <button
                     onClick={toggleMenu}
                     className="lg:hidden p-2 text-white z-[60]"
@@ -82,7 +77,6 @@ const Header: React.FC = () => {
                 </button>
             </div>
 
-            {/* Mobile Menu */}
             <AnimatePresence>
                 {open && (
                     <motion.div
@@ -105,7 +99,7 @@ const Header: React.FC = () => {
                             }}
                             className="flex flex-col items-start space-y-4"
                         >
-                            {/* Mobile Navigation Items */}
+
                             {navigation
                                 .filter((item) => !item.onlyMobile)
                                 .map((item) => (
@@ -129,7 +123,6 @@ const Header: React.FC = () => {
 
                             <hr className="my-4 border-white/10 w-full" />
 
-                            {/* Mobile Auth Buttons */}
                             {navigation
                                 .filter((item) => item.onlyMobile)
                                 .map((item) => (
