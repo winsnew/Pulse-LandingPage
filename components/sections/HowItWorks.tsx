@@ -54,7 +54,6 @@ const HowItWorksCircuitPrecise = () => {
     const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
     const pathRefs = useRef<(SVGPathElement | null)[]>([]);
     const [pathDefs, setPathDefs] = useState<string[]>([]);
-    const scrollTriggers = useRef<ScrollTrigger[]>([]);
 
     useEffect(() => {
         const calculatePaths = () => {

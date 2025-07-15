@@ -6,9 +6,9 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
     {
-        question: "What is Pulse and what markets does it covers?",
+        question: "What is Pulse and how can it help my business?",
         answer:
-            "Pulse is an intelligent analytics platform that covers both cryptocurrency and traditional stock markets providing real-time insights across multiple asset classes.",
+            "Pulse is an intelligent analytics platform that helps businesses gain real-time insights, automate workflows, and scale efficiently with AI-powered tools.",
     },
     {
         question: "Do I need to install any software?",
@@ -25,7 +25,7 @@ const faqs = [
         answer:
             "Absolutely. Pulse supports integrations with tools like Slack, Notion, GitHub, and many more via API and native connectors.",
     },
-]
+];
 
 const FaqQuestion = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);

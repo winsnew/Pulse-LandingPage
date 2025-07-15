@@ -32,9 +32,8 @@ const Hero = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2, duration: 0.8 }}
                         >
-                            Trade Confidently With {""}
-                            {/* Transform Your Business With Intelligent Analytics{" "} */}
-                            <span className="inline-block bg-gradient-to-r from-[#4A00E0] to-[#8E2DE2] bg-clip-text text-transparent">
+                            Transform Your Business With Intelligent Analytics{" "}
+                            <span className="inline-block relative text-gradient bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                                 Pulse
                             </span>
                             {" "} - Your AI Trading Partner
@@ -59,7 +58,7 @@ const Hero = () => {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                                 <MotionLink
                                     href="#"
-                                    className="px-8 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-[#4A00E0] to-[#8E2DE2] hover:brightness-100 shadow-xl shadow-purple-500/30 transition-all duration-300 backdrop-blur-md border border-white/10"
+                                    className="px-8 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 shadow-lg shadow-purple-500/30 transition-all duration-300"
                                     whileHover={{ scale: 1.06 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
