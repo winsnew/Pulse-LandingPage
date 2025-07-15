@@ -32,19 +32,22 @@ const Hero = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2, duration: 0.8 }}
                         >
-                            Transform Your Business With Intelligent Analytics{" "}
+                            Trade Confidently With {""}
+                            {/* Transform Your Business With Intelligent Analytics{" "} */}
                             <span className="inline-block bg-gradient-to-r from-[#4A00E0] to-[#8E2DE2] bg-clip-text text-transparent">
                                 Pulse
                             </span>
+                            {" "} - Your AI Trading Partner
                         </motion.h1>
 
                         <motion.p
-                            className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8"
+                            className="body-1 max-w-3xl mx-auto mb-6 text-n-2 md:mb-8 text-sm"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, duration: 0.8 }}
                         >
-                            Get real-time insights, automate workflows, and scale your operations with our cutting-edge platform. Join thousands of companies already transforming their business.
+                            Cut through market noise, uncover high-value opportunities, and elevate your strategy with cutting-edge AI analytics. Join thousands of traders who trust Pulse to make smarter, faster, and more informed decisions — anytime, anywhere.
+                            {/* Get real-time insights, automate workflows, and scale your operations with our cutting-edge platform. Join thousands of companies already transforming their business. */}
                         </motion.p>
 
                         <motion.div
@@ -56,7 +59,7 @@ const Hero = () => {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                                 <MotionLink
                                     href="#"
-                                    className="px-8 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:brightness-100 shadow-xl shadow-purple-500/30 transition-all duration-300 backdrop-blur-md border border-white/10"
+                                    className="px-8 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-[#4A00E0] to-[#8E2DE2] hover:brightness-100 shadow-xl shadow-purple-500/30 transition-all duration-300 backdrop-blur-md border border-white/10"
                                     whileHover={{ scale: 1.06 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
