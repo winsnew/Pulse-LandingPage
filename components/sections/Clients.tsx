@@ -1,16 +1,7 @@
 "use client"
 import { motion } from 'framer-motion'
 import Image from 'next/image';
-
-const companies = [
-    { name: "Stripe", logo: "/tinyLogos/stripe.png" },
-    { name: "OpenAI", logo: "/tinyLogos/openai.png" },
-    { name: "Vercel", logo: "/tinyLogos/vercel.png" },
-    { name: "Supabase", logo: "/tinyLogos/supabase.png" },
-    { name: "Google", logo: "/tinyLogos/google.png" },
-    { name: "Meta", logo: "/tinyLogos/meta.png" },
-    { name: "Tesla", logo: "/tinyLogos/tesla.png" },
-];
+import { companies } from '../constants';
 
 const ClientLabel = () => {
     return (

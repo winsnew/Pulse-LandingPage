@@ -3,29 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-
-const faqs = [
-    {
-        question: "What is Pulse and how can it help my business?",
-        answer:
-            "Pulse is an intelligent analytics platform that helps businesses gain real-time insights, automate workflows, and scale efficiently with AI-powered tools.",
-    },
-    {
-        question: "Do I need to install any software?",
-        answer:
-            "No, Pulse is 100% web-based. You can access it anytime, anywhere from your browser.",
-    },
-    {
-        question: "Is there a free trial available?",
-        answer:
-            "Yes! We offer a 14-day free trial with no credit card required. Cancel anytime.",
-    },
-    {
-        question: "Can I integrate Pulse with my current tools?",
-        answer:
-            "Absolutely. Pulse supports integrations with tools like Slack, Notion, GitHub, and many more via API and native connectors.",
-    },
-];
+import { faqs } from "../constants";
 
 const FaqQuestion = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);

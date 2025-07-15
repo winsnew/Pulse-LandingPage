@@ -57,56 +57,69 @@ const HowItWorksCircuitPrecise = () => {
 
     useEffect(() => {
         const calculatePaths = () => {
-            const container = containerRef.current;
-            if (!container) return;
+            requestAnimationFrame(() => {
+                const container = containerRef.current;
+                if (!container) return;
 
-            const newPaths: string[] = [];
+                const newPaths: string[] = [];
 
-            for (let i = 0; i < steps.length - 1; i++) {
-                const from = iconRefs.current[i];
-                const to = iconRefs.current[i + 1];
-                if (!from || !to) continue;
+                for (let i = 0; i < steps.length - 1; i++) {
+                    const from = iconRefs.current[i];
+                    const to = iconRefs.current[i + 1];
+                    if (!from || !to) continue;
 
-                const fromRect = from.getBoundingClientRect();
-                const toRect = to.getBoundingClientRect();
-                const containerRect = container.getBoundingClientRect();
+                    const fromRect = from.getBoundingClientRect();
+                    const toRect = to.getBoundingClientRect();
+                    const containerRect = container.getBoundingClientRect();
 
-                const startX = fromRect.left + fromRect.width / 2 - containerRect.left;
-                const startY = fromRect.top + fromRect.height / 2 - containerRect.top;
-                const endX = toRect.left + toRect.width / 2 - containerRect.left;
-                const endY = toRect.top + toRect.height / 2 - containerRect.top;
+                    const startX = fromRect.left + fromRect.width / 2 - containerRect.left;
+                    const startY = fromRect.top + fromRect.height / 2 - containerRect.top;
+                    const endX = toRect.left + toRect.width / 2 - containerRect.left;
+                    const endY = toRect.top + toRect.height / 2 - containerRect.top;
 
-                let path = "";
-                if (window.innerWidth < 768) {
-                    const curveOffsetX = 60;
-                    const curveOffsetY = Math.abs(endY - startY) / 2;
-                    const direction = endX > startX ? 1 : -1;
-                    path = `M${startX},${startY} C${startX + direction * curveOffsetX},${startY + curveOffsetY} ${endX - direction * curveOffsetX},${endY - curveOffsetY} ${endX},${endY}`;
-                } else {
-                    const midX = (startX + endX) / 2;
-                    path = `M${startX},${startY} C${midX},${startY} ${midX},${endY} ${endX},${endY}`;
+                    let path = "";
+                    if (window.innerWidth < 768) {
+                        const curveOffsetX = 60;
+                        const curveOffsetY = Math.abs(endY - startY) / 2;
+                        const direction = endX > startX ? 1 : -1;
+                        path = `M${startX},${startY} C${startX + direction * curveOffsetX},${startY + curveOffsetY} ${endX - direction * curveOffsetX},${endY - curveOffsetY} ${endX},${endY}`;
+                    } else {
+                        const midX = (startX + endX) / 2;
+                        path = `M${startX},${startY} C${midX},${startY} ${midX},${endY} ${endX},${endY}`;
+                    }
+
+                    newPaths.push(path);
                 }
 
-                newPaths.push(path);
-            }
-
-            setPathDefs(newPaths);
+                setPathDefs(newPaths);
+            });
         };
 
+        // Initial calculation
         calculatePaths();
-        window.addEventListener('resize', calculatePaths);
-        return () => window.removeEventListener('resize', calculatePaths);
+
+        // Debounced resize
+        let resizeTimer: NodeJS.Timeout;
+        const handleResize = () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                calculatePaths();
+            }, 100);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     useEffect(() => {
         if (pathDefs.length === 0 || !pinWrapperRef.current || !containerRef.current) return;
 
         const container = containerRef.current;
-        const stepsHeight = container.offsetHeight;
+        const stepsHeight = container.getBoundingClientRect().height;
 
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
-        const pinTrigger = ScrollTrigger.create({
+        ScrollTrigger.create({
             trigger: pinWrapperRef.current,
             start: "top top",
             end: () => `+=${stepsHeight}`,
@@ -123,7 +136,6 @@ const HowItWorksCircuitPrecise = () => {
             const length = path.getTotalLength();
             const startIcon = iconRefs.current[index];
             const endIcon = iconRefs.current[index + 1];
-
             if (!startIcon || !endIcon) return;
 
             gsap.set(path, {
@@ -141,8 +153,8 @@ const HowItWorksCircuitPrecise = () => {
                     start: "top 90%",
                     end: "top 30%",
                     scrub: true,
-                    markers: false, // Set true debugging
-                }
+                    markers: false,
+                },
             });
 
             gsap.to(endIcon, {
@@ -153,14 +165,15 @@ const HowItWorksCircuitPrecise = () => {
                     start: "top 80%",
                     end: "top 50%",
                     scrub: true,
-                }
+                },
             });
         });
 
         stepRefs.current.forEach((step, i) => {
             if (!step) return;
 
-            gsap.fromTo(step,
+            gsap.fromTo(
+                step,
                 { opacity: 0, y: 20 },
                 {
                     opacity: 1,
@@ -172,19 +185,15 @@ const HowItWorksCircuitPrecise = () => {
                         start: "top 85%",
                         end: "top 60%",
                         toggleActions: "play none none none",
-                    }
+                    },
                 }
             );
         });
 
-        // Force refresh 
         setTimeout(() => ScrollTrigger.refresh(), 50);
 
-        return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
+        return () => ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     }, [pathDefs]);
-
 
     return (
         <section

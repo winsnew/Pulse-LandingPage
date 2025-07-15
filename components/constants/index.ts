@@ -3,7 +3,11 @@ import {
     PricingPlan,
 } from "@/lib/types";
 import { Client, SocialLink } from "@/lib/types";
-import { Twitter, Linkedin, Facebook } from "lucide-react";
+import {
+    Twitter,
+    Linkedin,
+    Facebook,
+} from "lucide-react";
 
 //============================Component Data==============================
 
@@ -18,6 +22,16 @@ export const clients: Client[] = [
     { name: 'Renaissance', isActive: false },
     { name: 'ContrastAI', isActive: false },
     { name: 'Nietzsche', isActive: true },
+];
+
+export const companies = [
+    { name: "Stripe", logo: "/tinyLogos/stripe.png" },
+    { name: "OpenAI", logo: "/tinyLogos/openai.png" },
+    { name: "Vercel", logo: "/tinyLogos/vercel.png" },
+    { name: "Supabase", logo: "/tinyLogos/supabase.png" },
+    { name: "Google", logo: "/tinyLogos/google.png" },
+    { name: "Meta", logo: "/tinyLogos/meta.png" },
+    { name: "Tesla", logo: "/tinyLogos/tesla.png" },
 ];
 
 export const footerLinks = {
@@ -45,6 +59,29 @@ export const navigation: NavigationItem[] = [
     { id: "3", title: "Roadmap", url: "#roadmap" },
     { id: "4", title: "Sign up", url: "#signup", onlyMobile: true },
     { id: "5", title: "Sign in", url: "#login", onlyMobile: true },
+];
+
+export const faqs = [
+    {
+        question: "What is Pulse and how can it help my business?",
+        answer:
+            "Pulse is an intelligent analytics platform that helps businesses gain real-time insights, automate workflows, and scale efficiently with AI-powered tools.",
+    },
+    {
+        question: "Do I need to install any software?",
+        answer:
+            "No, Pulse is 100% web-based. You can access it anytime, anywhere from your browser.",
+    },
+    {
+        question: "Is there a free trial available?",
+        answer:
+            "Yes! We offer a 14-day free trial with no credit card required. Cancel anytime.",
+    },
+    {
+        question: "Can I integrate Pulse with my current tools?",
+        answer:
+            "Absolutely. Pulse supports integrations with tools like Slack, Notion, GitHub, and many more via API and native connectors.",
+    },
 ];
 
 export const pricing: PricingPlan[] = [

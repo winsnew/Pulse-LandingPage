@@ -1,4 +1,5 @@
 import { LucideIcon } from "lucide-react";
+import { JSX } from "react";
 
 export interface NavigationItem {
     id: string;
@@ -18,6 +19,12 @@ export interface SocialLink {
     icon: LucideIcon;
     href: string;
 }
+
+export type FeatureItem = {
+    title: string;
+    description: string;
+    icon: () => JSX.Element;
+};
 
 export interface RoadmapItem {
     id: string;
