@@ -55,7 +55,7 @@ const Features = () => {
 
     return (
         <section
-            className="relative py-28 bg-gradient-to-b from-neutral-950 to-black overflow-hidden text-white"
+            className="relative py-28 bg-gradient-to-b bg-transparent overflow-hidden text-white"
             id="features"
         >
             <motion.div
@@ -121,7 +121,7 @@ const Features = () => {
                                     </p>
                                 </div>
 
-                                <span className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                                {/* <span className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" /> */}
                             </motion.div>
                         );
                     })}

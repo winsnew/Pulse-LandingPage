@@ -13,7 +13,7 @@ const FaqQuestion = () => {
     };
 
     return (
-        <section className="py-32 bg-gradient-to-b from-neutral-950 via-black to-neutral-950 relative overflow-hidden">
+        <section className="py-32 bg-gradient-to-b bg-transparent relative overflow-hidden">
             <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
                 <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-500/30 blur-[90px] rounded-full animate-pulse" />
                 <div className="absolute bottom-1/4 right-1/5 w-48 h-48 bg-purple-500/30 blur-[100px] rounded-full animate-pulse delay-1000" />

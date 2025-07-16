@@ -63,7 +63,9 @@ const Hero = () => {
                         viewport={{ once: true }}
                     >
                         Transform Your Business With Intelligent Analytics{" "}
-                        <span className="inline-block relative text-gradient bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                        <span
+                            className="chrome-text inline-block "
+                        >
                             Pulse
                         </span>{" "}
                         - Your AI Trading Partner
@@ -89,7 +91,10 @@ const Hero = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                             <MotionLink
                                 href="#"
-                                className="px-8 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 shadow-lg shadow-purple-500/30 transition-all duration-300"
+                                className="glass-cta-btn relative inline-block px-8 py-3 rounded-xl font-semibold text-white backdrop-blur-md border border-white/20 
+             bg-gradient-to-br from-white/10 via-white/5 to-white/10 
+             shadow-[inset_0_0_0.5px_rgba(255,255,255,0.3),0_8px_20px_rgba(255,255,255,0.05)] 
+             transition-all duration-300 hover:scale-105 hover:shadow-xl"
                                 whileHover={{ scale: 1.06 }}
                                 whileTap={{ scale: 0.95 }}
                                 aria-label="Start for Free"
@@ -174,14 +179,14 @@ const Hero = () => {
                         <Gradient />
                     </motion.div>
 
-                    <motion.div
+                    {/* <motion.div
                         className="absolute -top-[54%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%] pointer-events-none"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 0.25 }}
                         transition={{ delay: 1, duration: 1.2 }}
                     >
                         <div className="w-full h-96 bg-gradient-to-br from-blue-100 decoration-stroke-1 to-slate-400 blur-[120px] opacity-60 rounded-full" />
-                    </motion.div>
+                    </motion.div> */}
                 </div>
             </div>
         </section>
