@@ -15,7 +15,7 @@ const Pricing = () => {
             className="relative overflow-hidden min-h-screen"
         >
             <motion.div
-                className="absolute inset-0 z-0 bg-black transition-colors duration-[1200ms]"
+                className="absolute inset-0 z-0 bg-gradient-to-b transition-colors duration-[1200ms]"
                 animate={{
                     backgroundColor: isInView ? "#0d0d0d" : "#000000"
                 }}

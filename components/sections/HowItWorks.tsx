@@ -198,10 +198,10 @@ const HowItWorksCircuitPrecise = () => {
     return (
         <section
             ref={sectionRef}
-            className="relative py-24 md:py-36 bg-gradient-to-b from-background/90 to-background overflow-hidden"
+            className="relative py-24 md:py-36 bg-gradient-to-b from-neutral-950 via-black to-neutral-950 overflow-hidden"
         >
             <div className="absolute inset-0 -z-10 pointer-events-none">
-                <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(124,58,237,0.05)_0%,_transparent_70%)] blur-3xl" />
+                <div className="absolute inset-0 bg-gradient-to-br blur-3xl" />
             </div>
 
             <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">

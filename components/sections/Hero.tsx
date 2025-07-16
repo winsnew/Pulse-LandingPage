@@ -3,7 +3,6 @@
 import { motion, useScroll, useTransform, Variants, easeOut } from "framer-motion";
 import { useRef } from "react";
 import { Gradient } from "../customs/Heros";
-import ScrollRevealWrapper from "../customs/ScrollReveal";
 import Image from "next/image";
 import MotionLink from "../customs/MotionLink";
 
@@ -150,7 +149,7 @@ const Hero = () => {
                                     width={1024}
                                     height={690}
                                     alt="Pulse AI Dashboard"
-                                    priority
+                                    loading="lazy"
                                 />
                             </motion.div>
 
@@ -167,7 +166,7 @@ const Hero = () => {
                                     width={350}
                                     height={700}
                                     alt="Pulse AI Mobile Dashboard"
-                                    priority
+                                    loading="lazy"
                                 />
                             </motion.div>
                         </motion.div>
@@ -181,7 +180,7 @@ const Hero = () => {
                         whileInView={{ opacity: 0.25 }}
                         transition={{ delay: 1, duration: 1.2 }}
                     >
-                        <div className="w-full h-96 bg-gradient-to-br from-blue-500 decoration-stroke-1 to-slate-400 blur-[120px] opacity-60 rounded-full" />
+                        <div className="w-full h-96 bg-gradient-to-br from-blue-100 decoration-stroke-1 to-slate-400 blur-[120px] opacity-60 rounded-full" />
                     </motion.div>
                 </div>
             </div>
