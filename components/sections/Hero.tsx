@@ -176,7 +176,7 @@ const Hero = () => {
                             </motion.div>
                         </motion.div>
 
-                        <Gradient />
+                        {/* <Gradient /> */}
                     </motion.div>
 
                     {/* <motion.div

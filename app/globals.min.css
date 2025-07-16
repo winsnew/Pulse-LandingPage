@@ -9,13 +9,13 @@
 
     body {
         @apply bg-background text-foreground text-white;
-        background: rgb(0, 0, 0);
+        background: #000;
         min-height: 100vh;
         overflow-x: hidden;
         position: relative
     }
 
-    body::before {
+    /* body::before {
         content: '';
         position: fixed;
         top: 0;
@@ -24,7 +24,7 @@
         height: 100%;
         z-index: -1;
         background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, .884) 0, transparent 70%)
-    }
+    } */
 }
 
 @layer utilities {
@@ -106,7 +106,7 @@
     .floating-particle,
     .particle {
         position: absolute;
-        background: #fff;
+        background: transparent;
         border-radius: 50%
     }
 

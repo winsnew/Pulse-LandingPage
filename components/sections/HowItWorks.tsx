@@ -199,6 +199,7 @@ const HowItWorksCircuitPrecise = () => {
         <section
             ref={sectionRef}
             className="relative py-24 md:py-36 bg-transparent overflow-hidden"
+            id="how-it-works"
         >
             <div className="absolute inset-0 -z-10 pointer-events-none">
                 <div className="absolute inset-0 bg-gradient-to-br blur-3xl" />
