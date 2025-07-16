@@ -55,34 +55,9 @@ const Features = () => {
 
     return (
         <section
-            className="relative py-28 bg-gradient-to-b from-black to-neutral-950 overflow-hidden text-white"
+            className="relative py-28 bg-gradient-to-b from-neutral-950 to-black overflow-hidden text-white"
             id="features"
         >
-            <div className="absolute inset-0 z-0 pointer-events-none hidden lg:block">
-                {Array.from({ length: 4 }).map((_, i) => (
-                    <div
-                        key={`v-${i}`}
-                        className="absolute top-0 h-full w-[1px] bg-white/5 blur-[0.5px] mix-blend-overlay"
-                        style={{
-                            left: `${(i + 1) * 20}%`,
-                            animation: `scan-vert 6s linear ${i * 0.3}s infinite`,
-                        }}
-                        aria-hidden="true"
-                    />
-                ))}
-                {Array.from({ length: 4 }).map((_, i) => (
-                    <div
-                        key={`h-${i}`}
-                        className="absolute left-0 w-full h-[1px] bg-white/5 blur-[0.5px] mix-blend-overlay"
-                        style={{
-                            top: `${(i + 1) * 20}%`,
-                            animation: `scan-horiz 8s linear ${i * 0.4}s infinite`,
-                        }}
-                        aria-hidden="true"
-                    />
-                ))}
-            </div>
-
             <motion.div
                 className="max-w-6xl mx-auto px-6"
                 initial={{ opacity: 0, scale: 0.96 }}
@@ -91,7 +66,7 @@ const Features = () => {
                 viewport={{ once: true }}
             >
                 <motion.h2
-                    className="text-4xl font-bold text-center mb-20 text-white"
+                    className="text-4xl font-bold text-center mb-20"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
@@ -106,44 +81,47 @@ const Features = () => {
                         return (
                             <motion.div
                                 key={feature.title}
-                                className="group relative px-6 py-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] rounded-xl"
-                                initial={{ opacity: 0, y: 40 }}
+                                className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md 
+                                    transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)] 
+                                    hover:-translate-y-1 hover:scale-[1.015] 
+                                    will-change-transform perspective-1000"
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.15, duration: 0.6 }}
+                                transition={{ delay: index * 0.1, duration: 0.6 }}
                                 viewport={{ once: true }}
                             >
-                                <span className="absolute inset-0 rounded-xl bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
-                                <div
-                                    className="p-4 rounded-full bg-white/5 backdrop-blur-sm w-fit shadow-inner mb-4"
-                                    role="img"
-                                    aria-label={feature.title}
-                                    title={feature.title}
-                                >
-                                    {!reduceMotion ? (
-                                        <motion.div
-                                            animate={{ y: [0, -4, 0] }}
-                                            transition={{
-                                                repeat: Infinity,
-                                                duration: 2,
-                                                ease: "easeInOut",
-                                            }}
-                                        >
-                                            <Icon className="w-6 h-6 text-white/70" />
-                                        </motion.div>
-                                    ) : (
-                                        <Icon className="w-6 h-6 text-white/70" />
-                                    )}
-                                </div>
-
                                 <div className="relative z-10">
-                                    <h3 className="text-lg font-semibold text-white mb-2">
+                                    <div
+                                        className="p-4 rounded-full bg-white/10 shadow-inner backdrop-blur-lg w-fit mb-4"
+                                        role="img"
+                                        aria-label={feature.title}
+                                        title={feature.title}
+                                    >
+                                        {!reduceMotion ? (
+                                            <motion.div
+                                                animate={{ y: [0, -4, 0] }}
+                                                transition={{
+                                                    repeat: Infinity,
+                                                    duration: 2,
+                                                    ease: "easeInOut",
+                                                }}
+                                            >
+                                                <Icon className="w-6 h-6 text-white/70" />
+                                            </motion.div>
+                                        ) : (
+                                            <Icon className="w-6 h-6 text-white/70" />
+                                        )}
+                                    </div>
+
+                                    <h3 className="text-lg font-semibold mb-2 text-white">
                                         {feature.title}
                                     </h3>
                                     <p className="text-sm text-white/60 leading-relaxed">
                                         {feature.description}
                                     </p>
                                 </div>
+
+                                <span className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                             </motion.div>
                         );
                     })}

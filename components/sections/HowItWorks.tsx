@@ -220,11 +220,11 @@ const HowItWorksCircuitPrecise = () => {
                                     key={i}
                                     ref={(el) => (pathRefs.current[i] = el)}
                                     d={d}
-                                    stroke="rgba(168,85,247,0.6)"
+                                    stroke="#ffffff"
                                     strokeWidth="2"
                                     fill="none"
                                     strokeLinecap="round"
-                                    opacity={0}
+                                    className="glow-line"
                                 />
                             ))}
                         </svg>
