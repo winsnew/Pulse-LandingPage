@@ -63,7 +63,7 @@ const Features = () => {
                 {Array.from({ length: 4 }).map((_, i) => (
                     <div
                         key={`v-${i}`}
-                        className="absolute top-0 h-full w-[1px] bg-purple-500/10 blur-[0.5px] mix-blend-screen"
+                        className="absolute top-0 h-full w-[1px] bg-slate-700/100 blur-[0.5px] mix-blend-screen"
                         style={{
                             left: `${(i + 1) * 20}%`,
                             animation: `scan-vert 6s linear ${i * 0.3}s infinite`,
@@ -74,7 +74,7 @@ const Features = () => {
                 {Array.from({ length: 4 }).map((_, i) => (
                     <div
                         key={`h-${i}`}
-                        className="absolute left-0 w-full h-[1px] bg-purple-500/10 blur-[0.5px] mix-blend-screen"
+                        className="absolute left-0 w-full h-[1px] bg-slate-500/100 blur-[0.5px] mix-blend-screen"
                         style={{
                             top: `${(i + 1) * 20}%`,
                             animation: `scan-horiz 8s linear ${i * 0.4}s infinite`,
@@ -105,13 +105,13 @@ const Features = () => {
                     {features.map((feature, index) => (
                         <motion.div
                             key={feature.title}
-                            className="relative group bg-gradient-to-br from-white/5 via-white/2 to-white/5 rounded-[2rem] px-6 py-8 backdrop-blur-md border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_25px_4px_rgba(168,85,247,0.3)] transition-all duration-300"
+                            className="relative group bg-gradient-to-br from-white/5 via-white/2 to-white/5 rounded-[2rem] px-6 py-8 backdrop-blur-md border border-white/10 hover:border-gray-700/10 hover:shadow-[0_0_25px_4px_rgba(168,85,247,0.3)] transition-all duration-300"
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.15, duration: 0.6 }}
                             viewport={{ once: true }}
                         >
-                            <div className="absolute inset-0 z-0 rounded-[2rem] before:absolute before:inset-0 before:rounded-[2rem] before:bg-gradient-to-br before:from-purple-500/20 before:to-indigo-500/10 before:blur-[40px] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity" />
+                            <div className="absolute inset-0 z-0 rounded-[2rem] before:absolute before:inset-0 before:rounded-[2rem] before:bg-gradient-to-br before:from-slate-300/20 before:to-slate-950-500/10 before:blur-[40px] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity" />
 
                             <div
                                 className="p-4 rounded-full bg-white/10 shadow-inner backdrop-blur-lg mb-4 w-fit"

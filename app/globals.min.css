@@ -9,7 +9,7 @@
 
     body {
         @apply bg-background text-foreground text-white;
-        background: #000;
+        background: #000000;
         min-height: 100vh;
         overflow-x: hidden;
         position: relative

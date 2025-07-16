@@ -55,7 +55,14 @@ const Header: React.FC = () => {
                     <Link
                         href="#login"
                         scroll={false}
-                        className="px-4 py-2 text-sm font-medium text-white/70 hover:text-white border border-white/10 rounded-lg backdrop-blur-md transition-all duration-300"
+                        className="px-5 py-2.5 text-sm font-medium text-white/90 
+                        bg-gradient-to-br from-white/5 to-white/10 
+                        border border-white/10 
+                        rounded-xl backdrop-blur-lg 
+                        shadow-inner hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] 
+                        hover:bg-gradient-to-br hover:from-white/20 hover:to-white/10 
+                        hover:border-white/30 
+                        transition-all duration-300"
                     >
                         Sign In
                     </Link>
