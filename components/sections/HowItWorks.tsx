@@ -198,7 +198,8 @@ const HowItWorksCircuitPrecise = () => {
     return (
         <section
             ref={sectionRef}
-            className="relative py-24 md:py-36 bg-gradient-to-b from-neutral-950 via-black to-neutral-950 overflow-hidden"
+            className="relative py-24 md:py-36 bg-transparent overflow-hidden"
+            id="how-it-works"
         >
             <div className="absolute inset-0 -z-10 pointer-events-none">
                 <div className="absolute inset-0 bg-gradient-to-br blur-3xl" />
@@ -220,11 +221,11 @@ const HowItWorksCircuitPrecise = () => {
                                     key={i}
                                     ref={(el) => (pathRefs.current[i] = el)}
                                     d={d}
-                                    stroke="rgba(168,85,247,0.6)"
+                                    stroke="#ffffff"
                                     strokeWidth="2"
                                     fill="none"
                                     strokeLinecap="round"
-                                    opacity={0}
+                                    className="glow-line"
                                 />
                             ))}
                         </svg>

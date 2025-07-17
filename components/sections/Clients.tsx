@@ -14,7 +14,7 @@ const ClientLabel = () => {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-2xl md:text-3xl font-bold text-slate-600 mb-4 relative inline-block">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-200 mb-4 relative inline-block">
                         Trusted by the best
                         <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-purple-500 to-primary rounded-full animate-pulse" />
                     </h2>

@@ -7,7 +7,7 @@ import {
 
 const Footer = () => {
     return (
-        <footer className="relative bg-gradient-to-b from-neutral-950 via-black to-neutral-950 text-slate-300 overflow-hidden">
+        <footer className="relative text-slate-300 overflow-hidden">
             <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-0 left-0 w-96 h-96 rounded-full filter blur-3xl animate-pulse"></div>
                 <div className="absolute bottom-0 right-0 w-96 h-96 bg-transparent rounded-full filter blur-3xl animate-pulse delay-1000"></div>
