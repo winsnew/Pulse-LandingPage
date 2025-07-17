@@ -36,9 +36,9 @@ export const companies = [
 
 export const footerLinks = {
     Product: ["Features", "Pricing", "API", "Integrations", "Security"],
-    Company: ["About", "Blog", "Careers", "Press", "Partners"],
-    Resources: ["Documentation", "Help Center", "Community", "Status", "Changelog"],
-    Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy", "GDPR", "Security"]
+    Company: ["About", "Blog", "Careers"],
+    Resources: ["Documentation", "Help Center", "Community"],
+    Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy"]
 };
 
 export const builtWith = [

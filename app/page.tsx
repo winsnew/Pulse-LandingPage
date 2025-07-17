@@ -14,7 +14,7 @@ export default function Page() {
       <ScrollRevealWrapper>
         <Header />
         <Hero />
-        {/* <ClientLabel /> */}
+        <ClientLabel />
         <Features />
         <HowItWorks />
         <Pricing />
