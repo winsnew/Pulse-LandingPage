@@ -91,10 +91,12 @@ const Hero = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                             <MotionLink
                                 href="#"
-                                className="glass-cta-btn relative inline-block px-8 py-3 rounded-xl font-semibold text-white backdrop-blur-md border border-white/20 
-             bg-gradient-to-br from-white/10 via-white/5 to-white/10 
-             shadow-[inset_0_0_0.5px_rgba(255,255,255,0.3),0_8px_20px_rgba(255,255,255,0.05)] 
-             transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                                className="glass-cta-btn relative inline-block px-8 py-3 rounded-xl font-semibold text-white 
+                                backdrop-blur-md border border-white/10 
+                                bg-gradient-to-br from-[#1a1a1a]/80 via-[#2c2c2c]/70 to-[#1a1a1a]/80 
+                                shadow-[inset_0_0_1px_rgba(255,255,255,0.05),0_4px_20px_rgba(0,0,0,0.4)] 
+                                transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]
+                                "
                                 whileHover={{ scale: 1.06 }}
                                 whileTap={{ scale: 0.95 }}
                                 aria-label="Start for Free"
