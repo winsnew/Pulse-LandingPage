@@ -1,8 +1,17 @@
-
 import { pricing } from "../constants"
 import { motion } from "framer-motion"
 
-const PricingList = () => {
+interface PricingListProps {
+    billingPeriod: 'monthly' | 'annual';
+}
+
+const PricingList = ({ billingPeriod }: PricingListProps) => {
+    const handleSubscribe = (planTitle: string) => {
+        // Handle subscription logic here
+        console.log(`Subscribing to ${planTitle} plan`);
+        // You can integrate with your payment provider here
+    };
+
     return (
         <motion.div
             className="flex flex-wrap gap-6 justify-center"
@@ -18,51 +27,72 @@ const PricingList = () => {
             }}
             viewport={{ once: true }}
         >
-            {pricing.map((item, idx) => (
-                <motion.div
-                    key={item.id}
-                    variants={{
-                        hidden: { opacity: 0, y: 30 },
-                        visible: { opacity: 1, y: 0 }
-                    }}
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.5 }}
-                    className={`w-full max-w-sm p-8 rounded-3xl shadow-lg border border-white/10 backdrop-blur-md bg-white/5 text-white relative overflow-hidden ${idx === 1 ? "border-primary shadow-primary/20" : ""
-                        }`}
-                >
-                    {idx === 1 && (
-                        <span className="absolute top-4 right-4 bg-primary text-white text-xs px-3 py-1 rounded-full font-semibold uppercase tracking-widest shadow-md">
-                            Most Popular
-                        </span>
-                    )}
-
-                    <h4 className="text-2xl font-bold mb-2 text-primary">{item.title}</h4>
-
-                    <p className="text-sm text-white/70 min-h-[3rem] mb-4">
-                        {item.description}
-                    </p>
-
-                    <div className="flex items-end mb-6">
-                        {item.price && (
-                            <>
-                                <span className="text-2xl font-medium">$</span>
-                                <span className="text-5xl font-extrabold leading-none ml-1">
-                                    {item.price}
-                                </span>
-                            </>
+            {pricing.map((item, idx) => {
+                const currentPrice = billingPeriod === 'monthly' ? item.monthlyPrice : item.annualPrice;
+                const isFreePlan = item.title === 'Basic';
+                
+                return (
+                    <motion.div
+                        key={item.id}
+                        variants={{
+                            hidden: { opacity: 0, y: 30 },
+                            visible: { opacity: 1, y: 0 }
+                        }}
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.5 }}
+                        className={`w-full max-w-sm p-8 rounded-3xl shadow-lg border border-white/10 backdrop-blur-md bg-white/5 text-white relative overflow-hidden ${idx === 1 ? "border-primary shadow-primary/20" : ""
+                            }`}
+                    >
+                        {idx === 1 && (
+                            <span className="absolute top-4 right-4 bg-primary text-white text-xs px-3 py-1 rounded-full font-semibold uppercase tracking-widest shadow-md">
+                                Most Popular
+                            </span>
                         )}
-                    </div>
 
-                    <ul className="space-y-4 text-sm text-white/80 border-t border-white/10 pt-4">
-                        {item.features.map((feature, index) => (
-                            <li key={index} className="flex gap-2 items-start">
-                                <span className="mt-1 text-green-400">✔</span>
-                                <span>{feature}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </motion.div>
-            ))}
+                        <h4 className="text-2xl font-bold mb-2 text-primary">{item.title}</h4>
+
+                        <p className="text-sm text-white/70 min-h-[3rem] mb-4">
+                            {item.description}
+                        </p>
+
+                        <div className="flex items-end mb-6">
+                            {currentPrice && (
+                                <>
+                                    <span className="text-2xl font-medium">$</span>
+                                    <span className="text-5xl font-extrabold leading-none ml-1">
+                                        {currentPrice}
+                                    </span>
+                                    {!isFreePlan && (
+                                        <span className="text-white/60 text-sm ml-2 mb-2">
+                                            /{billingPeriod === 'monthly' ? 'mo' : 'yr'}
+                                        </span>
+                                    )}
+                                </>
+                            )}
+                        </div>
+
+                        <ul className="space-y-4 text-sm text-white/80 border-t border-white/10 pt-6 mb-8">
+                            {item.features.map((feature, index) => (
+                                <li key={index} className="flex gap-2 items-start">
+                                    <span className="mt-1 text-green-400">✔</span>
+                                    <span>{feature}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <button
+                            onClick={() => handleSubscribe(item.title)}
+                            className={`w-full py-3 px-6 rounded-xl font-semibold text-sm transition-all duration-300 ${
+                                isFreePlan
+                                    ? 'bg-white/10 text-white hover:bg-white/20 border-white/20'
+                                    : 'bg-white/5 text-white hover:bg-white/10 border-white/20 hover:border-white/30'
+                            }`}
+                        >
+                            {isFreePlan ? 'Get Started' : 'Subscribe Now'}
+                        </button>
+                    </motion.div>
+                );
+            })}
         </motion.div>
     );
 }

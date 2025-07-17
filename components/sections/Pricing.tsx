@@ -1,5 +1,5 @@
 "use client"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import Heading from "../customs/Heading"
 import PricingList from "../customs/PricingList"
 import { motion, useInView } from "framer-motion"
@@ -7,6 +7,7 @@ import { motion, useInView } from "framer-motion"
 const Pricing = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.4 });
+    const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annual'>('monthly');
 
     return (
         <section
@@ -39,7 +40,42 @@ const Pricing = () => {
                     </p>
                 </motion.div>
 
-                <PricingList />
+                {/* Billing Period Toggle */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className="flex justify-center mb-12"
+                >
+                    <div className="flex items-center bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10">
+                        <button
+                            onClick={() => setBillingPeriod('monthly')}
+                            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                                billingPeriod === 'monthly'
+                                    ? 'bg-primary text-white shadow-lg'
+                                    : 'text-white/70 hover:text-white'
+                            }`}
+                        >
+                            Monthly
+                        </button>
+                        <button
+                            onClick={() => setBillingPeriod('annual')}
+                            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 relative ${
+                                billingPeriod === 'annual'
+                                    ? 'bg-primary text-white shadow-lg'
+                                    : 'text-white/70 hover:text-white'
+                            }`}
+                        >
+                            Annual
+                            <span className="absolute -top-1 -right-1 bg-green-500 text-white text-xs px-2 py-0.5 rounded-full">
+                                Save 20%
+                            </span>
+                        </button>
+                    </div>
+                </motion.div>
+
+                <PricingList billingPeriod={billingPeriod} />
             </div>
         </section>
     );

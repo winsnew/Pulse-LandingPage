@@ -48,7 +48,8 @@ export interface PricingPlan {
     id: string;
     title: string;
     description: string;
-    price: string | null;
+    monthlyPrice: string;
+    annualPrice: string;
     features: string[];
 }
 
