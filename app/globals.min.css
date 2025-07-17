@@ -153,6 +153,19 @@
     }
 }
 
+.marquee {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.track {
+    display: flex;
+    gap: 3rem;
+    animation: infinite-scroll 20s linear infinite;
+    width: fit-content;
+}
+
 @keyframes scroll {
     0% {
         transform: translateX(0)

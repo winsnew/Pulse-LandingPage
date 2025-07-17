@@ -9,124 +9,106 @@ import {
     Bot,
     Zap,
     Eye,
+    LucideIcon,
 } from "lucide-react";
 
-const features = [
-    {
-        title: "AI Sentiment Analysis",
-        description:
-            "Real-time scanning of influencer signals and market sentiment with precision AI models.",
-        icon: BrainCircuit,
-    },
-    {
-        title: "Atomic Risk Scoring",
-        description:
-            "Quantify asset risk levels using atomic-level behavioral prediction and real-world events.",
-        icon: Microscope,
-    },
-    {
-        title: "Predictive Asset Radar",
-        description:
-            "AI radar system scans the market for bullish signals before they trend.",
-        icon: Radar,
-    },
-    {
-        title: "AI Automation Engine",
-        description:
-            "Robotic intelligence that automates alerts, workflows, and strategy triggers in real-time.",
-        icon: Bot,
-    },
-    {
-        title: "Lightning Fast Processing",
-        description:
-            "Built with GPU acceleration and neural indexing for millisecond decisions.",
-        icon: Zap,
-    },
-    {
-        title: "Visual Intelligence",
-        description:
-            "Beautiful dashboards with animated AI insights & crypto market behavior mapping.",
-        icon: Eye,
-    },
+const features: {
+    title: string;
+    description: string;
+    icon: LucideIcon;
+}[] = [
+        {
+            title: "AI Sentiment Analysis",
+            description: "Real-time scanning of influencer signals and market sentiment with precision AI models.",
+            icon: BrainCircuit,
+        },
+        {
+            title: "Atomic Risk Scoring",
+            description: "Quantify asset risk levels using atomic-level behavioral prediction and real-world events.",
+            icon: Microscope,
+        },
+        {
+            title: "Predictive Asset Radar",
+            description: "AI radar system scans the market for bullish signals before they trend.",
+            icon: Radar,
+        },
+        {
+            title: "AI Automation Engine",
+            description: "Robotic intelligence that automates alerts, workflows, and strategy triggers in real-time.",
+            icon: Bot,
+        },
+        {
+            title: "Lightning Fast Processing",
+            description: "Built with GPU acceleration and neural indexing for millisecond decisions.",
+            icon: Zap,
+        },
+        {
+            title: "Visual Intelligence",
+            description: "Beautiful dashboards with animated AI insights & crypto market behavior mapping.",
+            icon: Eye,
+        },
+    ];
+
+const shapeVariants = [
+    "row-span-1 col-span-2",
+    "row-span-2 col-span-1",
+    "row-span-1 col-span-1",
+    "row-span-2 col-span-2",
+    "row-span-1 col-span-1",
+    "row-span-2 col-span-1",
 ];
 
 const Features = () => {
     const reduceMotion = useReducedMotion();
 
     return (
-        <section
-            className="relative py-28 bg-gradient-to-b bg-transparent overflow-hidden text-white"
-            id="features"
-        >
-            <motion.div
-                className="max-w-6xl mx-auto px-6"
-                initial={{ opacity: 0, scale: 0.96 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                viewport={{ once: true }}
-            >
+        <section className="relative py-24 md:py-32 bg-transparent text-white" id="features">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.h2
-                    className="text-4xl font-bold text-center mb-20"
+                    className="text-3xl sm:text-5xl font-extrabold text-center mb-20 leading-tight tracking-tight"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
-                    Powered by Atomic AI Intelligence
+                    Discover Our Atomic AI Modules
                 </motion.h2>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {features.map((feature, index) => {
-                        const Icon = feature.icon;
-                        return (
-                            <motion.div
-                                key={feature.title}
-                                className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md 
-                                    transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)] 
-                                    hover:-translate-y-1 hover:scale-[1.015] 
-                                    will-change-transform perspective-1000"
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1, duration: 0.6 }}
-                                viewport={{ once: true }}
-                            >
-                                <div className="relative z-10">
-                                    <div
-                                        className="p-4 rounded-full bg-white/10 shadow-inner backdrop-blur-lg w-fit mb-4"
-                                        role="img"
-                                        aria-label={feature.title}
-                                        title={feature.title}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 auto-rows-[200px] grid-flow-dense">
+                    {features.map(({ title, description, icon: Icon }, i) => (
+                        <motion.div
+                            key={title}
+                            className={`group relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm overflow-hidden shadow-inner transition-all duration-300 hover:shadow-xl hover:scale-[1.015] hover:-translate-y-[2px] ${shapeVariants[i % shapeVariants.length]}`}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.1, duration: 0.5 }}
+                            viewport={{ once: true }}
+                        >
+                            <div className="absolute -top-10 -right-10 opacity-20 group-hover:opacity-40 transition-all duration-300">
+                                {!reduceMotion ? (
+                                    <motion.div
+                                        animate={{ rotate: [0, 360] }}
+                                        transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
                                     >
-                                        {!reduceMotion ? (
-                                            <motion.div
-                                                animate={{ y: [0, -4, 0] }}
-                                                transition={{
-                                                    repeat: Infinity,
-                                                    duration: 2,
-                                                    ease: "easeInOut",
-                                                }}
-                                            >
-                                                <Icon className="w-6 h-6 text-white/70" />
-                                            </motion.div>
-                                        ) : (
-                                            <Icon className="w-6 h-6 text-white/70" />
-                                        )}
-                                    </div>
+                                        <Icon className="w-32 h-32 text-white/20" />
+                                    </motion.div>
+                                ) : (
+                                    <Icon className="w-32 h-32 text-white/20" />
+                                )}
+                            </div>
 
-                                    <h3 className="text-lg font-semibold mb-2 text-white">
-                                        {feature.title}
-                                    </h3>
-                                    <p className="text-sm text-white/60 leading-relaxed">
-                                        {feature.description}
-                                    </p>
+                            <div className="relative z-10">
+                                <div className="mb-4 bg-white/10 p-3 rounded-full w-fit">
+                                    <Icon className="w-6 h-6 text-white" />
                                 </div>
 
-                                {/* <span className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" /> */}
-                            </motion.div>
-                        );
-                    })}
+                                <h3 className="text-lg font-semibold mb-2">{title}</h3>
+                                <p className="text-sm text-white/60">{description}</p>
+                            </div>
+                        </motion.div>
+                    ))}
                 </div>
-            </motion.div>
+            </div>
         </section>
     );
 };

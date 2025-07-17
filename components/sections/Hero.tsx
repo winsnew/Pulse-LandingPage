@@ -88,7 +88,7 @@ const Hero = () => {
                         whileInView="visible"
                         viewport={{ once: true }}
                     >
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <div className="flex sm:flex-row gap-4 justify-center items-center">
                             <MotionLink
                                 href="#"
                                 className="glass-cta-btn relative inline-block px-8 py-3 rounded-xl font-semibold text-white 

@@ -46,31 +46,44 @@ const Pricing = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="flex justify-center mb-8"
+                    className="flex justify-center mb-10"
                 >
-                    <div className="flex items-center bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10">
+                    <div className="relative w-[200px] h-[38px] rounded-full p-[2px] border border-white/20 shadow-xl bg-white/10 backdrop-blur-md backdrop-saturate-150">
+                        {/* Sliding Indicator */}
+                        <motion.div
+                            className="absolute top-[2px] bottom-[2px] w-[calc(50%-4px)] bg-gradient-to-br from-white/70 via-gray-200 to-white/90 rounded-full shadow-[0_2px_8px_rgba(255,255,255,0.3)] backdrop-blur-md"
+                            layout
+                            transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                            style={{
+                                left: billingPeriod === "monthly" ? "2px" : "calc(50% + 2px)",
+                            }}
+                        />
+
+                        {/* Monthly */}
                         <button
-                            onClick={() => setBillingPeriod('monthly')}
-                            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                                billingPeriod === 'monthly'
-                                    ? 'bg-primary text-white shadow-lg'
-                                    : 'text-white/70 hover:text-white'
-                            }`}
+                            onClick={() => setBillingPeriod("monthly")}
+                            className={`w-1/2 h-full relative z-10 text-sm font-semibold rounded-full transition-all duration-300 ${billingPeriod === "monthly"
+                                ? "text-black"
+                                : "text-white/60 hover:text-white"
+                                }`}
                         >
                             Monthly
                         </button>
+
+                        {/* Annual */}
                         <button
-                            onClick={() => setBillingPeriod('annual')}
-                            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 relative ${
-                                billingPeriod === 'annual'
-                                    ? 'bg-primary text-white shadow-lg'
-                                    : 'text-white/70 hover:text-white'
-                            }`}
+                            onClick={() => setBillingPeriod("annual")}
+                            className={`w-1/2 h-full relative z-10 text-sm font-semibold rounded-full transition-all duration-300 ${billingPeriod === "annual"
+                                ? "text-black"
+                                : "text-white/60 hover:text-white"
+                                }`}
                         >
                             Annual
-                            <span className="absolute -top-1 -right-1 bg-green-500 text-white text-xs px-2 py-0.5 rounded-full">
-                                Save 20%
-                            </span>
+                            {billingPeriod === "annual" && (
+                                <span className="absolute -top-2 -right-4 bg-green-500 text-white text-[10px] px-2 py-[2px] rounded-full shadow-sm">
+                                    Save 20%
+                                </span>
+                            )}
                         </button>
                     </div>
                 </motion.div>

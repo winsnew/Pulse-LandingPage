@@ -1,12 +1,11 @@
-"use client"
-import { motion } from 'framer-motion'
-import Image from 'next/image';
-import { companies } from '../constants';
+"use client";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { companies } from "../constants";
 
 const ClientLabel = () => {
     return (
         <section className="py-24 relative overflow-hidden bg-gradient-to-b from-background/70 to-background">
-            {/* Decorative blurred background */}
             <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -30,34 +29,33 @@ const ClientLabel = () => {
                     transition={{ duration: 1, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
-                    <motion.div
-                        className="flex gap-12 animate-scroll whitespace-nowrap"
-                        aria-hidden
-                    >
-                        {[...companies, ...companies].map((company, index) => (
-                            <motion.div
-                                key={`${company.name}-${index}`}
-                                className="flex-shrink-0 group transition-transform duration-300 hover:scale-105"
-                            >
-                                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary/30 transition-all">
-                                    <div className="relative w-6 h-6">
-                                        <Image
-                                            src={company.logo}
-                                            alt={company.name}
-                                            fill
-                                            className="object-contain grayscale opacity-100 group-hover:grayscale-0 group-hover:opacity-100 transition"
-                                            sizes="24px"
-                                        />
+                    <div className="marquee">
+                        <div className="track">
+                            {companies.map((company) => (
+                                <div
+                                    key={company.name}
+                                    className="flex-shrink-0 group transition-transform duration-300 hover:scale-105 px-4"
+                                >
+                                    <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary/30 transition-all">
+                                        <div className="relative w-6 h-6">
+                                            <Image
+                                                src={company.logo}
+                                                alt={company.name}
+                                                fill
+                                                className="object-contain grayscale group-hover:grayscale-0 transition"
+                                                sizes="24px"
+                                            />
+                                        </div>
+                                        <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition">
+                                            {company.name}
+                                        </span>
                                     </div>
-                                    <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition">
-                                        {company.name}
-                                    </span>
                                 </div>
-                            </motion.div>
-                        ))}
-                    </motion.div>
+                            ))}
+                        </div>
+                    </div>
 
-                    {/* Fade gradient mask left/right */}
+                    {/* Fade gradient mask */}
                     <div className="absolute top-0 left-0 w-40 h-full bg-gradient-to-r from-background via-background/90 to-transparent z-10 pointer-events-none" />
                     <div className="absolute top-0 right-0 w-40 h-full bg-gradient-to-l from-background via-background/90 to-transparent z-10 pointer-events-none" />
                 </motion.div>
@@ -66,5 +64,4 @@ const ClientLabel = () => {
     );
 };
 
-
-export default ClientLabel
+export default ClientLabel;

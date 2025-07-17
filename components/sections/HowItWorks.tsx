@@ -198,7 +198,7 @@ const HowItWorksCircuitPrecise = () => {
     return (
         <section
             ref={sectionRef}
-            className="relative py-24 md:py-36 bg-transparent overflow-hidden"
+            className="relative py-24 md:py-36 overflow-hidden bg-transparent"
             id="how-it-works"
         >
             <div className="absolute inset-0 -z-10 pointer-events-none">
@@ -213,9 +213,11 @@ const HowItWorksCircuitPrecise = () => {
                     A smart AI circuit: scan data, model it, and execute your edge.
                 </p>
 
-                <div ref={pinWrapperRef} className="relative min-h-full flex flex-col justify-center">
+                <div ref={pinWrapperRef} className="relative min-h-full">
                     <div className="relative" ref={containerRef}>
-                        <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
+                        <svg
+                            className="absolute inset-0 w-full h-full pointer-events-none z-0"
+                        >
                             {pathDefs.map((d, i) => (
                                 <path
                                     key={i}
@@ -230,42 +232,41 @@ const HowItWorksCircuitPrecise = () => {
                             ))}
                         </svg>
 
-                        <div className="flex flex-col items-center relative z-10 space-y-20 md:space-y-28">
+                        <div className="relative z-10 space-y-20 md:space-y-28">
                             {steps.map((step, i) => {
                                 const isRight = step.direction === "right";
+
                                 return (
                                     <div
                                         key={i}
                                         ref={(el) => (stepRefs.current[i] = el)}
-                                        className="w-full flex justify-center"
+                                        className={`flex flex-col md:flex-row ${isRight ? "md:flex-row" : "md:flex-row-reverse"
+                                            } items-center justify-center gap-4 md:gap-6`}
                                     >
-                                        <div
-                                            className={`flex items-center gap-4 md:gap-6 ${isRight ? "md:flex-row" : "md:flex-row-reverse"} flex-col`}
+                                        <Tippy
+                                            content={step.data}
+                                            placement="top"
+                                            theme="light"
+                                            arrow={true}
+                                            delay={[300, 0]}
+                                            duration={100}
                                         >
-                                            <Tippy
-                                                content={step.data}
-                                                placement="top"
-                                                theme="light"
-                                                arrow={true}
-                                                delay={[300, 0]}
-                                                duration={100}
+                                            <motion.div
+                                                ref={(el) => (iconRefs.current[i] = el)}
+                                                className="p-4 rounded-full bg-white/10 backdrop-blur-md shadow-lg transition-all duration-300"
+                                                whileHover={{ scale: 1.2, rotate: 6 }}
+                                                transition={{ type: "spring", stiffness: 300 }}
+                                                aria-label={step.title}
                                             >
-                                                <motion.div
-                                                    ref={(el) => (iconRefs.current[i] = el)}
-                                                    className="p-4 rounded-full bg-white/10 backdrop-blur-md shadow-lg transition-all duration-300"
-                                                    whileHover={{ scale: 1.2, rotate: 6 }}
-                                                    transition={{ type: "spring", stiffness: 300 }}
-                                                    aria-label={step.title}
-                                                >
-                                                    {step.icon}
-                                                </motion.div>
-                                            </Tippy>
-                                            <div className="max-w-xs md:max-w-md text-center md:text-left">
-                                                <h3 className="text-lg md:text-xl font-semibold text-foreground mb-1 md:mb-2">
-                                                    {step.title}
-                                                </h3>
-                                                <p className="text-sm text-muted-foreground">{step.description}</p>
-                                            </div>
+                                                {step.icon}
+                                            </motion.div>
+                                        </Tippy>
+
+                                        <div className="max-w-xs md:max-w-md text-center md:text-left">
+                                            <h3 className="text-lg md:text-xl font-semibold text-foreground mb-1 md:mb-2">
+                                                {step.title}
+                                            </h3>
+                                            <p className="text-sm text-muted-foreground">{step.description}</p>
                                         </div>
                                     </div>
                                 );
