@@ -21,7 +21,7 @@ interface Step {
 
 const steps: Step[] = [
     {
-        title: "Analyze",
+        title: "Gather",
         description: "AI scans influencers, tweets, and on-chain data to detect sentiment patterns.",
         icon: <Eye className="w-6 h-6 text-indigo-400" />,
         data: "Sentiment score · 72%",
@@ -29,7 +29,7 @@ const steps: Step[] = [
         glowColor: "rgba(129,140,248,0.8)",
     },
     {
-        title: "Predict",
+        title: "Analyze",
         description: "Behavioral models simulate asset paths and predict volatility trends.",
         icon: <Cpu className="w-6 h-6 text-blue-500" />,
         data: "Volatility index · 1.8 σ",
@@ -37,7 +37,7 @@ const steps: Step[] = [
         glowColor: "rgba(96,165,250,0.8)",
     },
     {
-        title: "Automate",
+        title: "Predict",
         description: "Trigger alerts and on-chain actions using AI-generated conditions.",
         icon: <Settings2 className="w-6 h-6 text-purple-500" />,
         data: "Alerts triggered · 120+",

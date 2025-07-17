@@ -44,8 +44,8 @@ const PricingList = ({ billingPeriod }: PricingListProps) => {
                             }`}
                     >
                         {idx === 1 && (
-                            <span className="absolute top-4 right-4 bg-primary text-white text-xs px-3 py-1 rounded-full font-semibold uppercase tracking-widest shadow-md">
-                                Most Popular
+                            <span className="absolute top-3 right-3 bg-green-500/20 backdrop-blur-md text-green-300 text-xs px-2 py-1 rounded-full font-semibold uppercase tracking-widest shadow-lg shadow-green-500/20 animate-pulse border border-green-400/20"> 
+                                Most Popular 
                             </span>
                         )}
 

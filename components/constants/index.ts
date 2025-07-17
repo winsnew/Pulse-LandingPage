@@ -111,7 +111,7 @@ export const pricing: PricingPlan[] = [
     },
     {
         id: "2",
-        title: "Enterprise",
+        title: "Advanced",
         description: "Custom AI chatbot, advanced analytics, dedicated account",
         monthlyPrice: "109.99",
         annualPrice: "999.99",

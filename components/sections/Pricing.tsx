@@ -23,19 +23,19 @@ const Pricing = () => {
             />
             <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-white/10 blur-[120px] rounded-full pointer-events-none z-0" />
             <div className="absolute bottom-1/4 right-1/4 w-60 h-60 bg-primary/20 blur-[100px] rounded-full pointer-events-none z-0" />
-            <div className="container relative z-10 py-20 sm:py-28 px-4 sm:px-6">
+            <div className="container relative z-8 pt-20 pb-24 sm:py-28 px-3 sm:px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="text-center max-w-xl mx-auto mb-14"
+                    className="text-center max-w-xl mx-auto mb-8"
                 >
                     <Heading
                         tag="Get started with Pulse"
                         title="Pay once, use forever"
                     />
-                    <p className="text-white/60 text-base sm:text-lg mt-4">
+                    <p className="text-white/60 text-base sm:text-lg mt-3">
                         Choose a one-time payment that unlocks lifetime access.
                     </p>
                 </motion.div>
@@ -46,7 +46,7 @@ const Pricing = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="flex justify-center mb-12"
+                    className="flex justify-center mb-8"
                 >
                     <div className="flex items-center bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10">
                         <button
