@@ -87,7 +87,7 @@ const Pricing = () => {
                         </button>
                     </div>
                 </motion.div>
-
+        
                 <PricingList billingPeriod={billingPeriod} />
             </div>
         </section>

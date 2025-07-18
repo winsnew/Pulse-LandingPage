@@ -91,7 +91,7 @@ const Header: React.FC = () => {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.35, ease: "easeInOut" }}
+                        transition={{ duration: 0.25, ease: "easeInOut" }}
                         className="lg:hidden bg-n-8 px-6 py-8 shadow-inner"
                     >
                         <motion.div
@@ -100,7 +100,7 @@ const Header: React.FC = () => {
                             variants={{
                                 hidden: { opacity: 0 },
                                 visible: {
-                                    opacity: 1,
+                                    opacity:1,
                                     transition: { staggerChildren: 0.07 }
                                 }
                             }}
