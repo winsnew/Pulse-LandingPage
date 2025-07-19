@@ -186,7 +186,7 @@ const Hero = () => {
                                     width={350}
                                     height={700}
                                     alt="Pulse AI Mobile Dashboard"
-                                    loading="lazy"
+                                    priority
                                 />
                             </motion.div>
                         </motion.div>
