@@ -5,6 +5,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { useNavbar } from "@/hooks/nav-provider";
 import MotionLink from "../customs/MotionLink";
+import { Gradient } from "../customs/Heros";
 
 const containerVariant: Variants = {
     hidden: { opacity: 0, scale: 0.96 },
@@ -58,6 +59,7 @@ const Hero = () => {
             className={`transition-all duration-700 ${isNavbarVisible ? "pt-[7rem] md:pt-[10.5rem]" : "pt-[5rem]"
                 } -mt-[4.25rem]`}
         >
+            <Gradient />
             <div className="container relative" ref={parallaxRef}>
                 <motion.div
                     className="relative z-10 max-w-full mx-auto text-center mb-20 md:mb-28 lg:mb-32"
@@ -148,7 +150,7 @@ const Hero = () => {
                         viewport={{ once: true, amount: 0.7 }}
                     >
                         <motion.div
-                            className="relative bg-n-8 rounded-[1rem] shadow-2xl shadow-slate-200/50 overflow-hidden"
+                            className="relative bg-transparent rounded-[1rem] shadow-2xl shadow-slate-200/50 overflow-hidden"
                             initial={{ filter: "blur(12px)", scale: 0.96 }}
                             whileInView={{ filter: "blur(0px)", scale: 1 }}
                             transition={{ duration: 1, ease: easeOut }}
@@ -189,10 +191,8 @@ const Hero = () => {
                             </motion.div>
                         </motion.div>
 
-                        {/* <Gradient /> */}
                     </motion.div>
 
-                    <div className="relative h-full w-full bg-black"><div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div><div className="absolute left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)]"></div></div>
                 </div>
             </div>
         </motion.section>

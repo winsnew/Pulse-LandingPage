@@ -4,8 +4,25 @@ import { MouseParallax } from "react-just-parallax";
 export const Gradient: React.FC = () => {
     return (
         <>
-            <div className="relative z-1 h-6 mx-2.5 bg-n-11 shadow-xl rounded-b-[1.25rem] lg:h-6 lg:mx-8" />
-            <div className="relative z-1 h-6 mx-6 bg-n-11/70 shadow-xl rounded-b-[1.25rem] lg:h-6 lg:mx-20" />
+            <div className="absolute inset-0 -z-10">
+                {/* Grid Pattern */}
+                <div
+                    className="absolute inset-0 
+        bg-[linear-gradient(to_right,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.12)_1px,transparent_1px)] 
+        bg-[size:22px_28px]"
+                    aria-hidden="true"
+                />
+
+                {/* Radial Light */}
+                <div
+                    className="absolute left-1/2 top-[-20%] w-[700px] h-[700px] 
+        md:w-[1000px] md:h-[1000px] 
+        -translate-x-1/2 rounded-full 
+        bg-[radial-gradient(circle_400px_at_center,#ffffff22,#000000)] 
+        shadow-[0_0_120px_40px_rgba(255,255,255,0.06)]"
+                    aria-hidden="true"
+                />
+            </div>
         </>
     );
 };
