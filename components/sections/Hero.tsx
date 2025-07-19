@@ -2,8 +2,8 @@
 
 import { motion, useScroll, useTransform, Variants, easeOut } from "framer-motion";
 import { useRef } from "react";
-import { Gradient } from "../customs/Heros";
 import Image from "next/image";
+import { useNavbar } from "@/hooks/nav-provider";
 import MotionLink from "../customs/MotionLink";
 
 const containerVariant: Variants = {
@@ -37,6 +37,7 @@ const imageVariant: Variants = {
 
 const Hero = () => {
     const parallaxRef = useRef(null);
+    const { isNavbarVisible } = useNavbar()
     const { scrollYProgress } = useScroll({
         target: parallaxRef,
         offset: ["start end", "end start"],
@@ -46,7 +47,17 @@ const Hero = () => {
     const scaleImage = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
     return (
-        <section className="pt-[7rem] md:pt-[8.5rem] -mt-[4.25rem]" id="hero">
+        <motion.section
+            id="hero"
+            initial={{ opacity: 0, y: 0 }}
+            animate={{
+                opacity: 1,
+                y: isNavbarVisible ? 40 : 0,
+            }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className={`transition-all duration-700 ${isNavbarVisible ? "pt-[7rem] md:pt-[10.5rem]" : "pt-[5rem]"
+                } -mt-[4.25rem]`}
+        >
             <div className="container relative" ref={parallaxRef}>
                 <motion.div
                     className="relative z-10 max-w-full mx-auto text-center mb-20 md:mb-28 lg:mb-32"
@@ -181,17 +192,10 @@ const Hero = () => {
                         {/* <Gradient /> */}
                     </motion.div>
 
-                    {/* <motion.div
-                        className="absolute -top-[54%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%] pointer-events-none"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 0.25 }}
-                        transition={{ delay: 1, duration: 1.2 }}
-                    >
-                        <div className="w-full h-96 bg-gradient-to-br from-blue-100 decoration-stroke-1 to-slate-400 blur-[120px] opacity-60 rounded-full" />
-                    </motion.div> */}
+                    <div className="relative h-full w-full bg-black"><div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div><div className="absolute left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)]"></div></div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 };
 

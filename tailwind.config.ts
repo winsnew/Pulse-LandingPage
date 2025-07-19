@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      transitionProperty: {
+        'transform': 'transform',
+      },
       colors: {
         color: {
           1: "#AC6AFF",

@@ -7,20 +7,23 @@ import ClientLabel from "@/components/sections/Clients"
 import Features from "@/components/sections/Feature"
 import HowItWorks from "@/components/sections/HowItWorks"
 import ScrollRevealWrapper from "@/components/customs/ScrollReveal"
+import { NavbarProvider } from "@/hooks/nav-provider"
 
 export default function Page() {
   return (
-    <div className="pt-[4.75rem] lg:pt-[4.25rem] overflow-hidden">
-      <ScrollRevealWrapper>
-        <Header />
-        <Hero />
-        <ClientLabel />
-        <Features />
-        <HowItWorks />
-        <Pricing />
-        <FaqQuestion />
-        <Footer />
-      </ScrollRevealWrapper>
-    </div>
+    <NavbarProvider>
+      <div className="pt-[4.75rem] lg:pt-[4.25rem] overflow-hidden">
+        <ScrollRevealWrapper>
+          <Header />
+          <Hero />
+          <ClientLabel />
+          <Features />
+          <HowItWorks />
+          <Pricing />
+          <FaqQuestion />
+          <Footer />
+        </ScrollRevealWrapper>
+      </div>
+    </NavbarProvider>
   )
 }

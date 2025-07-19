@@ -11,19 +11,33 @@ import { navigation } from "../constants";
 const Header: React.FC = () => {
     const pathname = usePathname();
     const [open, setOpen] = useState(false);
+    const [showNavbar, setShowNavbar] = useState(false);
 
     useEffect(() => {
         document.body.classList.toggle("overflow-hidden", open);
         return () => document.body.classList.remove("overflow-hidden");
     }, [open]);
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 10) {
+                setShowNavbar(true);
+            } else {
+                setShowNavbar(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const toggleMenu = () => setOpen((prev) => !prev);
     const closeMenu = () => open && setOpen(false);
 
     return (
         <header
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-n-6 ${open ? "bg-n-8" : "bg-transparent backdrop-blur-lg"
-                }`}
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out border-b border-n-6
+                ${showNavbar || open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6 pointer-events-none"}
+                ${open ? "bg-n-8" : "bg-transparent backdrop-blur-lg"}`}
         >
             <div className="relative flex items-center justify-between px-4 py-4 lg:px-10">
                 <Link href="#hero" scroll={false} className="flex items-center shrink-0 z-10">
@@ -79,6 +93,8 @@ const Header: React.FC = () => {
                     onClick={toggleMenu}
                     className="lg:hidden p-2 text-white z-[60]"
                     aria-label="Toggle Menu"
+                    aria-expanded={open}
+                    aria-controls="mobile-menu"
                 >
                     {open ? <X size={28} /> : <Menu size={28} />}
                 </button>
@@ -91,7 +107,7 @@ const Header: React.FC = () => {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.25, ease: "easeInOut" }}
+                        transition={{ duration: 0.35, ease: "easeInOut" }}
                         className="lg:hidden bg-n-8 px-6 py-8 shadow-inner"
                     >
                         <motion.div
@@ -100,7 +116,7 @@ const Header: React.FC = () => {
                             variants={{
                                 hidden: { opacity: 0 },
                                 visible: {
-                                    opacity:1,
+                                    opacity: 1,
                                     transition: { staggerChildren: 0.07 }
                                 }
                             }}
