@@ -29,7 +29,7 @@ const features: {
         },
         {
             title: "Predictive Asset Radar",
-            description: "AI radar system scans the market for bullish signals before they trend.",
+            description: "AI radar system scans the market for signals before they trend.",
             icon: Radar,
         },
         {
@@ -50,10 +50,10 @@ const features: {
     ];
 
 const shapeVariants = [
-    "row-span-1 col-span-2",
-    "row-span-2 col-span-1",
+    "row-span-1 col-span-1 sm:col-span-2",
+    "row-span-1 col-span-1 sm:row-span-2",
     "row-span-1 col-span-1",
-    "row-span-1 col-span-2",
+    "row-span-1 col-span-1 sm:col-span-2",
     "row-span-1 col-span-1",
     "row-span-1 col-span-1",
 ];
@@ -74,7 +74,7 @@ const Features = () => {
                     Discover Our Atomic AI Modules
                 </motion.h2>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 auto-rows-[200px] grid-flow-dense">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 grid-flow-dense">
                     {features.map(({ title, description, icon: Icon }, i) => (
                         <motion.div
                             key={title}
