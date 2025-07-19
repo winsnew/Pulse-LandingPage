@@ -40,7 +40,7 @@ const ParticleBackground = () => {
                 particles.push({
                     angle,
                     radiusVariation,
-                    size: Math.random() * 3 + 1,
+                    size: Math.random() * 4 + 2,
                     speed: Math.random() * 0.02 + 0.01,
                     initialAngle: angle,
                     scrollBurst: 0,
