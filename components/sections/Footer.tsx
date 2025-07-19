@@ -43,7 +43,7 @@ const Footer = () => {
                             <div key={category} className="space-y-4">
                                 <h4 className="text-white font-semibold text-lg mb-6 relative">
                                     {category}
-                                    <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500"></div>
+                                    <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-gray-500 to-white-500"></div>
                                 </h4>
                                 <ul className="space-y-3">
                                     {links.map((link) => (
