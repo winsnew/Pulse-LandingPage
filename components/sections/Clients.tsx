@@ -14,7 +14,7 @@ const ClientLabel = () => {
                     viewport={{ once: true }}
                 >
                     <h2 className="text-2xl md:text-3xl font-bold text-slate-200 mb-4 relative inline-block">
-                        Trusted by the best
+                        Built With
                         <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-purple-500 to-primary rounded-full animate-pulse" />
                     </h2>
                     <p className="text-muted-foreground max-w-2xl mx-auto text-md">

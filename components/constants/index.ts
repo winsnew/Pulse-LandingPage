@@ -32,6 +32,7 @@ export const companies = [
     { name: "Google", logo: "/tinyLogos/google.png" },
     { name: "Meta", logo: "/tinyLogos/meta.png" },
     { name: "Tesla", logo: "/tinyLogos/tesla.png" },
+    { name: "Certik", logo: "/tinyLogos/certik.png" },
 ];
 
 export const footerLinks = {
