@@ -71,7 +71,7 @@ const Hero = () => {
                         viewport={{ once: true }}
                     >
                         <motion.h1
-                            className="h1 mb-6 font-extrabold tracking-tight text-white"
+                            className="h1 mb-6 font-bold tracking-tight text-white"
                             variants={fadeUpVariant(0.2)}
                             initial="hidden"
                             whileInView="visible"
