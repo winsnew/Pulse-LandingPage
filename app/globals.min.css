@@ -92,7 +92,7 @@
         transform: translateY(0)
     }
 
-    .floating-particles,
+    /* .floating-particles,
     .particle-background {
         position: fixed;
         top: 0;
@@ -120,7 +120,7 @@
 
     .particle.secondary {
         background: rgba(255, 255, 255, .4)
-    }
+    } */
 
     @keyframes twinkle {
 

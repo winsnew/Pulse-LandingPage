@@ -102,24 +102,22 @@ export const pricing: PricingPlan[] = [
         id: "1",
         title: "Premium",
         description: "Advanced AI chatbot, priority support, analytics dashboard",
-        monthlyPrice: "9.99",
-        annualPrice: "99.99",
+        monthlyPrice: "29",
+        annualPrice: "280",
         features: [
             "An advanced AI chatbot that can understand complex queries",
             "An analytics dashboard to track your conversations",
             "Priority support to solve issues quickly and efficiently",
         ],
     },
-    {
-        id: "2",
-        title: "Advanced",
-        description: "Custom AI chatbot, advanced analytics, dedicated account",
-        monthlyPrice: "109.99",
-        annualPrice: "999.99",
-        features: [
-            "An AI chatbot that can understand your queries",
-            "Personalized recommendations based on your preferences",
-            "Ability to explore the app and its features without any cost",
-        ],
-    },
+    // {
+    //     id: "2",
+    //     title: "Advanced",
+    //     description: "Custom AI chatbot, advanced analytics, dedicated account",
+    //     monthlyPrice: "39",
+    //     annualPrice: "100",
+    //     features: [
+    //         "Coming Soon",
+    //     ],
+    // },
 ];

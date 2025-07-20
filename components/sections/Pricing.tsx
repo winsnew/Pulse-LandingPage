@@ -81,7 +81,7 @@ const Pricing = () => {
                             Annual
                             {billingPeriod === "annual" && (
                                 <span className="absolute -top-2 -right-4 bg-green-500 text-white text-[10px] px-2 py-[2px] rounded-full shadow-sm">
-                                    Save 20%
+                                    Save 17%
                                 </span>
                             )}
                         </button>

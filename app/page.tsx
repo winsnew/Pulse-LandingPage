@@ -13,7 +13,7 @@ export default function Page() {
   return (
     <NavbarProvider>
       <div className="pt-[4.75rem] lg:pt-[4.25rem] overflow-hidden">
-        <ScrollRevealWrapper>
+        {/* <ScrollRevealWrapper> */}
           <Header />
           <Hero />
           <ClientLabel />
@@ -22,7 +22,7 @@ export default function Page() {
           <Pricing />
           <FaqQuestion />
           <Footer />
-        </ScrollRevealWrapper>
+        {/* </ScrollRevealWrapper> */}
       </div>
     </NavbarProvider>
   )
