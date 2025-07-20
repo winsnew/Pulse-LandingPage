@@ -93,9 +93,11 @@ export const pricing: PricingPlan[] = [
         monthlyPrice: "0",
         annualPrice: "0",
         features: [
-            "An AI chatbot that can understand your queries",
-            "Personalized recommendations based on your preferences",
-            "Ability to explore the app and its features without any cost",
+            "Limited Access to Influencer Intel (3 Influencers)",
+            "Basic Assets Radar with standard analysis",
+            "Up to 5 active SmartAlerts",
+            "Basic MarketView AI indicators",
+            "General news headlines in NewsPulse"
         ],
     },
     {
@@ -105,9 +107,11 @@ export const pricing: PricingPlan[] = [
         monthlyPrice: "29",
         annualPrice: "280",
         features: [
-            "An advanced AI chatbot that can understand complex queries",
-            "An analytics dashboard to track your conversations",
-            "Priority support to solve issues quickly and efficiently",
+            "Full access to all 10 monitored influencers",
+            "Advanced Assets Radar with detailed analysis",
+            "Complete NewsPulse with priority alerts",
+            "Unlimited SmartAlerts with advanced conditions",
+            "Full MarketView AI with predictive indicators",
         ],
     },
     // {
