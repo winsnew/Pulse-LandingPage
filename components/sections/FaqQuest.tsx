@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { faqs } from "../constants";
+import { faqs } from "../../lib/constants";
 
 const FaqQuestion = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);

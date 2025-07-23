@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  BrainCircuit, 
-  Microscope, 
-  Radar, 
-  Bot, 
-  Zap, 
+import {
+  BrainCircuit,
+  Microscope,
+  Radar,
+  Bot,
+  Zap,
   Eye,
   Users,
   Target,
@@ -17,6 +17,7 @@ import {
   Globe,
   CheckCircle
 } from "lucide-react";
+import { teamMembers, sponsors, achievements, stats } from "@/lib/constants/appdata";
 
 export default function About() {
   const staggerContainer = {
@@ -27,68 +28,6 @@ export default function About() {
     }
   };
 
-  const teamMembers = [
-    {
-      name: "Dr. Sarah Chen",
-      role: "CEO & Co-Founder",
-      image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400",
-      bio: "Former Goldman Sachs AI researcher with 15+ years in fintech innovation."
-    },
-    {
-      name: "Marcus Rodriguez",
-      role: "CTO & Co-Founder", 
-      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400",
-      bio: "Ex-Google AI engineer specializing in real-time market prediction systems."
-    },
-    {
-      name: "Dr. Priya Patel",
-      role: "Head of AI Research",
-      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400",
-      bio: "PhD in Machine Learning from MIT, pioneer in sentiment analysis algorithms."
-    },
-    {
-      name: "James Liu",
-      role: "Head of Product",
-      image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400",
-      bio: "Former Tesla product lead with expertise in user-centric AI interfaces."
-    },
-    {
-      name: "Emily Watson",
-      role: "VP of Engineering",
-      image: "https://images.pexels.com/photos/1181524/pexels-photo-1181524.jpeg?auto=compress&cs=tinysrgb&w=400",
-      bio: "10+ years at Microsoft Azure, expert in scalable AI infrastructure."
-    },
-    {
-      name: "David Kim",
-      role: "Head of Security",
-      image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400", 
-      bio: "Cybersecurity veteran from Pentagon, specializing in financial data protection."
-    }
-  ];
-
-  const sponsors = [
-    {
-      name: "Andreessen Horowitz",
-      logo: "https://images.pexels.com/photos/6913362/pexels-photo-6913362.jpeg?auto=compress&cs=tinysrgb&w=200",
-      tier: "Series A Lead"
-    },
-    {
-      name: "Sequoia Capital", 
-      logo: "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=200",
-      tier: "Strategic Investor"
-    },
-    {
-      name: "Y Combinator",
-      logo: "https://images.pexels.com/photos/6694543/pexels-photo-6694543.jpeg?auto=compress&cs=tinysrgb&w=200", 
-      tier: "Accelerator"
-    },
-    {
-      name: "Coinbase Ventures",
-      logo: "https://images.pexels.com/photos/8919564/pexels-photo-8919564.jpeg?auto=compress&cs=tinysrgb&w=200",
-      tier: "Strategic Partner"
-    }
-  ];
-
   const features = [
     {
       title: "AI Sentiment Analysis",
@@ -96,7 +35,7 @@ export default function About() {
       icon: BrainCircuit,
     },
     {
-      title: "Atomic Risk Scoring", 
+      title: "Atomic Risk Scoring",
       description: "Quantify asset risk levels using atomic-level behavioral prediction and real-world events.",
       icon: Microscope,
     },
@@ -122,37 +61,24 @@ export default function About() {
     },
   ];
 
-  const stats = [
-    { number: "500M+", label: "Data Points Analyzed Daily" },
-    { number: "99.7%", label: "Prediction Accuracy" },
-    { number: "50K+", label: "Active Users" },
-    { number: "24/7", label: "Market Monitoring" }
-  ];
-
-  const achievements = [
-    "Winner - TechCrunch Disrupt 2024",
-    "Best AI Innovation - FinTech Awards 2024", 
-    "Top 10 Startups - Forbes 30 Under 30",
-    "Excellence in AI - MIT Technology Review"
-  ];
 
   return (
     <div className="min-h-screen relative inset-0 -z-10 pointer-events-none">
-        <div
-            className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
-            aria-hidden="true"
-        />
+      <div
+        className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
+        aria-hidden="true"
+      />
 
-        <div
-            className="absolute left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)]"
-            aria-hidden="true"
-        />
+      <div
+        className="absolute left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)]"
+        aria-hidden="true"
+      />
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25,0.1,0.25,1] }}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="max-w-[90%] mx-auto text-center relative z-10"
         >
           <h1 className="text-4xl sm:text-6xl font-semibold mb-5 bg-gradient-to-r from-white to-grey-500 bg-clip-text text-transparent">
@@ -168,19 +94,17 @@ export default function About() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-[90%] mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div 
-                initial={{ opacity: 0, y: 60 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: [0.25,0.1,0.25,1] }}
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <div className="flex items-center mb-6">
                 <Target className="w-6 h-6 text-white-400 mr-3" />
                 <h2 className="text-xl font-bold">Our Mission</h2>
               </div>
               <p className="text-md text-gray-300 leading-relaxed mb-8">
-                To democratize advanced financial intelligence by making atomic-level market analysis 
-                accessible to everyone. We believe that with the right AI tools, every investor can 
-                make data-driven decisions with institutional-grade precision.
+                To simplify decision-making for young retail investors through AI-powered analysis and real-time alerts, giving them a competitive edge in markets where speed and accuracy are paramount.
               </p>
               <div className="space-y-3">
                 {achievements.map((achievement, index) => (
@@ -198,19 +122,17 @@ export default function About() {
                 ))}
               </div>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="relative"
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.25,0.1,0.25,1] }}
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <div className="bg-gradient-to-r from-black to-gray p-8 rounded-2xl border border-white/10 backdrop-blur-sm">
                 <Lightbulb className="w-12 h-12 text-yellow-400 mb-4" />
                 <h3 className="text-2xl font-bold mb-4 text-white">Our Vision</h3>
                 <p className="text-gray-200 ">
-                  A world where financial markets are transparent, predictable, and accessible to all. 
-                  Through cutting-edge AI and real-time analytics, we're building the future of 
-                  intelligent investing.
+                  To simplify decision-making for young retail investors through AI-powered analysis and real-time alerts, giving them a competitive edge in markets where speed and accuracy are paramount.
                 </p>
               </div>
             </motion.div>
@@ -220,7 +142,7 @@ export default function About() {
 
       {/* Stats Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black/20">
-        <motion.div 
+        <motion.div
           className="max-w-6xl mx-auto"
           variants={staggerContainer}
           initial="initial"
@@ -234,7 +156,7 @@ export default function About() {
                 className="text-center"
                 initial={{ opacity: 0, y: 60 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: [0.25,0.1,0.25,1] }}
+                transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
               >
                 <div className="text-4xl md:text-5xl font-bold text-gradient-to-r from-white to-grey-500 mb-2">
                   {stat.number}
@@ -250,11 +172,11 @@ export default function About() {
 
       {/* Team Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           className="max-w-6xl mx-auto"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25,0.1,0.25,1] }}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <div className="text-center mb-16">
             <div className="flex items-center justify-center mb-4">
@@ -265,79 +187,79 @@ export default function About() {
               World-class experts in AI, finance, and technology
             </p>
           </div>
-          
+
           {/* Carousel Team Member */}
           <div className="relative overflow-hidden">
             <motion.div
-                className="flex gap-8"
-                animate={{ x: [0, -100*teamMembers.length]}}
-                transition={{
-                    x:{
-                        repeat: Infinity,
-                        repeatType: "loop",
-                        duration: 20,
-                        ease: "linear"
-                    }
-                }}
-                style={{
-                    width: `${teamMembers.length*2*100}%`
-                }}
+              className="flex gap-8"
+              animate={{ x: [0, -100 * teamMembers.length] }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 20,
+                  ease: "linear"
+                }
+              }}
+              style={{
+                width: `${teamMembers.length * 2 * 100}%`
+              }}
             >
-                {teamMembers.map((member,index)=>(
-                    <motion.div
-                        key={`first-${index}`}
-                        className="bg-black rounded-2xl p-6 border border-gray-600/30 backdrop-blur-sm transition-all duration-300 group flex-shrink-0"
-                        style={{ width: '320px'}}
-                        initial={{ opacity:0, y:20}}
-                        whileInView={{ opacity:1, y:0}}
-                        transition={{ delay: index*0.1}}
-                        viewport={{once:true}}
-                    >
-                        <div className="relative mb-4 overflow-hidden rounded-xl">
-                            <img src={member.image} alt={member.name} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to transparent"></div>
-                        </div>
+              {teamMembers.map((member, index) => (
+                <motion.div
+                  key={`first-${index}`}
+                  className="bg-black rounded-2xl p-6 border border-gray-600/30 backdrop-blur-sm transition-all duration-300 group flex-shrink-0"
+                  style={{ width: '320px' }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="relative mb-4 overflow-hidden rounded-xl">
+                    <img src={member.image} alt={member.name} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to transparent"></div>
+                  </div>
 
-                        {/* Member details */}
-                        <h3 className="text-xl font-semibold mb-1 text-white">{member.name}</h3>
-                        <p className="text-gray-400 font-sm mb-2">{member.role}</p>
-                        <p className="text-gray-400 text-sm">{member.bio}</p>
-                    </motion.div>
-                ))}
+                  {/* Member details */}
+                  <h3 className="text-xl font-semibold mb-1 text-white">{member.name}</h3>
+                  <p className="text-gray-400 font-sm mb-2">{member.role}</p>
+                  <p className="text-gray-400 text-sm">{member.bio}</p>
+                </motion.div>
+              ))}
 
-                {/* Duplicates for seamless infinte loop */}
-                {teamMembers.map((member,index) => (
-                    <motion.div key={`second-${index}`}
-                    className="bg-black rounded-2xl p-6 border border-gray-600/30 backdrop-blur-sm hover:bg-white-700/30 transition-all duration-300 group flex-shrink-0"
-                    style={{width: '320px'}}
-                    >
-                        {/* Member photo with hover */}
-                        <div className="relative mb-4 overflow-hidden rounded-xl">
-                            <img src={member.image} alt={member.name}
-                            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        </div>
+              {/* Duplicates for seamless infinte loop */}
+              {teamMembers.map((member, index) => (
+                <motion.div key={`second-${index}`}
+                  className="bg-black rounded-2xl p-6 border border-gray-600/30 backdrop-blur-sm hover:bg-white-700/30 transition-all duration-300 group flex-shrink-0"
+                  style={{ width: '320px' }}
+                >
+                  {/* Member photo with hover */}
+                  <div className="relative mb-4 overflow-hidden rounded-xl">
+                    <img src={member.image} alt={member.name}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  </div>
 
-                        {/* Member details */}
-                        <h3 className="text-xl font-bold mb-1 text-white">{member.name}</h3>
-                        <p className="text-gray-400 font-medium mb-3">{member.role}</p>
-                        <p className="text-gray-500 text-sm leading-relaxed">{member.bio}</p>
-                    </motion.div>
-                ))}
+                  {/* Member details */}
+                  <h3 className="text-xl font-bold mb-1 text-white">{member.name}</h3>
+                  <p className="text-gray-400 font-medium mb-3">{member.role}</p>
+                  <p className="text-gray-500 text-sm leading-relaxed">{member.bio}</p>
+                </motion.div>
+              ))}
 
             </motion.div>
-            
+
           </div>
         </motion.div>
       </section>
 
       {/* What We Built Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
-        <motion.div 
+        <motion.div
           className="max-w-6xl mx-auto"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25,0.1,0.25,1] }}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <div className="text-center mb-16">
             <div className="flex items-center justify-center mb-4">
@@ -372,17 +294,17 @@ export default function About() {
 
       {/* Values Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
-        <motion.div 
+        <motion.div
           className="max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25,0.1,0.25,1] }}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <div className="flex items-center justify-center mb-8">
             <Globe className="w-6 h-6 text-white-400 mr-3" />
             <h2 className="text-4xl font-bold">Our Values</h2>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
@@ -417,11 +339,11 @@ export default function About() {
 
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           className="max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25,0.1,0.25,1] }}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <div className="bg-gradient-to-r from-black to-grey-500 rounded-3xl p-12 border border-white/10 backdrop-blur-sm">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -430,12 +352,9 @@ export default function About() {
             <p className="text-xl text-gray-300 mb-8">
               Join thousands of investors already using Pulse to make smarter decisions
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="glass-cta-btn relative inline-block px-8 py-3 rounded-xl font-semibold text-white 
-                                backdrop-blur-md border border-white/10 
-                                bg-gradient-to-br from-[#1a1a1a]/80 via-[#2c2c2c]/70 to-[#1a1a1a]/80 
-                                shadow-[inset_0_0_1px_rgba(255,255,255,0.05),0_4px_20px_rgba(0,0,0,0.4)] 
-                                transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] px-8 py-4 bg-white-600 hover:bg-white-700 rounded-xl font-semibold transition-all duration-300 hover:scale-105">
+            <div className="flex sm:flex-row justify-center">
+              <button className="glass-cta-btn relative inline-block px-8 py-3 rounded-lg font-semibold text-white 
+                                backdrop-blur-md border border-white/10 hover:cursor-pointer">
                 Start Free Trial
               </button>
             </div>

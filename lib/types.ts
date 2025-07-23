@@ -1,6 +1,9 @@
 import { LucideIcon } from "lucide-react";
 import { JSX } from "react";
 
+// ======================================= Static Data ====================================
+// ===================================== Data Components ==================================
+
 export interface NavigationItem {
     id: string;
     title: string;
@@ -75,3 +78,26 @@ export interface CollabContentItem {
     title: string;
     text?: string;
 }
+
+
+// ============================================= App Data ==================================
+
+export interface AboutStats {
+    number: string;
+    label: string;
+}
+
+export interface TeamMembers {
+    name: string;
+    role: string;
+    image: string;
+    bio: string;
+}
+
+export interface Sponsor {
+    name: string;
+    logo: string;
+    tier: string;
+}
+
+export type Achievement = string;

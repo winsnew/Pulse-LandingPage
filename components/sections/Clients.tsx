@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { companies } from "../constants";
+import { companies } from "../../lib/constants";
 
 const ClientLabel = () => {
     return (

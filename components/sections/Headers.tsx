@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion"
-import { navigation } from "../constants";
+import { navigation } from "../../lib/constants";
 
 const Header: React.FC = () => {
     const pathname = usePathname();
@@ -40,7 +40,7 @@ const Header: React.FC = () => {
                 ${open ? "bg-n-8" : "bg-transparent backdrop-blur-lg"}`}
         >
             <div className="relative flex items-center justify-between px-4 py-4 lg:px-10">
-                <Link href="#hero" scroll={false} className="flex items-center shrink-0 z-10">
+                <Link href="/" scroll={false} className="flex items-center shrink-0 z-10">
                     <Image src="/logo.png" width={48} height={48} alt="Pulse Logo" priority />
                 </Link>
                 <nav
@@ -53,7 +53,7 @@ const Header: React.FC = () => {
                             <Link
                                 key={item.id}
                                 href={item.url}
-                                scroll={false}
+                                // scroll={false}
                                 onClick={closeMenu}
                                 className={`text-sm font-semibold uppercase tracking-wide transition-colors ${pathname === item.url
                                     ? "text-white"
