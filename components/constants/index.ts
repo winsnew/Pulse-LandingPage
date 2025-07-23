@@ -36,10 +36,28 @@ export const companies = [
 ];
 
 export const footerLinks = {
-    Product: ["Features", "Pricing", "API", "Integrations", "Security"],
-    Company: ["About", "Blog", "Careers"],
-    Resources: ["Documentation", "Help Center", "Community"],
-    Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy"]
+    Product: [
+        { name: "Features", href: "#features" },
+        { name: "Pricing", href: "#pricing" },
+        { name: "API", href: "/api" },
+        { name: "Integrations", href: "/integrations" },
+        { name: "Security", href: "/security" },
+    ],
+    Company: [
+        { name: "About", href: "/about" },
+        { name: "Blog", href: "/blog" },
+        { name: "Careers", href: "/careers" },
+    ],
+    Resources: [
+        { name: "Documentation", href: "/documentation" },
+        { name: "Help Center", href: "/help-center" },
+        { name: "Community", href: "/community" },
+    ],
+    Legal: [
+        { name: "Privacy Policy", href: "/privacy-policy" },
+        { name: "Terms of Service", href: "/terms-of-service" },
+        { name: "Cookie Policy", href: "/cookie-policy" },
+    ],
 };
 
 export const builtWith = [

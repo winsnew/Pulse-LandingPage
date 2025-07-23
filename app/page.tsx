@@ -9,6 +9,7 @@ import HowItWorks from "@/components/sections/HowItWorks"
 import ScrollRevealWrapper from "@/components/customs/ScrollReveal"
 import { NavbarProvider } from "@/hooks/nav-provider"
 
+
 export default function Page() {
   return (
     <NavbarProvider>

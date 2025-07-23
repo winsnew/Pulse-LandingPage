@@ -4,6 +4,7 @@ import {
     footerLinks,
     socialLinks
 } from "../constants";
+import Link from "next/link";
 
 const Footer = () => {
     return (
@@ -41,20 +42,20 @@ const Footer = () => {
                     <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                         {Object.entries(footerLinks).map(([category, links]) => (
                             <div key={category} className="space-y-4">
-                                <h4 className="text-white font-semibold text-lg mb-6 relative">
+                                <h5 className="text-white font-semibold text-lg mb-6 relative">
                                     {category}
                                     <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-gray-500 to-white-500"></div>
-                                </h4>
+                                </h5>
                                 <ul className="space-y-3">
                                     {links.map((link) => (
-                                        <li key={link}>
-                                            <a
-                                                href="#"
+                                        <li key={link.name}>
+                                            <Link
+                                                href={link.href}
                                                 className="text-slate-400 hover:text-white transition-all duration-300 group flex items-center"
                                             >
-                                                {link}
+                                                {link.name}
                                                 <ArrowRight className="w-3 h-3 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-                                            </a>
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>
@@ -68,14 +69,14 @@ const Footer = () => {
                             © 2025 Pulse. All rights reserved. Building the future, one pulse at a time.
                         </p>
                         <div className="flex space-x-8">
-                            <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors duration-300 relative group">
+                            <Link href="#" className="text-slate-400 hover:text-white text-sm transition-colors duration-300 relative group">
                                 Privacy Policy
                                 <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-500 group-hover:w-full transition-all duration-300"></div>
-                            </a>
-                            <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors duration-300 relative group">
+                            </Link>
+                            <Link href="#" className="text-slate-400 hover:text-white text-sm transition-colors duration-300 relative group">
                                 Terms of Service
                                 <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-500 group-hover:w-full transition-all duration-300"></div>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
