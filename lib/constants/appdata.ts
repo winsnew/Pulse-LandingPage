@@ -2,8 +2,8 @@ import { TeamMembers, AboutStats, Achievement } from "@/lib/types";
 
 export const teamMembers: TeamMembers[] = [
     {
-        name: "Dr. Sarah Chen",
-        role: "CEO & Co-Founder",
+        name: "Max Almudhafar",
+        role: "Founder & CEO",
         image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400",
         bio: "Former Goldman Sachs AI researcher with 15+ years in fintech innovation."
     },

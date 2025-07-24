@@ -6,8 +6,6 @@ import FaqQuestion from "@/components/sections/FaqQuest"
 import ClientLabel from "@/components/sections/Clients"
 import Features from "@/components/sections/Feature"
 import HowItWorks from "@/components/sections/HowItWorks"
-import { NavbarProvider } from "@/hooks/nav-provider"
-
 
 export default function Page() {
   return (
