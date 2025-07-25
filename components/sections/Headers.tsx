@@ -135,7 +135,7 @@ const Header: React.FC = () => {
                                     >
                                         <Link
                                             href={item.url}
-                                            scroll={false}
+                                            // scroll={false}
                                             onClick={closeMenu}
                                             className="text-lg font-semibold uppercase text-white/90 hover:text-primary transition-colors"
                                         >
