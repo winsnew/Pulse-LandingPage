@@ -41,7 +41,7 @@ export default function About() {
     },
     {
       title: "Predictive Asset Radar",
-      description: "AI radar system scans the market for signals before they trend.",
+      description: "Discover and Analyze new token/stock listing with AI-powereed fundamental analysis and sentiment.",
       icon: Radar,
     },
     {
@@ -63,14 +63,14 @@ export default function About() {
 
 
   return (
-    <div className="min-h-screen relative inset-0 -z-10 pointer-events-none">
+    <div className="min-h-screen inset-0 -z-10 pointer-events-none">
       <div
         className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
         aria-hidden="true"
       />
 
       <div
-        className="absolute left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)]"
+        className="fixed left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)]"
         aria-hidden="true"
       />
       {/* Hero Section */}
@@ -81,11 +81,11 @@ export default function About() {
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="max-w-[90%] mx-auto text-center relative z-10"
         >
-          <h1 className="text-4xl sm:text-6xl font-semibold mb-5 bg-gradient-to-r from-white to-grey-500 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-6xl font-semibold mb-5 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
             About Pulse
           </h1>
           <p className="text-md md:text-xl text-gray-300 leading-relaxed">
-            Revolutionizing financial decision-making with atomic-level AI intelligence
+            Revolutionizing financial decision-making with atomic-level AI intelligence.
           </p>
         </motion.div>
       </section>
@@ -132,7 +132,7 @@ export default function About() {
                 <Lightbulb className="w-12 h-12 text-yellow-400 mb-4" />
                 <h3 className="text-2xl font-bold mb-4 text-white">Our Vision</h3>
                 <p className="text-gray-200 ">
-                  To simplify decision-making for young retail investors through AI-powered analysis and real-time alerts, giving them a competitive edge in markets where speed and accuracy are paramount.
+                  We aim to create the most responsive and insightful market intelligence platform, making it easy for investors to cut through the noise and act on opportunities as they arise.
                 </p>
               </div>
             </motion.div>
@@ -149,7 +149,7 @@ export default function About() {
           whileInView="animate"
           viewport={{ once: true }}
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 relative">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -171,7 +171,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           className="max-w-6xl mx-auto"
           initial={{ opacity: 0, y: 60 }}
@@ -254,7 +254,7 @@ export default function About() {
       </section>
 
       {/* What We Built Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/20 relative">
         <motion.div
           className="max-w-6xl mx-auto"
           initial={{ opacity: 0, y: 60 }}
@@ -293,7 +293,7 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
         <motion.div
           className="max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 60 }}

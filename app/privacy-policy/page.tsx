@@ -17,14 +17,14 @@ export default function PrivacyPolicy() {
   const lastUpdated = "May 2, 2025";
 
   return (
-    <div className="min-h-screen relative inset-0 -z-10 pointer-events-none relative">
+    <div className="min-h-screen inset-0 -z-10 pointer-events-none relative">
       <div
         className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
         aria-hidden="true"
       />
 
       <div
-        className="absolute left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)]"
+        className="fixed left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)]"
         aria-hidden="true"
       />
 
@@ -148,22 +148,22 @@ export default function PrivacyPolicy() {
             </p>
             
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-black border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
+              <div className="bg-blur border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
                 <Mail className="h-8 w-8 mx-auto mb-3 text-white" />
                 <h4 className="font-semibold text-white mb-2">Email</h4>
                 <p className="text-gray-600 text-sm"> Contact@pulsenow.io</p>
               </div>
               
-              <div className="bg-black border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
+              <div className="bg-blur border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
                 <Phone className="h-8 w-8 mx-auto mb-3 text-white" />
                 <h4 className="font-semibold text-white mb-2">Phone</h4>  
                 <p className="text-gray-600 text-sm">+1 (555) 123-4567</p>
               </div>
               
-              <div className="bg-black border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
+              <div className="bg-blur border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
                 <MapPin className="h-8 w-8 mx-auto mb-3 text-white" />
                 <h4 className="font-semibold text-white mb-2">Address</h4>      
-                <p className="text-gray-600 text-sm">123 Crypto Street<br />Tech City, TC 12345</p>
+                <p className="text-gray-600 text-sm">1522 Western Ave, STE 24159,<br />Seattle, Washington 98101</p>
               </div>
             </div>
           </div>

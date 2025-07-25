@@ -70,8 +70,7 @@ export const stats: AboutStats[] = [
 ];
 
 export const achievements: Achievement[] = [
-    "Winner - TechCrunch Disrupt 2024",
-    "Best AI Innovation - FinTech Awards 2024",
-    "Top 10 Startups - Forbes 30 Under 30",
-    "Excellence in AI - MIT Technology Review"
+    "AI-curated news from 50+ verified sources",
+    "Real-time tracking of 10+ market influencers",
+    "Smart Alerts for new listing and price movements"
 ];
