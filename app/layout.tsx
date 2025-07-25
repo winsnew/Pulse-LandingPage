@@ -3,6 +3,8 @@ import './globals.min.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Header from '@/components/sections/Headers';
+import Footer from '@/components/sections/Footer';
+import { Gradient } from '@/components/customs/Heros';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,7 +26,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <NavbarProvider>
           <Header />
+          <Gradient />
           {children}
+          <Footer />
         </NavbarProvider>
       </body>
     </html>

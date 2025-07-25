@@ -1,12 +1,12 @@
 "use client"
-import { Mail,Phone,MapPin } from "lucide-react";
-import {motion} from "framer-motion";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 
 // Terms and Conditions component using Tailwind CSS for styling
 export default function TermsAndConditions() {
   return (
     <div className="max-w-4xl mx-auto p-6 shadow-md rounded-lg">
-      <div
+      {/* <div
         className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
         aria-hidden="true"
       />
@@ -14,7 +14,7 @@ export default function TermsAndConditions() {
       <div
         className="fixed left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_290px,#fbfbfb36,#000)]"
         aria-hidden="true"
-      />
+      /> */}
       {/* Header Section */}
       <section className="mb-8 relative pt-20 overflow-hidden">
         <h1 className="text-4xl sm:text-6xl font-semibold mb-5 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">Terms & Conditions</h1>
@@ -146,7 +146,7 @@ export default function TermsAndConditions() {
       {/* Term and Termination Section */}
       <section className="mb-8 relative">
         <h2 className="text-2xl font-semibold bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent mb-4">7. Term and Termination</h2>
-        <p className="text-gray-500 text-sm"> 
+        <p className="text-gray-500 text-sm">
           Subject to this Section, these Terms will remain in full force and effect while you use the Site. We may suspend or terminate your rights to use the Site (including your Account) at any time for any reason at our sole discretion, including for any use of the Site in violation of these Terms. Upon termination of your rights under these Terms, your Account and right to access and use the Site will terminate immediately. Company will not have any liability whatsoever to you for any termination of your rights under these Terms, including for termination of your Account. Even after your rights under these Terms are terminated, the following provisions of these Terms will remain in effect: Sections 2.2 through 2.6 and Sections 3 through 8.
         </p>
       </section>
@@ -245,25 +245,25 @@ export default function TermsAndConditions() {
           Address: 1522 Western Ave, STE 24159, Seattle, Washington 98101<br />
           Email: <a href="mailto:contact@pulsenow.io" className="text-blue-600 hover:underline">contact@pulsenow.io</a>
         </p> */}
-           <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-blur border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
-                <Mail className="h-8 w-8 mx-auto mb-3 text-white" />
-                <h4 className="font-semibold text-white mb-2">Email</h4>
-                <p className="text-gray-600 text-sm"> Contact@pulsenow.io</p>
-              </div>
-              
-              <div className="bg-blur border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
-                <Phone className="h-8 w-8 mx-auto mb-3 text-white" />
-                <h4 className="font-semibold text-white mb-2">Phone</h4>  
-                <p className="text-gray-600 text-sm">+1 (555) 123-4567</p>
-              </div>
-              
-              <div className="bg-blur border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
-                <MapPin className="h-8 w-8 mx-auto mb-3 text-white" />
-                <h4 className="font-semibold text-white mb-2">Address</h4>      
-                <p className="text-gray-600 text-sm">1522 Western Ave, STE 24159,<br />Seattle, Washington 98101</p>
-              </div>
-            </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-blur border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
+            <Mail className="h-8 w-8 mx-auto mb-3 text-white" />
+            <h4 className="font-semibold text-white mb-2">Email</h4>
+            <p className="text-gray-600 text-sm"> Contact@pulsenow.io</p>
+          </div>
+
+          <div className="bg-blur border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
+            <Phone className="h-8 w-8 mx-auto mb-3 text-white" />
+            <h4 className="font-semibold text-white mb-2">Phone</h4>
+            <p className="text-gray-600 text-sm">+1 (555) 123-4567</p>
+          </div>
+
+          <div className="bg-blur border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
+            <MapPin className="h-8 w-8 mx-auto mb-3 text-white" />
+            <h4 className="font-semibold text-white mb-2">Address</h4>
+            <p className="text-gray-600 text-sm">1522 Western Ave, STE 24159,<br />Seattle, Washington 98101</p>
+          </div>
+        </div>
       </section>
     </div>
   );

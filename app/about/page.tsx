@@ -64,7 +64,7 @@ export default function About() {
 
   return (
     <div className="min-h-screen inset-0 -z-10 pointer-events-none">
-      <div
+      {/* <div
         className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
         aria-hidden="true"
       />
@@ -72,7 +72,7 @@ export default function About() {
       <div
         className="fixed left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)]"
         aria-hidden="true"
-      />
+      /> */}
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <motion.div

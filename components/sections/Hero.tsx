@@ -5,7 +5,6 @@ import { useRef } from "react";
 import Image from "next/image";
 import { useNavbar } from "@/hooks/nav-provider";
 import MotionLink from "../customs/MotionLink";
-import { Gradient } from "../customs/Heros";
 
 const containerVariant: Variants = {
     hidden: { opacity: 0, scale: 0.96 },
@@ -49,7 +48,7 @@ const Hero = () => {
 
     return (
         <>
-            <Gradient />
+            {/* <Gradient /> */}
             <motion.section
                 id="hero"
                 initial={{ opacity: 0, y: 0 }}

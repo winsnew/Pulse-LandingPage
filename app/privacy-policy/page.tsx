@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
 
   return (
     <div className="min-h-screen inset-0 -z-10 pointer-events-none relative">
-      <div
+      {/* <div
         className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
         aria-hidden="true"
       />
@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
       <div
         className="fixed left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)]"
         aria-hidden="true"
-      />
+      /> */}
 
       {/* Header */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -49,7 +49,7 @@ export default function PrivacyPolicy() {
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-6 py-12 relative space-y-12 text-white text-sm leading-relaxed">
         <section>
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-gray-200 pb-2 bg-gradient-to-r from-white to-gray-500 bg-clip-text bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
+          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-gray-200 pb-2 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
             <Database className="h-6 w-6 text-white" />
             Information We Collect
           </h2>
@@ -64,7 +64,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-gray-200 pb-2 bg-gradient-to-r from-white to-gray-500 bg-clip-text bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
+          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-gray-200 pb-2 bg-gradient-to-r from-white to-gray-500 bg-clip-text  text-transparent">
             <Eye className="h-6 w-6 text-white" />
             How We Use Your Information
           </h2>
@@ -79,7 +79,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-gray-200 pb-2 bg-gradient-to-r from-white to-gray-500 bg-clip-text bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
+          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-gray-200 pb-2 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
             <Users className="h-6 w-6 text-white" />
             Information Sharing and Disclosure
           </h2>
@@ -93,7 +93,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-gray-200 pb-2 bg-gradient-to-r from-white to-gray-500 bg-clip-text bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
+          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-gray-200 pb-2 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
             <Lock className="h-6 w-6 text-white" />
             Data Security
           </h2>
@@ -103,7 +103,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-gray-200 pb-2 bg-gradient-to-r from-white to-gray-500 bg-clip-text bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
+          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-gray-200 pb-2 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
             <Shield className="h-6 w-6 text-white" />
             Children’s Privacy
           </h2>
@@ -113,7 +113,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-gray-200 pb-2 bg-gradient-to-r from-white to-gray-500 bg-clip-text bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
+          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-gray-200 pb-2 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
             <AlertTriangle className="h-6 w-6 text-white" />
             Your Rights
           </h2>
@@ -127,7 +127,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-gray-200 pb-2 bg-gradient-to-r from-white to-gray-500 bg-clip-text bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
+          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 border-b-2 border-gray-200 pb-2 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
             <Calendar className="h-6 w-6 text-white" />
             Changes to This Policy
           </h2>
@@ -141,28 +141,28 @@ export default function PrivacyPolicy() {
           <h2 className="text-2xl font-bold bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent mb-4 border-b-2 border-gray-200 pb-2">
             Contact Us
           </h2>
-          
+
           <div className="text-sm text-white leading-relaxed space-y-6">
             <p>
               If you have any questions about this Privacy Policy or our data practices, please contact us:
             </p>
-            
+
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-blur border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
                 <Mail className="h-8 w-8 mx-auto mb-3 text-white" />
                 <h4 className="font-semibold text-white mb-2">Email</h4>
                 <p className="text-gray-600 text-sm"> Contact@pulsenow.io</p>
               </div>
-              
+
               <div className="bg-blur border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
                 <Phone className="h-8 w-8 mx-auto mb-3 text-white" />
-                <h4 className="font-semibold text-white mb-2">Phone</h4>  
+                <h4 className="font-semibold text-white mb-2">Phone</h4>
                 <p className="text-gray-600 text-sm">+1 (555) 123-4567</p>
               </div>
-              
+
               <div className="bg-blur border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
                 <MapPin className="h-8 w-8 mx-auto mb-3 text-white" />
-                <h4 className="font-semibold text-white mb-2">Address</h4>      
+                <h4 className="font-semibold text-white mb-2">Address</h4>
                 <p className="text-gray-600 text-sm">1522 Western Ave, STE 24159,<br />Seattle, Washington 98101</p>
               </div>
             </div>

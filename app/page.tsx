@@ -17,7 +17,6 @@ export default function Page() {
       <HowItWorks />
       <Pricing />
       <FaqQuestion />
-      <Footer />
       {/* </ScrollRevealWrapper> */}
     </div>
   )
