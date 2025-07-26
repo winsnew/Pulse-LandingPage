@@ -69,11 +69,11 @@ const Footer = () => {
                             © 2025 Pulse. All rights reserved. Building the future, one pulse at a time.
                         </p>
                         <div className="flex space-x-8">
-                            <Link href="#" className="text-slate-400 hover:text-white text-sm transition-colors duration-300 relative group">
+                            <Link href="/privacy-policy" className="text-slate-400 hover:text-white text-sm transition-colors duration-300 relative group">
                                 Privacy Policy
                                 <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-500 group-hover:w-full transition-all duration-300"></div>
                             </Link>
-                            <Link href="#" className="text-slate-400 hover:text-white text-sm transition-colors duration-300 relative group">
+                            <Link href="/terms-of-service" className="text-slate-400 hover:text-white text-sm transition-colors duration-300 relative group">
                                 Terms of Service
                                 <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-500 group-hover:w-full transition-all duration-300"></div>
                             </Link>
