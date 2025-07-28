@@ -354,10 +354,12 @@ export default function About() {
               Join thousands of investors already using Pulse to make smarter decisions
             </p>
             <div className="flex sm:flex-row justify-center">
-              <button className="glass-cta-btn relative inline-block px-8 py-3 rounded-lg font-semibold text-white 
-                                backdrop-blur-md border border-white/10 hover:cursor-pointer">
-                Start Free Trial
-              </button>
+              <Link href="/">
+                <span className="glass-cta-btn inline-block px-8 py-3 rounded-lg font-semibold text-white 
+                                backdrop-blur-md border border-white/10 hover:cursor-pointer pointer-events-auto">
+                  Start Free Trial
+                </span>
+              </Link>
             </div>
           </div>
         </motion.div>
