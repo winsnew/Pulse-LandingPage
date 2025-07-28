@@ -65,7 +65,7 @@ export const sponsors = [
 export const stats: AboutStats[] = [
     { number: "500M+", label: "Data Points Analyzed Daily" },
     { number: "99.7%", label: "Prediction Accuracy" },
-    { number: "50K+", label: "Active Users" },
+    // { number: "50K+", label: "Active Users" },
     { number: "24/7", label: "Market Monitoring" }
 ];
 

@@ -18,6 +18,7 @@ import {
   CheckCircle
 } from "lucide-react";
 import { teamMembers, sponsors, achievements, stats } from "@/lib/constants/appdata";
+import Link from "next/link";
 
 export default function About() {
   const staggerContainer = {
@@ -149,7 +150,7 @@ export default function About() {
           whileInView="animate"
           viewport={{ once: true }}
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 relative">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 relative">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}

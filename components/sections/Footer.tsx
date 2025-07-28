@@ -21,7 +21,7 @@ const Footer = () => {
                                 Pulse
                             </span>
                         </div>
-                        <p className="text-slate-400 mb-8 text-lg leading-relaxed">
+                        <p className="text-slate-400 mb-8 text-md leading-relaxed">
                             Transform your business with intelligent analytics and automation.
                             Experience the future of data-driven decision making.
                         </p>
