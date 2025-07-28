@@ -137,7 +137,7 @@ export default function PrivacyPolicy() {
         </section>
 
         {/* Contact Information */}
-        <section className="mb-12">
+        {/* <section className="mb-12">
           <h2 className="text-2xl font-bold bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent mb-4 border-b-2 border-gray-200 pb-2">
             Contact Us
           </h2>
@@ -172,7 +172,7 @@ export default function PrivacyPolicy() {
         <div className="border-t border-gray-700 pt-8 text-center">
           <p className="text-gray-500 text-sm">© 2025 Pulse Platform | All Rights Reserved.</p>
           <p className="text-gray-500 text-xs mt-2">This privacy policy is subject to change. Please review periodically.</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

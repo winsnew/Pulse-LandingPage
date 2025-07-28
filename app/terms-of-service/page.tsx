@@ -239,12 +239,12 @@ export default function TermsAndConditions() {
           Copyright © 2025 PulseNow Platform, Inc. All rights reserved. All trademarks, logos and service marks (“Marks”) displayed on the Site are our property or the property of other third parties. You are not permitted to use these Marks without our prior written consent or the consent of such third party which may own the Marks.
         </p>
         {/* Contact Information Subsection */}
-        <h3 className="text-xl font-medium bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent mt-4 mb-2">8.6 Contact Information</h3>
-        {/* <p className="text-gray-500 text-sm">
+        {/* <h3 className="text-xl font-medium bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent mt-4 mb-2">8.6 Contact Information</h3>
+        <p className="text-gray-500 text-sm">
           PulseNow Platform, Inc.<br />
           Address: 1522 Western Ave, STE 24159, Seattle, Washington 98101<br />
           Email: <a href="mailto:contact@pulsenow.io" className="text-blue-600 hover:underline">contact@pulsenow.io</a>
-        </p> */}
+        </p>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="bg-blur border border-gray-200 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
             <Mail className="h-8 w-8 mx-auto mb-3 text-white" />
@@ -263,7 +263,7 @@ export default function TermsAndConditions() {
             <h4 className="font-semibold text-white mb-2">Address</h4>
             <p className="text-gray-600 text-sm">1522 Western Ave, STE 24159,<br />Seattle, Washington 98101</p>
           </div>
-        </div>
+        </div> */}
       </section>
     </div>
   );

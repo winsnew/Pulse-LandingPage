@@ -25,6 +25,7 @@ const Footer = () => {
                             Transform your business with intelligent analytics and automation.
                             Experience the future of data-driven decision making.
                         </p>
+                        {/* <p className="text-gray-600 text-sm mb-7">1522 Western Ave, STE 24159, Seattle, Washington 98101</p> */}
                         <div className="flex space-x-4">
                             {socialLinks.map((social) => (
                                 <a
