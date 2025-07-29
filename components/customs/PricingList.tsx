@@ -37,7 +37,7 @@ const PricingList = ({ billingPeriod }: PricingListProps) => {
                             }}
                             whileHover={{ scale: 1.02 }}
                             transition={{ duration: 0.5 }}
-                            className={`w-full max-w-sm p-8 rounded-3xl shadow-lg border border-white/10 backdrop-blur-md bg-white/5 text-white relative overflow-hidden ${idx === 1 ? 'border-primary shadow-primary/20' : ''
+                            className={`w-full max-w-sm p-8 rounded-3xl shadow-lg border border-white/10 backdrop-blur-md bg-white/5 text-white relative overflow-hidden flex flex-col ${idx === 1 ? 'border-primary shadow-primary/20' : ''
                                 }`}
                         >
                             {idx === 1 && (
@@ -70,7 +70,7 @@ const PricingList = ({ billingPeriod }: PricingListProps) => {
                             </ul>
                             <button
                                 onClick={() => handleSubscribe(item.title)}
-                                className={`w-full py-3 px-6 rounded-xl font-semibold text-sm transition-all duration-300 ${isFreePlan
+                                className={`w-full py-3 px-6 rounded-xl font-semibold text-sm mt-auto transition-all duration-300 ${isFreePlan
                                         ? 'bg-white/10 text-white hover:bg-white/20 border-white/20'
                                         : 'bg-white/5 text-white hover:bg-white/10 border-white/20 hover:border-white/30'
                                     }`}

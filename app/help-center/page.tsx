@@ -91,7 +91,7 @@ export default function ContactPage() {
                   href="/"
                   className="inline-flex items-center px-6 py-3 border border-zinc-700 text-white rounded-lg hover:bg-zinc-800 transition-colors duration-200"
                 >
-                  Return to Help Center
+                  Return to Home
                 </Link>
               </div>
             </div>
