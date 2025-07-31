@@ -106,7 +106,7 @@ const Hero = () => {
                             <div className="flex sm:flex-row gap-4 justify-center items-center">
                                 <MotionLink
                                     href="#"
-                                    className="glass-cta-btn group relative inline-flex gap-3 px-8 py-3 rounded-xl font-semibold text-white 
+                                    className="glass-cta-btn group relative inline-flex gap-2 px-6 py-3 rounded-xl font-semibold text-white 
                                 backdrop-blur-md border border-white/10 
                                 bg-gradient-to-br from-[#1a1a1a]/80 via-[#2c2c2c]/70 to-[#1a1a1a]/80 
                                 shadow-[inset_0_0_1px_rgba(255,255,255,0.05),0_4px_20px_rgba(0,0,0,0.4)] 
