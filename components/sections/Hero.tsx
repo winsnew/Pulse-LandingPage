@@ -5,6 +5,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { useNavbar } from "@/hooks/nav-provider";
 import MotionLink from "../customs/MotionLink";
+import { ArrowRight } from "lucide-react";
 
 const containerVariant: Variants = {
     hidden: { opacity: 0, scale: 0.96 },
@@ -77,11 +78,11 @@ const Hero = () => {
                             viewport={{ once: true }}
                         >
                             Transform Your Business With Intelligent Analytics{" "}
-                            <span
+                            <motion.span
                                 className="chrome-text inline-block "
                             >
                                 Pulse
-                            </span>{" "}
+                            </motion.span>{" "}
                             - Your AI Trading Partner
                         </motion.h1>
 
@@ -105,27 +106,53 @@ const Hero = () => {
                             <div className="flex sm:flex-row gap-4 justify-center items-center">
                                 <MotionLink
                                     href="#"
-                                    className="glass-cta-btn relative inline-block px-8 py-3 rounded-xl font-semibold text-white 
+                                    className="glass-cta-btn group relative inline-flex gap-3 px-8 py-3 rounded-xl font-semibold text-white 
                                 backdrop-blur-md border border-white/10 
                                 bg-gradient-to-br from-[#1a1a1a]/80 via-[#2c2c2c]/70 to-[#1a1a1a]/80 
                                 shadow-[inset_0_0_1px_rgba(255,255,255,0.05),0_4px_20px_rgba(0,0,0,0.4)] 
-                                transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]
+                                transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] flex flex-row justify-evenly
                                 "
-                                    whileHover={{ scale: 1.06 }}
-                                    whileTap={{ scale: 0.95 }}
+                                    whileHover={{ scale: 1.02, y: -2, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
+                                    whileTap={{ scale: 0.95, y:0, transition: {duration: 0.1, ease: "easeOut"}}}
                                     aria-label="Start for Free"
                                 >
-                                    🚀 Start for Free
-                                </MotionLink>
+                                    Start for Free
+                                
 
-                                {/* <MotionLink
-                                    href="#"
-                                    className="px-8 py-3 rounded-xl text-slate-100 font-medium bg-white/5 border border-white/10 hover:border-white/20 hover:backdrop-blur-md hover:text-white transition-all duration-300"
-                                    whileHover={{ scale: 1.06 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    Book a Demo
-                                </MotionLink> */}
+                                    <motion.div className="relative z-10 flex items-center justify-center"
+                                        initial={{x:0, rotate: 0}}
+                                        whileHover={{
+                                            x:6,
+                                            transition: {
+                                                duration: 0.4,
+                                                ease: [0.25,0.46,0.45,0.94],
+                                                type: "spring",
+                                                stiffness: 200,
+                                                damping: 15
+                                            }
+                                        }}
+                                        whileTap={{
+                                            x:12,
+                                            scale:1.1,
+                                            rotate:15,
+                                            transition: {
+                                                duration: 0.2,
+                                                ease: "easeInOut",
+                                                type: "spring",
+                                                stiffness: 400,
+                                                damping: 10
+                                            }
+                                        }}
+                                    >
+                                        <motion.div 
+                                            whileHover={{scale:1.1}}
+                                            whileTap={{scale:1.2}}
+                                            transition={{duration:0.2, ease:"easeOut"}}
+                                        >
+                                            <ArrowRight className="w-5 h-5"/>
+                                        </motion.div>
+                                    </motion.div>
+                                </MotionLink>
                             </div>
 
                             <motion.span
