@@ -17,8 +17,9 @@ import {
   Globe,
   CheckCircle
 } from "lucide-react";
-import { teamMembers, sponsors, achievements, stats } from "@/lib/constants/appdata";
+import { teamMembers, achievements, stats } from "@/lib/constants/appdata";
 import Link from "next/link";
+import Image from 'next/image';
 
 export default function About() {
   const staggerContainer = {
@@ -193,7 +194,7 @@ export default function About() {
           <div className="relative overflow-hidden">
             <motion.div
               className="flex gap-8"
-              animate={{ x: [0, -100 * teamMembers.length] }}
+              animate={{ x: [0, -240 * teamMembers.length] }}
               transition={{
                 x: {
                   repeat: Infinity,
@@ -231,13 +232,13 @@ export default function About() {
               {/* Duplicates for seamless infinte loop */}
               {teamMembers.map((member, index) => (
                 <motion.div key={`second-${index}`}
-                  className="bg-black rounded-2xl p-6 border border-gray-600/30 backdrop-blur-sm hover:bg-white-700/30 transition-all duration-300 group flex-shrink-0"
+                  className="bg-black rounded-2xl p-6 border border-gray-600/30 backdrop-blur-sm hover:bg-white-700/30 transition-all duration-200 group flex-shrink-0"
                   style={{ width: '320px' }}
                 >
                   {/* Member photo with hover */}
-                  <div className="relative mb-4 overflow-hidden rounded-xl">
+                  <div className="relative mb-4 rounded-xl">
                     <img src={member.image} alt={member.name}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-200" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                   </div>
 
