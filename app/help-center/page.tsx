@@ -103,13 +103,13 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen inset-0 -z-10">
-      <header className="border-b border-zinc-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <header>
+        <div className="max-w-[90%] mx-auto text-center relative z-10 pt-32 overflow-hidden">
           {/* <Link href="/" className="inline-flex items-center text-zinc-400 hover:text-white transition-colors duration-200 mb-4">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Help Center
           </Link> */}
-          <h1 className="text-3xl sm:text-5xl font-semibold mb-8 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">Contact Support</h1>
+          <h1 className="text-4xl sm:text-6xl font-semibold mb-8 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">Contact Support</h1>
           <p className="text-zinc-400">Get in touch with our support team</p>
         </div>
       </header>
