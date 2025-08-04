@@ -6,7 +6,7 @@ export const teamMembers: TeamMembers[] = [
         name: "Max Almudhafar",
         role: "Founder & CEO",
         image: "/assets/team-members/maxios.jpeg",
-        bio: "Former Goldman Sachs AI researcher with 15+ years in fintech innovation."
+        bio: "10+ years Tech builder | 3X Founder | Visionary"
     },
     {
         name: "Issac Joumessi",
@@ -24,19 +24,25 @@ export const teamMembers: TeamMembers[] = [
         name: "Tejinder Singh",
         role: "Software Developer",
         image: "/assets/team-members/tejinder.png",
-        bio: "PhD in Machine Learning from MIT, pioneer in sentiment analysis algorithms."
+        bio: "Full-Stack Developer | Front-End Engineer | UI-to-Code Specialist | Workflow Automation Developer "
+    },
+    {
+        name: "SOJO",
+        role: "Web Developer",
+        image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400",
+        bio: "Fullstack Web Developer | High Performance | Idea Based Imagined"
     },
     {
         name: "Huy LE",
         role: "Software Developer",
         image: "/assets/team-members/huyle.jpg",
-        bio: "10+ years at Microsoft Azure, expert in scalable AI infrastructure."
+        bio: "Computer Science student who could wear multiple hats"
     },
     {
         name: "Shubham Saini",
         role: "Marketing Head",
         image: "/assets/team-members/Shub_Saini.jpg",
-        bio: "Former Tesla product lead with expertise in user-centric AI interfaces."
+        bio: "CUDA & Python Dev | 3D Animator | AI/Game Systems | Ex-indusBank Employee | Marketing Dev"
     },
     {
         name: "Kyle Paul Lexis",

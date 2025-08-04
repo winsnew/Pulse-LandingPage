@@ -65,7 +65,7 @@ export default function About() {
 
 
   return (
-    <div className="min-h-screen inset-0 -z-10 pointer-events-none">
+    <div className="min-h-screen inset-0 -z-10">
       {/* <div
         className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
         aria-hidden="true"
@@ -130,10 +130,12 @@ export default function About() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              <div className="bg-gradient-to-r from-black to-gray p-8 rounded-2xl border border-white/10 backdrop-blur-sm">
-                <Lightbulb className="w-12 h-12 text-yellow-400 mb-4" />
-                <h3 className="text-2xl font-bold mb-4 text-white">Our Vision</h3>
-                <p className="text-gray-200 ">
+              <div className="group bg-blur p-8 rounded-2xl border border-white/10 backdrop-blur-sm transition-all duration-300">
+                <div className="flex items-center">
+                  <Lightbulb className="w-8 h-8 text-yellow-400 mr-3 mb-4 transition duration-300 group-hover:drop-shadow-glow" />
+                  <h3 className="text-2xl font-bold mb-4 text-white">Our Vision</h3>
+                </div>
+                <p className="text-gray-200">
                   We aim to create the most responsive and insightful market intelligence platform, making it easy for investors to cut through the noise and act on opportunities as they arise.
                 </p>
               </div>
@@ -210,7 +212,7 @@ export default function About() {
               {teamMembers.map((member, index) => (
                 <motion.div
                   key={`first-${index}`}
-                  className="bg-black rounded-2xl p-6 border border-gray-600/30 backdrop-blur-sm transition-all duration-300 group flex-shrink-0"
+                  className="bg-white/5 rounded-2xl p-6 border border-gray-600/30 backdrop-blur-md transition-all duration-300 group flex-shrink-0"
                   style={{ width: '320px' }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}

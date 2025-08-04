@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      dropShadow: {
+        'glow': '0 0 10px rgba(250, 204, 21, 0.8)', // Using rgba for a softer glow
+      },
       transitionProperty: {
         'transform': 'transform',
       },
@@ -152,7 +155,7 @@ const config: Config = {
         'fade-in': 'fade-in 0.6s ease-out',
         'scroll': 'scroll 30s linear infinite',
         'scroll-reverse': 'scroll-reverse 25s linear infinite'
-      }
+      },
     },
   },
   plugins: [
