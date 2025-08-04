@@ -35,13 +35,13 @@ const Header: React.FC = () => {
 
     return (
         <header
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out border-b border-n-6
+            className={`fixed left-0 top-0 w-full z-50 transition-all duration-500 ease-in-out border-b border-n-6 rounded-full
                 ${showNavbar || open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6 pointer-events-none"}
                 ${open ? "bg-n-8" : "bg-transparent backdrop-blur-lg"}`}
         >
             <div className="relative flex items-center justify-between px-4 py-4 lg:px-10">
                 <Link href="/" scroll={false} className="flex items-center shrink-0 z-10">
-                    <Image src="/logo.png" width={48} height={48} alt="Pulse Logo" priority />
+                    <Image src="/logo.png" width={42} height={42} alt="Pulse Logo" priority />
                 </Link>
                 <nav
                     className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-6 xl:gap-10"
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
 
                 <button
                     onClick={toggleMenu}
-                    className="lg:hidden p-2 text-white z-[60]"
+                    className="lg:hidden p-2 text-white z-[60] bg-"
                     aria-label="Toggle Menu"
                     aria-expanded={open}
                     aria-controls="mobile-menu"
@@ -108,7 +108,7 @@ const Header: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.35, ease: "easeInOut" }}
-                        className="lg:hidden bg-n-8 px-6 py-8 shadow-inner"
+                        className="lg:hidden bg-n-8 px-6 py-8 shadow-inner bg-transparent"
                     >
                         <motion.div
                             initial="hidden"

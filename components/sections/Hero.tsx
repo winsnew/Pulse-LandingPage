@@ -1,11 +1,11 @@
 "use client";
 
 import { motion, useScroll, useTransform, Variants, easeOut } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { useNavbar } from "@/hooks/nav-provider";
 import MotionLink from "../customs/MotionLink";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight} from "lucide-react";
 
 const containerVariant: Variants = {
     hidden: { opacity: 0, scale: 0.96 },
@@ -43,6 +43,14 @@ const Hero = () => {
         target: parallaxRef,
         offset: ["start end", "end start"],
     });
+    const[isHovered, setIsHovered] = useState(false);
+    // const[animationKey, setAnimationKey] = useState(0);
+    
+    // const handleHover = () => {
+    //     setTrigger(false);
+    //     setAnimationKey(prev=>prev+1);
+    //     requestAnimationFrame(()=> setTrigger(true));
+    // }
 
     const yImage = useTransform(scrollYProgress, [0, 1], [0, -100]);
     const scaleImage = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
@@ -104,55 +112,42 @@ const Hero = () => {
                             viewport={{ once: true }}
                         >
                             <div className="flex sm:flex-row gap-4 justify-center items-center">
-                                <MotionLink
+                                <motion.a
                                     href="#"
-                                    className="glass-cta-btn group relative inline-flex gap-2 px-6 py-3 rounded-xl font-semibold text-white 
-                                backdrop-blur-md border border-white/10 
-                                bg-gradient-to-br from-[#1a1a1a]/80 via-[#2c2c2c]/70 to-[#1a1a1a]/80 
-                                shadow-[inset_0_0_1px_rgba(255,255,255,0.05),0_4px_20px_rgba(0,0,0,0.4)] 
-                                transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] flex flex-row justify-evenly
-                                "
-                                    whileHover={{ scale: 1.02, y: -2, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
-                                    whileTap={{ scale: 0.95, y:0, transition: {duration: 0.1, ease: "easeOut"}}}
+                                    className="bg-white/100 rounded-full group relative inline-flex gap-2 px-5 py-3 text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] hover:ring-2 hover:ring-white/60 hover:ring-offset-2 flex flex-row justify-evenly"
+                                    // whileHover={{ scale: 1.02, y: -2, transition: { duration: 0.3, ease: "linear" } }}
+                                    // whileTap={{ scale: 0.95, y:0, transition: {duration: 0.1, ease: "linear"}}}
                                     aria-label="Start for Free"
+                                    onHoverStart={()=>setIsHovered(true)}
+                                    onHoverEnd={()=> setIsHovered(false)}
                                 >
                                     Start for Free
-                                
 
-                                    <motion.div className="relative z-10 flex items-center justify-center"
-                                        initial={{x:0, rotate: 0}}
-                                        whileHover={{
-                                            x:6,
-                                            transition: {
+                                    <motion.div
+                                        className="relative z-10 flex items-center justify-center"
+                                        initial={{ x: 0, y: 0 }}
+                                        animate={
+                                        isHovered
+                                            ? {
+                                                x: 12, // move far to the right
+                                                y: -12,// move far up
+                                                opacity: 0,
+                                                transition: { duration: 0.4, ease: "linear" }
+                                            }
+                                            : {
+                                                x: [12, 0], // re-enter from bottom-left
+                                                y: [-12, 0],
+                                                opacity: [0, 1],
+                                                transition: {
                                                 duration: 0.4,
-                                                ease: [0.25,0.46,0.45,0.94],
-                                                type: "spring",
-                                                stiffness: 200,
-                                                damping: 15
+                                                ease: "linear"
+                                                }
                                             }
-                                        }}
-                                        whileTap={{
-                                            x:12,
-                                            scale:1.1,
-                                            rotate:15,
-                                            transition: {
-                                                duration: 0.2,
-                                                ease: "easeInOut",
-                                                type: "spring",
-                                                stiffness: 400,
-                                                damping: 10
-                                            }
-                                        }}
+                                        }
                                     >
-                                        <motion.div 
-                                            whileHover={{scale:1.1}}
-                                            whileTap={{scale:1.2}}
-                                            transition={{duration:0.2, ease:"easeOut"}}
-                                        >
-                                            <ArrowRight className="w-5 h-5"/>
-                                        </motion.div>
-                                    </motion.div>
-                                </MotionLink>
+                                        <ArrowUpRight className="w-5 h-5" />
+                                    </motion.div>         
+                                </motion.a>
                             </div>
 
                             <motion.span
