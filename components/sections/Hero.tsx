@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useNavbar } from "@/hooks/nav-provider";
 import { ArrowUpRight } from "lucide-react";
 import WaveMotion from "../customs/Wave";
+import Wave from "../customs/WaveParticle";
 
 const containerVariant: Variants = {
     hidden: { opacity: 0, scale: 0.96 },
@@ -57,6 +58,7 @@ const Hero = () => {
 
     return (
         <>
+
             <motion.section
                 id="hero"
                 initial={{ opacity: 0, y: 0 }}
@@ -77,7 +79,7 @@ const Hero = () => {
                         whileInView="visible"
                         viewport={{ once: true }}
                     >
-
+                        <Wave />
                         <motion.h1
                             className="h1 mb-6 font-bold tracking-tight text-white"
                             variants={fadeUpVariant(0.2)}
