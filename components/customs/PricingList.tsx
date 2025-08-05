@@ -50,8 +50,10 @@ const PricingList = ({ billingPeriod }: PricingListProps) => {
                             <div className="flex items-end mb-6">
                                 {currentPrice && (
                                     <>
+
                                         <span className="text-5xl font-semibold">$</span>
                                         <span className="text-5xl font-semibold ml-1">{currentPrice}</span>
+
                                         {!isFreePlan && (
                                             <span className="text-white/60 text-sm ml-2 mb-1">
                                                 /{billingPeriod === 'monthly' ? 'mo' : 'yr'}

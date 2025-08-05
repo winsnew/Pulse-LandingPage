@@ -154,7 +154,8 @@ const config: Config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fade-in 0.6s ease-out',
         'scroll': 'scroll 30s linear infinite',
-        'scroll-reverse': 'scroll-reverse 25s linear infinite'
+        'scroll-reverse': 'scroll-reverse 25s linear infinite',
+
       },
     },
   },

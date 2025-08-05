@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="max-w-[90%] mx-auto text-center relative z-10"
         >
-          <h1 className="text-4xl md:text-6xl font-semibold mb-2 bg-gradient-to-r from-white to-grey-500 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-semibold mb-3 bg-gradient-to-r from-white to-grey-500 bg-clip-text text-transparent">
             Privacy Policy
           </h1>
           <p className="text-sm text-gray-400 mb-6">Last updated on {lastUpdated}</p>

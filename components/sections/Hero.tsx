@@ -4,8 +4,9 @@ import { motion, useScroll, useTransform, Variants, easeOut } from "framer-motio
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { useNavbar } from "@/hooks/nav-provider";
-import MotionLink from "../customs/MotionLink";
-import { ArrowUpRight} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import WaveMotion from "../customs/Wave";
+import Wave from "../customs/WaveParticle";
 
 const containerVariant: Variants = {
     hidden: { opacity: 0, scale: 0.96 },
@@ -43,9 +44,9 @@ const Hero = () => {
         target: parallaxRef,
         offset: ["start end", "end start"],
     });
-    const[isHovered, setIsHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
     // const[animationKey, setAnimationKey] = useState(0);
-    
+
     // const handleHover = () => {
     //     setTrigger(false);
     //     setAnimationKey(prev=>prev+1);
@@ -57,7 +58,7 @@ const Hero = () => {
 
     return (
         <>
-            {/* <Gradient /> */}
+
             <motion.section
                 id="hero"
                 initial={{ opacity: 0, y: 0 }}
@@ -78,6 +79,7 @@ const Hero = () => {
                         whileInView="visible"
                         viewport={{ once: true }}
                     >
+                        <Wave />
                         <motion.h1
                             className="h1 mb-6 font-bold tracking-tight text-white"
                             variants={fadeUpVariant(0.2)}
@@ -118,8 +120,8 @@ const Hero = () => {
                                     // whileHover={{ scale: 1.02, y: -2, transition: { duration: 0.3, ease: "linear" } }}
                                     // whileTap={{ scale: 0.95, y:0, transition: {duration: 0.1, ease: "linear"}}}
                                     aria-label="Start for Free"
-                                    onHoverStart={()=>setIsHovered(true)}
-                                    onHoverEnd={()=> setIsHovered(false)}
+                                    onHoverStart={() => setIsHovered(true)}
+                                    onHoverEnd={() => setIsHovered(false)}
                                 >
                                     Start for Free
 
@@ -127,26 +129,26 @@ const Hero = () => {
                                         className="relative z-10 flex items-center justify-center"
                                         initial={{ x: 0, y: 0 }}
                                         animate={
-                                        isHovered
-                                            ? {
-                                                x: 12, // move far to the right
-                                                y: -12,// move far up
-                                                opacity: 0,
-                                                transition: { duration: 0.4, ease: "linear" }
-                                            }
-                                            : {
-                                                x: [12, 0], // re-enter from bottom-left
-                                                y: [-12, 0],
-                                                opacity: [0, 1],
-                                                transition: {
-                                                duration: 0.4,
-                                                ease: "linear"
+                                            isHovered
+                                                ? {
+                                                    x: 12, // move far to the right
+                                                    y: -12,// move far up
+                                                    opacity: 0,
+                                                    transition: { duration: 0.4, ease: "linear" }
                                                 }
-                                            }
+                                                : {
+                                                    x: [12, 0], // re-enter from bottom-left
+                                                    y: [-12, 0],
+                                                    opacity: [0, 1],
+                                                    transition: {
+                                                        duration: 0.4,
+                                                        ease: "linear"
+                                                    }
+                                                }
                                         }
                                     >
                                         <ArrowUpRight className="w-5 h-5" />
-                                    </motion.div>         
+                                    </motion.div>
                                 </motion.a>
                             </div>
 
