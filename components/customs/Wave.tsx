@@ -7,7 +7,7 @@ const WaveMotion = () => {
         <div className="absolute bottom-0 left-0 right-0 z-0 overflow-hidden pointer-events-none">
             <svg
                 width="100%"
-                height="160"
+                height="100%"
                 viewBox="0 0 1440 220"
                 xmlns="http://www.w3.org/2000/svg"
                 className="overflow-hidden"

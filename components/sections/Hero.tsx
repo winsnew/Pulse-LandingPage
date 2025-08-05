@@ -72,6 +72,7 @@ const Hero = () => {
             >
 
                 <div className="container relative" ref={parallaxRef}>
+                    <Wave />
                     <motion.div
                         className="relative z-10 max-w-full mx-auto text-center mb-20 md:mb-28 lg:mb-32"
                         variants={containerVariant}
@@ -79,7 +80,7 @@ const Hero = () => {
                         whileInView="visible"
                         viewport={{ once: true }}
                     >
-                        <Wave />
+
                         <motion.h1
                             className="h1 mb-6 font-bold tracking-tight text-white"
                             variants={fadeUpVariant(0.2)}
@@ -116,7 +117,7 @@ const Hero = () => {
                             <div className="flex sm:flex-row gap-4 justify-center items-center">
                                 <motion.a
                                     href="#"
-                                    className="bg-white/100 rounded-full group relative inline-flex gap-2 px-5 py-3 text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] hover:ring-2 hover:ring-white/60 hover:ring-offset-2 flex flex-row justify-evenly"
+                                    className="bg-white/100 rounded-full group relative gap-2 px-5 py-3 text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] hover:ring-2 hover:ring-white/60 hover:ring-offset-2 flex flex-row justify-evenly"
                                     // whileHover={{ scale: 1.02, y: -2, transition: { duration: 0.3, ease: "linear" } }}
                                     // whileTap={{ scale: 0.95, y:0, transition: {duration: 0.1, ease: "linear"}}}
                                     aria-label="Start for Free"
@@ -173,12 +174,14 @@ const Hero = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.7 }}
+
                         >
                             <motion.div
                                 className="relative bg-transparent rounded-[1rem] shadow-2xl shadow-slate-200/50 overflow-hidden"
                                 initial={{ filter: "blur(12px)", scale: 0.96 }}
                                 whileInView={{ filter: "blur(0px)", scale: 1 }}
                                 transition={{ duration: 1, ease: easeOut }}
+
                             >
                                 <div className="h-[1.4rem] bg-transparent rounded-t-[0.9rem]" />
                                 <motion.div
