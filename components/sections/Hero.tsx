@@ -77,7 +77,7 @@ const Hero = () => {
                         whileInView="visible"
                         viewport={{ once: true }}
                     >
-                        <WaveMotion />
+
                         <motion.h1
                             className="h1 mb-6 font-bold tracking-tight text-white"
                             variants={fadeUpVariant(0.2)}
