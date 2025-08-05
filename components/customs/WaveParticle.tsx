@@ -29,7 +29,7 @@ const Wave: React.FC = () => {
                     height: "100%",
                     objectFit: "cover",
                     objectPosition: "50% 50%",
-                    display: "block",
+                    display: "block fixed",
                     borderRadius: 0,
                     backgroundColor: "#000",
                     filter: "brightness(100%) saturate(0%) invert(0)", // agar warna berubah jadi putih
