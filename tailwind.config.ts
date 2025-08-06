@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       dropShadow: {
-        'glow': '0 0 10px rgba(250, 204, 21, 0.8)', // Using rgba for a softer glow
+        'glow': '0 0 10px rgba(250, 204, 21, 0.8)',
       },
       transitionProperty: {
         'transform': 'transform',
@@ -99,11 +99,6 @@ const config: Config = {
       },
       letterSpacing: {
         tagline: ".15em",
-      },
-      backgroundImage: {
-        // 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        // 'gradient-conic':
-        //   'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       keyframes: {
         'accordion-down': {

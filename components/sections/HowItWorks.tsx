@@ -61,6 +61,16 @@ const HowItWorksCircuitPrecise = () => {
                 const container = containerRef.current;
                 if (!container) return;
 
+                const getOffset = (el: HTMLElement, relativeTo: HTMLElement) => {
+                    let x = 0, y = 0;
+                    while (el && el !== relativeTo) {
+                        x += el.offsetLeft;
+                        y += el.offsetTop;
+                        el = el.offsetParent as HTMLElement;
+                    }
+                    return { x, y };
+                };
+
                 const newPaths: string[] = [];
 
                 for (let i = 0; i < steps.length - 1; i++) {
@@ -68,24 +78,23 @@ const HowItWorksCircuitPrecise = () => {
                     const to = iconRefs.current[i + 1];
                     if (!from || !to) continue;
 
-                    const fromRect = from.getBoundingClientRect();
-                    const toRect = to.getBoundingClientRect();
-                    const containerRect = container.getBoundingClientRect();
+                    const { x: startX, y: startY } = getOffset(from, container);
+                    const { x: endX, y: endY } = getOffset(to, container);
 
-                    const startX = fromRect.left + fromRect.width / 2 - containerRect.left;
-                    const startY = fromRect.top + fromRect.height / 2 - containerRect.top;
-                    const endX = toRect.left + toRect.width / 2 - containerRect.left;
-                    const endY = toRect.top + toRect.height / 2 - containerRect.top;
+                    const centerStartX = startX + from.offsetWidth / 2;
+                    const centerStartY = startY + from.offsetHeight / 2;
+                    const centerEndX = endX + to.offsetWidth / 2;
+                    const centerEndY = endY + to.offsetHeight / 2;
 
                     let path = "";
                     if (window.innerWidth < 768) {
                         const curveOffsetX = 60;
-                        const curveOffsetY = Math.abs(endY - startY) / 2;
-                        const direction = endX > startX ? 1 : -1;
-                        path = `M${startX},${startY} C${startX + direction * curveOffsetX},${startY + curveOffsetY} ${endX - direction * curveOffsetX},${endY - curveOffsetY} ${endX},${endY}`;
+                        const curveOffsetY = Math.abs(centerEndY - centerStartY) / 2;
+                        const direction = centerEndX > centerStartX ? 1 : -1;
+                        path = `M${centerStartX},${centerStartY} C${centerStartX + direction * curveOffsetX},${centerStartY + curveOffsetY} ${centerEndX - direction * curveOffsetX},${centerEndY - curveOffsetY} ${centerEndX},${centerEndY}`;
                     } else {
-                        const midX = (startX + endX) / 2;
-                        path = `M${startX},${startY} C${midX},${startY} ${midX},${endY} ${endX},${endY}`;
+                        const midX = (centerStartX + centerEndX) / 2;
+                        path = `M${centerStartX},${centerStartY} C${midX},${centerStartY} ${midX},${centerEndY} ${centerEndX},${centerEndY}`;
                     }
 
                     newPaths.push(path);
@@ -95,20 +104,26 @@ const HowItWorksCircuitPrecise = () => {
             });
         };
 
-        // Initial calculation
+        // Initial call
         calculatePaths();
 
-        // Debounced resize
-        let resizeTimer: NodeJS.Timeout;
-        const handleResize = () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                calculatePaths();
-            }, 100);
-        };
+        // Setup ResizeObserver
+        const observer = new ResizeObserver(() => {
+            calculatePaths();
+        });
 
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+            // Observe each icon
+            iconRefs.current.forEach((el) => {
+                if (el) observer.observe(el);
+            });
+        }
+
+        // Cleanup
+        return () => {
+            observer.disconnect();
+        };
     }, []);
 
     useEffect(() => {

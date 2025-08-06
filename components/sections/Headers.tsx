@@ -42,7 +42,7 @@ const Header: React.FC = () => {
         ${open ? "bg-transparent backdrop-blur-md" : "bg-transparent backdrop-blur-md"}
         px-4 py-0 rounded-full shadow-lg border border-white/10`}
       >
-        <div className="relative flex items-center justify-between px-2 py-2 lg:px-10">
+        <div className="relative flex items-center justify-between w-full max-w-7xl mx-auto px-4 py-2 lg:px-10">
           <Link href="/" scroll={false} className="flex items-center shrink-0 z-10">
             <Image src="/logo.png" width={42} height={42} alt="Pulse Logo" priority />
           </Link>
@@ -59,11 +59,10 @@ const Header: React.FC = () => {
                   key={item.id}
                   href={item.url}
                   onClick={closeMenu}
-                  className={`text-sm font-semibold uppercase tracking-wide transition-colors ${
-                    pathname === item.url
-                      ? "text-white"
-                      : "text-white/50 hover:text-white"
-                  }`}
+                  className={`text-sm font-semibold uppercase tracking-wide transition-colors ${pathname === item.url
+                    ? "text-white"
+                    : "text-white/50 hover:text-white"
+                    }`}
                 >
                   {item.title}
                 </Link>

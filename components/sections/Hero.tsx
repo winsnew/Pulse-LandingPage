@@ -1,11 +1,10 @@
 "use client";
 
 import { motion, useScroll, useTransform, Variants, easeOut } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { useNavbar } from "@/hooks/nav-provider";
 import { ArrowUpRight } from "lucide-react";
-import WaveMotion from "../customs/Wave";
 import Wave from "../customs/WaveParticle";
 
 const containerVariant: Variants = {
@@ -52,6 +51,13 @@ const Hero = () => {
     //     setAnimationKey(prev=>prev+1);
     //     requestAnimationFrame(()=> setTrigger(true));
     // }
+
+    const [hasMounted, setHasMounted] = useState(false);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => setHasMounted(true), 300); // delay to stabilize
+        return () => clearTimeout(timeout);
+    }, []);
 
     const yImage = useTransform(scrollYProgress, [0, 1], [0, -100]);
     const scaleImage = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
@@ -168,11 +174,11 @@ const Hero = () => {
                     {/* Image */}
                     <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-5">
                         <motion.div
-                            className="relative z-10 p-0.5 rounded-2xl bg-transparent"
-                            style={{ y: yImage, scale: scaleImage }}
-                            variants={imageVariant}
-                            initial="hidden"
-                            whileInView="visible"
+                            className="relative z-10 p-0.5 rounded-2xl bg-transparent will-change-transform"
+                            initial={{ opacity: 0, y: 80, scale: 0.95, rotateX: 15 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+                            transition={{ duration: 1.2, ease: easeOut }}
+                            style={{ y: hasMounted ? yImage : 0, scale: hasMounted ? scaleImage : 1 }}
                             viewport={{ once: true, amount: 0.7 }}
 
                         >
