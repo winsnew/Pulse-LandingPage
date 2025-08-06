@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useNavbar } from "@/hooks/nav-provider";
 import { ArrowUpRight } from "lucide-react";
 import WaveMotion from "../customs/Wave";
-// import Wave from "../customs/WaveParticle";
+import Wave from "../customs/WaveParticle";
 
 const containerVariant: Variants = {
     hidden: { opacity: 0, scale: 0.96 },
@@ -72,7 +72,7 @@ const Hero = () => {
             >
 
                 <div className="container relative" ref={parallaxRef}>
-                    {/* <Wave /> */}
+                    <Wave />
                     <motion.div
                         className="relative z-10 max-w-full mx-auto text-center mb-20 md:mb-28 lg:mb-32"
                         variants={containerVariant}

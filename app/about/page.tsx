@@ -184,17 +184,18 @@ export default function About() {
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <div className="text-center mb-16">
-            <div className="flex items-center justify-center mb-4">
+            <div className="flex items-center justify-center mb-2">
               <Users className="w-8 h-8 text-gradient-to-r from-white to-grey-500 mr-3" />
               <h2 className="text-3xl font-bold">Meet Our Team</h2>
             </div>
             <p className="text-xl text-gray-300 ">
               World-class experts in AI, finance, and technology
             </p>
+            <TeamCarousel members={teamMembers} />
           </div>
 
           {/* Carousel Team Member */}
-          <TeamCarousel members={teamMembers} />
+          {/* <TeamCarousel members={teamMembers} /> */}
 
 
         </motion.div>

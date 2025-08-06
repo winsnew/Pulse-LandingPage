@@ -76,10 +76,10 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
   members,
   title = "OUR TEAM",
   titleSize = "2xl",
-  titleColor = "rgba(0, 76, 255, 1)",
+  titleColor = "rgb(163, 163, 163)",
   background,
   cardWidth = 300,
-  cardHeight = 360,
+  cardHeight = 330,
   cardRadius = 20,
   showArrows = false,
   showDots = false,
@@ -91,7 +91,7 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
   visibleCards = 5,
   sideCardScale = 0.9,
   sideCardOpacity = 0.9,
-  grayscaleEffect = false,
+  grayscaleEffect = true,
   className,
   cardClassName,
   titleClassName,
@@ -303,7 +303,7 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
   return (
     <div
       id="team-carousel-container"
-      className={cn(`flex flex-col items-center justify-center overflow-hidden relative 
+      className={cn(`min-h-screenflex flex-col items-center justify-center overflow-hidden relative 
         transparent`, className)}
       style={{ background: background }}
       onTouchStart={handleTouchStart}
@@ -314,13 +314,13 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
       {/* {title && (
         <h1
           className={cn(
-            "font-black uppercase tracking-tight absolute top-12 left-1/2 transform -translate-x-1/2 pointer-events-none whitespace-nowrap",
+            "font-gray-200 uppercase tracking-tight absolute top-12 left-1/2 transform -translate-x-1/2 pointer-events-none whitespace-nowrap",
             titleSizeClasses[titleSize],
             titleClassName
           )}
           style={{
             color: 'transparent',
-            background: `linear-gradient(to bottom, ${titleColor}75 40%, transparent 76%)`,
+            background: `linear-gradient(to bottom, gray-200 40%, transparent 76%)`,
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
           }}
@@ -331,7 +331,7 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
 
       {/* Carousel Container */}
       <div
-        className="w-full max-w-6xl relative mt-13"
+        className="w-full max-w-6xl relative mt-2"
         style={{
           height: cardHeight + 100,
           perspective: '1000px',
@@ -432,26 +432,25 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
-          className="text-center mt-10"
+          className="text-center mt-2"
         >
           <h2
-            className="text-3xl font-semibold mb-3 relative inline-block"
-            style={{ color: infoTextColor }}
+            className="text-2xl font-semibold mb-3 relative inline-block bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent"
           >
             {members[currentIndex].name}
             <span
-              className="absolute top-full left-0 w-full h-0.5 mt-2"
+              className="absolute top-full left-0 w-full h-0.5 mt-1"
               style={{ background: infoTextColor }}
             />
           </h2>
           <p
-            className="text-xl font-medium opacity-80 uppercase tracking-wider"
+            className="text-md font-medium opacity-80 uppercase tracking-wider"
             style={{ color: infoTextColor }}
           >
             {members[currentIndex].role}
           </p>
           {members[currentIndex].bio && (
-            <p className="text-base mt-2 max-w-md mx-auto opacity-70">
+            <p className="text-base mt-1 max-w-md mx-auto opacity-70">
               {members[currentIndex].bio}
             </p>
           )}
