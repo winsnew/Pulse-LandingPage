@@ -88,6 +88,7 @@ export interface AboutStats {
 }
 
 export interface TeamMembers {
+    id: string;
     name: string;
     role: string;
     image: string;

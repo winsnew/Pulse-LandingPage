@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const WaveMotion = () => {
     return (
-        <div className="absolute bottom-0 left-0 right-0 z-0 overflow-hidden pointer-events-none">
+        <div className="relative bottom-0 left-0 right-0 z-0 overflow-hidden pointer-events-none">
             <svg
                 width="100%"
                 height="100%"

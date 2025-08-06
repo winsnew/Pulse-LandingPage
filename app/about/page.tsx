@@ -20,6 +20,7 @@ import {
 import { teamMembers, achievements, stats } from "@/lib/constants/appdata";
 import Link from "next/link";
 import Image from 'next/image';
+import TeamCarousel from "@/components/customs/TeamCarousel";
 
 export default function About() {
   const staggerContainer = {
@@ -187,73 +188,15 @@ export default function About() {
               <Users className="w-8 h-8 text-gradient-to-r from-white to-grey-500 mr-3" />
               <h2 className="text-3xl font-bold">Meet Our Team</h2>
             </div>
-            <p className="text-xl text-gray-300">
+            <p className="text-xl text-gray-300 ">
               World-class experts in AI, finance, and technology
             </p>
           </div>
 
           {/* Carousel Team Member */}
-          <div className="relative overflow-hidden">
-            <motion.div
-              className="flex gap-8"
-              animate={{ x: [0, -240 * teamMembers.length] }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 20,
-                  ease: "linear"
-                }
-              }}
-              style={{
-                width: `${teamMembers.length * 2 * 100}%`
-              }}
-            >
-              {teamMembers.map((member, index) => (
-                <motion.div
-                  key={`first-${index}`}
-                  className="bg-white/5 rounded-2xl p-6 border border-gray-600/30 backdrop-blur-md transition-all duration-300 group flex-shrink-0"
-                  style={{ width: '320px' }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="relative mb-4 overflow-hidden rounded-xl">
-                    <img src={member.image} alt={member.name} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to transparent"></div>
-                  </div>
+          <TeamCarousel members={teamMembers} />
 
-                  {/* Member details */}
-                  <h3 className="text-xl font-semibold mb-1 text-white">{member.name}</h3>
-                  <p className="text-gray-400 font-sm mb-2">{member.role}</p>
-                  <p className="text-gray-400 text-sm">{member.bio}</p>
-                </motion.div>
-              ))}
 
-              {/* Duplicates for seamless infinte loop */}
-              {teamMembers.map((member, index) => (
-                <motion.div key={`second-${index}`}
-                  className="bg-black rounded-2xl p-6 border border-gray-600/30 backdrop-blur-sm hover:bg-white-700/30 transition-all duration-200 group flex-shrink-0"
-                  style={{ width: '320px' }}
-                >
-                  {/* Member photo with hover */}
-                  <div className="relative mb-4 rounded-xl">
-                    <img src={member.image} alt={member.name}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-200" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  </div>
-
-                  {/* Member details */}
-                  <h3 className="text-xl font-bold mb-1 text-white">{member.name}</h3>
-                  <p className="text-gray-400 font-medium mb-3">{member.role}</p>
-                  <p className="text-gray-500 text-sm leading-relaxed">{member.bio}</p>
-                </motion.div>
-              ))}
-
-            </motion.div>
-
-          </div>
         </motion.div>
       </section>
 
