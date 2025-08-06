@@ -2,49 +2,57 @@ import { TeamMembers, AboutStats, Achievement } from "@/lib/types";
 
 
 export const teamMembers: TeamMembers[] = [
-    {
+    {  
+        id: "1",
         name: "Max Almudhafar",
         role: "Founder & CEO",
         image: "/assets/team-members/maxios.jpeg",
         bio: "10+ years Tech builder | 3X Founder | Visionary"
     },
     {
+        id: "2",
         name: "Issac Joumessi",
         role: "CTO",
         image: "/assets/team-members/Issac_J.jpeg", 
         bio: "Ex-Google AI engineer specializing in real-time market prediction systems."
     },
     {
+        id: "3",
         name: "Yuvaraja Natarajan",
         role: "Software Developer",
         image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400",
         bio: "Cybersecurity veteran from Pentagon, specializing in financial data protection."
     },
     {
+        id: "4",
         name: "Tejinder Singh",
         role: "Software Developer",
         image: "/assets/team-members/tejinder.png",
         bio: "Full-Stack Developer | Front-End Engineer | UI-to-Code Specialist | Workflow Automation Developer "
     },
     {
+        id: "5",
         name: "SOJO",
         role: "Web Developer",
         image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400",
         bio: "Fullstack Web Developer | High Performance | Idea Based Imagined"
     },
     {
+        id: "6",
         name: "Huy LE",
         role: "Software Developer",
         image: "/assets/team-members/huyle.jpg",
         bio: "Computer Science student who could wear multiple hats"
     },
     {
+        id: "7",
         name: "Shubham Saini",
         role: "Marketing Head",
         image: "/assets/team-members/Shub_Saini.jpg",
         bio: "CUDA & Python Dev | 3D Animator | AI/Game Systems | Ex-indusBank Employee | Marketing Dev"
     },
     {
+        id: "8",
         name: "Kyle Paul Lexis",
         role: "Community Lead",
         image: "/assets/team-members/Kyle-Paul.jpg",
