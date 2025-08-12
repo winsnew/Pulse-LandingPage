@@ -12,9 +12,9 @@ export const teamMembers: TeamMembers[] = [
     {
         id: "2",
         name: "Issac Joumessi",
-        role: "CTO",
-        image: "/assets/team-members/Issac_J.jpeg", 
-        bio: "Ex-Google AI engineer specializing in real-time market prediction systems."
+        role: "CTO & Cybersecurity Expert",
+        image: "/assets/team-members/IssacJoumessi.png", 
+        bio: "5+ years Red Teamer | AI Engineer | Cybersecurity Mentor"
     },
     {
         id: "3",
