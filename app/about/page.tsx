@@ -155,7 +155,7 @@ export default function About() {
                 <div key={index} className="text-center">
                   <AnimatedCounter
                     end={stat.number}
-                    duration={3500}
+                    duration={5000}
                     decimals={stat.decimals || 0}
                     suffix={stat.suffix || " "}
                     prefix={stat.prefix || " "}
