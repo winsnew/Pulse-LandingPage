@@ -83,8 +83,29 @@ export interface CollabContentItem {
 // ============================================= App Data ==================================
 
 export interface AboutStats {
-    number: string;
+    number: number;
     label: string;
+    suffix?: string;
+    prefix?: string;
+    decimals?: number;
+}
+
+export interface UseCountUpOptions {
+    end: number;
+    duration?: number;
+    start?: number;
+    decimals?: number;
+    suffix?: string;
+    prefix?: string;
+}
+
+export interface AnimatedCounterProps {
+    end: number;
+    duration?: number;
+    decimals?: number;
+    suffix?: string;
+    prefix?: string;
+    className?: string;
 }
 
 export interface TeamMembers {

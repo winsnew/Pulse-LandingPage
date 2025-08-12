@@ -21,6 +21,7 @@ import { teamMembers, achievements, stats } from "@/lib/constants/appdata";
 import Link from "next/link";
 import Image from 'next/image';
 import TeamCarousel from "@/components/customs/TeamCarousel";
+import AnimatedCounter from "@/components/customs/AnimatedCounter";
 
 export default function About() {
   const staggerContainer = {
@@ -147,32 +148,27 @@ export default function About() {
 
       {/* Stats Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black/20">
-        <motion.div
-          className="max-w-6xl mx-auto"
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-        >
+        <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 relative">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                className="text-center"
-                initial={{ opacity: 0, y: 60 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-              >
-                <div className="text-4xl md:text-5xl font-bold text-gradient-to-r from-white to-grey-500 mb-2">
-                  {stat.number}
+            {stats.map((stat,index)=>{
+              return (
+                <div key={index} className="text-center">
+                  <AnimatedCounter
+                    end={stat.number}
+                    duration={3500}
+                    decimals={stat.decimals || 0}
+                    suffix={stat.suffix || " "}
+                    prefix={stat.prefix || " "}
+                    className="text-4xl md:text-5xl font-bold text-gradient-to-r from-white to-grey-500 mb-2"
+                  />
+                  <div className="text-gray-400 text-sm md:text-base text-gradient-to-r from-white to-grey-500">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-gray-400 text-sm md:text-base text-gradient-to-r from-white to-grey-500">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
+              )
+            })}
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Team Section */}

@@ -84,10 +84,11 @@ export const teamMembers: TeamMembers[] = [
 // ];
 
 export const stats: AboutStats[] = [
-    { number: "500M+", label: "Data Points Analyzed Daily" },
-    { number: "99.7%", label: "Prediction Accuracy" },
+    { number: 500, label: "Data Points Analyzed Daily", suffix: "M+" },
+
+    { number: 99.7, label: "Prediction Accuracy", suffix: "%", decimals: 1},
     // { number: "50K+", label: "Active Users" },
-    { number: "24/7", label: "Market Monitoring" }
+    { number: 24, label: "Market Monitoring", suffix:"/7"}
 ];
 
 export const achievements: Achievement[] = [
