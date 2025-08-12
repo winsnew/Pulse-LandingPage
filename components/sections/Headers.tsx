@@ -40,7 +40,7 @@ const Header: React.FC = () => {
         className={`fixed left-0 top-0 w-full z-50 transition-all duration-500 ease-in-out
         ${showNavbar || open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6 pointer-events-none"}
         ${open ? "bg-transparent backdrop-blur-md" : "bg-transparent backdrop-blur-md"}
-        px-4 py-0 rounded-full shadow-lg border border-white/10`}
+        px-4 py-0 rounded-full outline-none shadow-lg border border-white/10`}
       >
         <div className="relative flex items-center justify-between w-full max-w-7xl mx-auto px-4 py-2 lg:px-10">
           <Link href="/" scroll={false} className="flex items-center shrink-0 z-10">
