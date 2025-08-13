@@ -31,10 +31,10 @@ const Footer = () => {
                                 <a
                                     key={social.name}
                                     href={social.href}
-                                    className="group relative p-3 bg-slate-800/50 rounded-xl border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300"
+                                    className="group relative p-3  rounded-xl border border-slate-700/50 hover:border-gray-200 transition-all duration-300"
                                 >
-                                    <social.icon className="w-5 h-5 sm:w-6 sm:h-6 text-slate-400 group-hover:text-white transition-colors duration-300" />
-                                    <div className="absolute inset-0 bg-purple-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <social.icon className="w-5 h-5 sm:w-6 grayscale sm:h-6 text-slate-400 group-hover:text-white transition-colors duration-300" />
+                                    <div className="absolute inset-0  rounded-xl opacity-0 group-hover:grayscale-0 transition-opacity duration-300"></div>
                                 </a>
                             ))}
                         </div>
