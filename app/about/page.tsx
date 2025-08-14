@@ -289,7 +289,7 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          <div className="bg-gradient-to-r from-black to-grey-500 rounded-3xl p-12 border border-white/10 backdrop-blur-sm">
+          <div className="bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent rounded-3xl p-12 border border-white/10 backdrop-blur-sm">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Experience the Future?
             </h2>
