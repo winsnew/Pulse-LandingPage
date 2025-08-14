@@ -88,23 +88,21 @@ const Hero = () => {
                     >
 
                         <motion.h1
-                            className="h1 mb-6 font-bold tracking-tight text-white"
+                            className="text-3xl text-center mb-6 font-medium text-gray-900 dark:text-gray-50 sm:text-6xl"
                             variants={fadeUpVariant(0.2)}
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
                         >
-                            Transform Your Business With Intelligent Analytics{" "}
-                            <motion.span
-                                className="chrome-text inline-block "
-                            >
-                                Pulse
-                            </motion.span>{" "}
-                            - Your AI Trading Partner
+                            Trade with the Market's{" "}
+                        <span className="animate-text-gradient inline-flex bg-gradient-to-r from-neutral-900 vial-slate-500 to-neutral-500 bg-[200%_auto] bg-clip-text leading-tight text-transparent dark:from-neutral-100 dark:via-slate-400 dark:to-neutral-400">
+                            Pulse - Powered by AI Intelligence
+                        </span>
+                            
                         </motion.h1>
 
                         <motion.p
-                            className="body-1 max-w-3xl mx-auto mb-6 text-n-2 md:mb-8 text-sm"
+                            className="body-1 max-w-3xl mx-auto mb-6 text-n-2 md:mb-8 text-sm text-gray-600 dark:text-gray-200"
                             variants={fadeUpVariant(0.4)}
                             initial="hidden"
                             whileInView="visible"
@@ -123,7 +121,7 @@ const Hero = () => {
                             <div className="flex sm:flex-row gap-4 justify-center items-center">
                                 <motion.a
                                     href="#"
-                                    className="bg-white/100 rounded-full group relative gap-2 px-5 py-3 text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] hover:ring-2 hover:ring-white/60 hover:ring-offset-2 flex flex-row justify-evenly"
+                                    className="bg-white/100 rounded-full group relative gap-2 px-5 py-3 text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] hover:ring-2 hover:ring-white/20 hover:ring-offset-1 flex flex-row justify-evenly"
                                     // whileHover={{ scale: 1.02, y: -2, transition: { duration: 0.3, ease: "linear" } }}
                                     // whileTap={{ scale: 0.95, y:0, transition: {duration: 0.1, ease: "linear"}}}
                                     aria-label="Start for Free"
