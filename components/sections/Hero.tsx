@@ -102,7 +102,7 @@ const Hero = () => {
                         </motion.h1>
 
                         <motion.p
-                            className="body-1 max-w-3xl mx-auto mb-6 text-n-2 md:mb-8 text-sm text-gray-600 dark:text-gray-200"
+                            className="body-1 max-w-2xl mx-auto mb-6 text-n-2 md:mb-8 text-sm text-gray-600 dark:text-gray-200"
                             variants={fadeUpVariant(0.4)}
                             initial="hidden"
                             whileInView="visible"
@@ -158,7 +158,7 @@ const Hero = () => {
                             </div>
 
                             <motion.span
-                                className="text-sm text-slate-400 mt-2 text-center block"
+                                className="text-sm text-gray-300 mt-2 text-center block"
                                 variants={fadeUpVariant(0.8)}
                                 initial="hidden"
                                 whileInView="visible"
