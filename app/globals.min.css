@@ -1,6 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
 
 
@@ -48,27 +45,27 @@
     }
 
     .chrome-text {
-        background: linear-gradient(135deg,
-                #e0e0e03c,
-                #ffffff 30%,
-                #bfbfbf 50%,
-                #f0f0f0 70%,
-                #9e9e9e00);
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        font-weight: 800;
-        position: relative;
-        text-shadow:
-            0 1px 1px rgba(255, 255, 255, 0.3),
-            0 2px 3px rgba(0, 0, 0, 0.856),
-            inset 0 0 8px rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg,
+        #e0e0e03c,
+        #ffffff 30%,
+        #bfbfbf 50%,
+        #f0f0f0 70%,
+        #9e9e9e00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+    position: relative;
+    text-shadow:
+        0 1px 1px rgba(255, 255, 255, 0.3),
+        0 2px 3px rgba(0, 0, 0, 0.856),
+        inset 0 0 8px rgba(255, 255, 255, 0.1);
     }
 
     .glass-cta-btn {
         background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-        backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.2);
         box-shadow:
             inset 0 0 0.5px rgba(255, 255, 255, 0.3),
