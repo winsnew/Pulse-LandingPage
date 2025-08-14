@@ -77,7 +77,7 @@ const Hero = () => {
                     } -mt-[4.25rem]`}
             >
 
-                <div className="container relative" ref={parallaxRef}>
+                <div className="container h-screen relative" ref={parallaxRef}>
                     <Wave />
                     <motion.div
                         className="relative z-10 max-w-full mx-auto text-center mb-20 md:mb-28 lg:mb-32"

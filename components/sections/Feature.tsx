@@ -65,7 +65,7 @@ const Features = () => {
         <section className="relative py-24 md:py-32 bg-transparent text-white" id="features">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.h2
-                    className="text-3xl sm:text-5xl font-extrabold text-center mb-20 leading-tight tracking-tight"
+                    className="text-3xl sm:text-5xl font-bold text-center mb-20 leading-tight tracking-tight"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
