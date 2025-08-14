@@ -121,7 +121,7 @@ const Hero = () => {
                             <div className="flex sm:flex-row gap-4 justify-center items-center">
                                 <motion.a
                                     href="#"
-                                    className="bg-white/100 rounded-full group relative gap-2 px-5 py-3 text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] hover:ring-2 hover:ring-white/20 hover:ring-offset-1 flex flex-row justify-evenly"
+                                    className="bg-white/100 rounded-full group relative gap-2 px-4 py-2.5 text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] hover:ring-2 hover:ring-white/20 hover:ring-offset-1 flex flex-row justify-evenly"
                                     // whileHover={{ scale: 1.02, y: -2, transition: { duration: 0.3, ease: "linear" } }}
                                     // whileTap={{ scale: 0.95, y:0, transition: {duration: 0.1, ease: "linear"}}}
                                     aria-label="Start for Free"
