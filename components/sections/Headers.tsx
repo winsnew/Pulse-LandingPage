@@ -72,7 +72,7 @@ const Header: React.FC = () => {
           {/* Desktop Sign-in/Sign-up */}
           <div className="hidden lg:flex items-center gap-4 z-10">
             <Link
-              href="#login"
+              href="/login"
               scroll={false}
               className="px-5 py-2.5 text-sm font-medium text-white/90 
               bg-gradient-to-br from-white/5 to-white/10 
@@ -86,7 +86,7 @@ const Header: React.FC = () => {
               Sign In
             </Link>
             <Link
-              href="#signup"
+              href="/signup"
               scroll={false}
               className="px-5 py-2 text-sm font-semibold bg-primary text-white rounded-xl shadow-md hover:bg-primary/90 transition-all duration-300"
             >
