@@ -2,9 +2,8 @@ import { NavbarProvider } from '@/hooks/nav-provider';
 import './globals.min.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Header from '@/components/sections/Headers';
-import Footer from '@/components/sections/Footer';
-import { Gradient } from '@/components/customs/Heros';
+import ClientLayout from './client-layout';
+
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,12 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NavbarProvider>
-          <Header />
-          <Gradient />
-          {children}
-          <Footer />
-        </NavbarProvider>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
