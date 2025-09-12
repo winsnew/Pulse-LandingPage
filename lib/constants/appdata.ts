@@ -18,10 +18,10 @@ export const teamMembers: TeamMembers[] = [
     },
     {
         id: "3",
-        name: "Yuvaraja Natarajan",
-        role: "Software Developer",
+        name: "Lane",
+        role: "Senior Developer",
         image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400",
-        bio: "Cybersecurity veteran from Pentagon, specializing in financial data protection."
+        bio: "Ex Dell Engineer | Author of Dell NativeEdge Cloud | 3X Founder building Tech"
     },
     {
         id: "4",
@@ -33,26 +33,33 @@ export const teamMembers: TeamMembers[] = [
     {
         id: "5",
         name: "SOJO",
-        role: "Web Developer",
+        role: "Fullstack Developer",
         image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400",
         bio: "Fullstack Web Developer | High Performance | Idea Based Imagined"
     },
     {
-        id: "6",
-        name: "Huy LE",
+        id:"6",
+        name: "Harshith Reddy",
+        role: "AI Engineer",
+        image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400",
+        bio: "INEX 2024 | Published ODL+ML=EWS  | Build IDS at International Expo"
+    },
+    {
+        id: "7",
+        name: "Huy Le",
         role: "Software Developer",
         image: "/assets/team-members/huyle.jpg",
         bio: "Computer Science student who could wear multiple hats"
     },
     {
-        id: "7",
+        id: "8",
         name: "Shubham Saini",
         role: "Marketing Head",
         image: "/assets/team-members/Shub_Saini.jpg",
         bio: "CUDA & Python Dev | 3D Animator | AI/Game Systems | Ex-indusBank Employee | Marketing Dev"
     },
     {
-        id: "8",
+        id: "9",
         name: "Kyle Paul Lexis",
         role: "Community Lead",
         image: "/assets/team-members/Kyle-Paul.jpg",
