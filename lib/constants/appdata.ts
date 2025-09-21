@@ -20,30 +20,31 @@ export const teamMembers: TeamMembers[] = [
         id: "3",
         name: "Lane",
         role: "Senior Developer",
-        image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400",
+        image: "/assets/team-members/Lane.jpg",
         bio: "Ex Dell Engineer | Author of Dell NativeEdge Cloud | 3X Founder building Tech"
     },
     {
-        id: "4",
+        id:"4",
+        name: "Harshith Reddy",
+        role: "AI Engineer",
+        image: "/assets/team-members/harshith.jpg",
+        bio: "INEX 2024 | Published ODL+ML=EWS  | Build IDS at International Expo"
+    },
+    {
+        id: "5",
         name: "Tejinder Singh",
         role: "Software Developer",
         image: "/assets/team-members/tejinder.png",
         bio: "Full-Stack Developer | Front-End Engineer | UI-to-Code Specialist | Workflow Automation Developer "
     },
     {
-        id: "5",
+        id: "6",
         name: "SOJO",
         role: "Fullstack Developer",
         image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400",
         bio: "Fullstack Web Developer | High Performance | Idea Based Imagined"
     },
-    {
-        id:"6",
-        name: "Harshith Reddy",
-        role: "AI Engineer",
-        image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400",
-        bio: "INEX 2024 | Published ODL+ML=EWS  | Build IDS at International Expo"
-    },
+    
     {
         id: "7",
         name: "Huy Le",
