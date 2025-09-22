@@ -32,7 +32,7 @@ export const teamMembers: TeamMembers[] = [
     },
     {
         id: "5",
-        name: "Jean",
+        name: "Jean Plamin",
         role: "Full Stack Developer",
         image: "/assets/team-members/Jean.jpg",
         bio: "Full-Stack Architect| Enterprise platforms for Fortune 500 | Proven Tech Leadership"
