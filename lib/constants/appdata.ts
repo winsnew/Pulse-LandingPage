@@ -32,13 +32,20 @@ export const teamMembers: TeamMembers[] = [
     },
     {
         id: "5",
+        name: "Jean",
+        role: "Full Stack Developer",
+        image: "/assets/team-members/Jean.jpg",
+        bio: "Full-Stack Architect| Enterprise platforms for Fortune 500 | Proven Tech Leadership"
+    },
+    {
+        id: "6",
         name: "Tejinder Singh",
         role: "Software Developer",
         image: "/assets/team-members/tejinder.png",
         bio: "Full-Stack Developer | Front-End Engineer | UI-to-Code Specialist | Workflow Automation Developer "
     },
     {
-        id: "6",
+        id: "7",
         name: "SOJO",
         role: "Fullstack Developer",
         image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400",
@@ -46,21 +53,21 @@ export const teamMembers: TeamMembers[] = [
     },
     
     {
-        id: "7",
+        id: "8",
         name: "Huy Le",
         role: "Software Developer",
         image: "/assets/team-members/huyle.jpg",
         bio: "Computer Science student who could wear multiple hats"
     },
     {
-        id: "8",
+        id: "9",
         name: "Shubham Saini",
         role: "Marketing Head",
         image: "/assets/team-members/Shub_Saini.jpg",
         bio: "CUDA & Python Dev | 3D Animator | AI/Game Systems | Ex-indusBank Employee | Marketing Dev"
     },
     {
-        id: "9",
+        id: "10",
         name: "Kyle Paul Lexis",
         role: "Community Lead",
         image: "/assets/team-members/Kyle-Paul.jpg",
@@ -68,28 +75,6 @@ export const teamMembers: TeamMembers[] = [
     },
 ];
 
-// export const sponsors = [
-//     {
-//         name: "Andreessen Horowitz",
-//         logo: "https://images.pexels.com/photos/6913362/pexels-photo-6913362.jpeg?auto=compress&cs=tinysrgb&w=200",
-//         tier: "Series A Lead"
-//     },
-//     {
-//         name: "Sequoia Capital",
-//         logo: "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=200",
-//         tier: "Strategic Investor"
-//     },
-//     {
-//         name: "Y Combinator",
-//         logo: "https://images.pexels.com/photos/6694543/pexels-photo-6694543.jpeg?auto=compress&cs=tinysrgb&w=200",
-//         tier: "Accelerator"
-//     },
-//     {
-//         name: "Coinbase Ventures",
-//         logo: "https://images.pexels.com/photos/8919564/pexels-photo-8919564.jpeg?auto=compress&cs=tinysrgb&w=200",
-//         tier: "Strategic Partner"
-//     }
-// ];
 
 export const stats: AboutStats[] = [
     { number: 500, label: "Data Points Analyzed Daily", suffix: "M+" },
