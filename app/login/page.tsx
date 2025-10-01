@@ -56,14 +56,12 @@ export default function Login() {
       <div className="absolute inset-0 "> </div>
 
       {/* Company Logo/Name */}
-      {/* <div className="absolute top-8 left-8 z-20"> */}
-        {/* <div className="flex items-center space-x-3"> */}
-          {/* <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center">
-            <Zap className="w-6 h-6 text-white" />
-          </div> */}
-          {/* <span className="text-2xl font-bold text-white">Pulse</span> */}
-        {/* </div> */}
-      {/* </div> */}
+      <div className="absolute top-10 left-15 z-20">
+        <div className="flex items-center space-x-3">
+          <img src="/favicon.png" alt="Logo" className="w-8 h-8" />
+          {/* <span className="font-semibold text-white">Pulse</span> */}
+        </div>
+      </div>
 
       {/* Content */}
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
@@ -179,5 +177,3 @@ export default function Login() {
     </div>
   );
 };
-
-// export default Login;
