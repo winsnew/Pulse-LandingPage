@@ -6,6 +6,7 @@ interface AnimatedButtonProps {
   variant?: 'primary' | 'secondary';
   className?: string;
   onClick?: () => void;
+  disabled: boolean;
 }
 
 const AnimatedButton: React.FC<AnimatedButtonProps> = ({
@@ -13,7 +14,8 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   type = 'button',
   variant = 'primary',
   className = '',
-  onClick
+  onClick,
+  disabled = false
 }) => {
   const baseStyles = "relative overflow-hidden px-4 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent text-sm";
   
@@ -26,11 +28,11 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
     <button
       type={type}
       onClick={onClick}
+      disabled={disabled}
       className={`${baseStyles} ${variants[variant]} ${className} group`}
     >
-      {/* Flowing dots animation */}
       <div className="absolute inset-0 overflow-hidden rounded-lg">
-        {[...Array(4)].map((_, i) => (
+        {!disabled && [...Array(4)].map((_, i) => ( // ✅ Hide animation when disabled
           <div
             key={i}
             className="absolute w-0.5 h-0.5 bg-white/40 rounded-full"
@@ -49,7 +51,9 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       </span>
 
       {/* Hover effect overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+      {!disabled && ( // ✅ Hide hover effect when disabled
+        <div className="absolute inset-0 bg-gradient-to-t from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+      )}
     </button>
   );
 };
