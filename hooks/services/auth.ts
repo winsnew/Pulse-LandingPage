@@ -9,7 +9,14 @@ async function handleResponse<T>(response: Response): Promise<T> {
     }));
     throw new Error(error.detail || `HTTP error! status: ${response.status}`);
   }
-  return response.json();
+  
+  const result = await response.json();
+  
+  if (result.success !== undefined && result.data !== undefined) {
+    return result.data; 
+  }
+  
+  return result;
 }
 
 export const authService = {
@@ -32,23 +39,26 @@ export const authService = {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(verificationData),
-      credentials: 'include'
+      // credentials: 'include'
     });
 
     return handleResponse<Token>(response);
   },
 
-  async login(credentials: { username: string; password: string }): Promise<Token> {
+  async login(credentials: { email: string; password: string }): Promise<Token> {
     const formData = new URLSearchParams();
-    formData.append('username', credentials.username);
+    formData.append('email', credentials.email);
     formData.append('password', credentials.password);
 
     const response = await fetch(`${API_BASE_URL}/auth-ms/login`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       },
-      body: formData,
+      body: JSON.stringify({
+        email: credentials.email,
+        password: credentials.password
+      }),
     });
 
     return handleResponse<Token>(response);

@@ -4,8 +4,10 @@ import Link from 'next/link';
 import { Mail, Lock, Eye, EyeOff, Loader2 } from 'lucide-react';
 import AnimatedButton from '../../components/customs/AnimatedButton';
 import { authService } from '@/hooks/services/auth';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { tokenService } from '@/lib/auth/utils';
+
+const API_DASHBOARD_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL || '';
 
 export default function Login() {
   const router = useRouter();
@@ -23,7 +25,7 @@ export default function Login() {
     setIsLoading(true)
     try {
       const credentials = {
-        username: formData.email, 
+        email: formData.email, 
         password: formData.password
       };
 
@@ -31,11 +33,16 @@ export default function Login() {
       const tokens = await authService.login(credentials);
       console.log('Login successful:', tokens);
       
-      // localStorage.setItem('access_token', tokens.access_token);
-      // localStorage.setItem('refresh_token', tokens.refresh_token);
       tokenService.setTokens(tokens);
       
-      router.push('/dashboard');
+      if (!tokens.access_token) {
+        throw new Error('Access token is missing in response');
+      }
+      
+      const redirectUrl = `${API_DASHBOARD_URL}?token=${encodeURIComponent(tokens.access_token)}`;
+      console.log('Redirecting to:', redirectUrl);
+      
+      window.location.href = redirectUrl;
       
     } catch (err) {
       console.error('Login error:', err);

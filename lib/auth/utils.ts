@@ -3,7 +3,7 @@ import { Token } from "./types";
 export const tokenService = {
   setTokens(tokens: Token) {
     localStorage.setItem('access_token', tokens.access_token);
-    localStorage.setItem('refresh_token', tokens.refresh_token);
+    // localStorage.setItem('refresh_token', tokens.refresh_token);
   },
   
   getAccessToken() {
