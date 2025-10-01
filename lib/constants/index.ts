@@ -111,7 +111,7 @@ export const pricing: PricingPlan[] = [
         monthlyPrice: "0",
         annualPrice: "0",
         features: [
-            "Limited Access to Influencer Intel (3 Influencers)",
+            "Limited Access to Influencer Intel",
             "Basic Assets Radar with standard analysis",
             "Up to 5 active SmartAlerts",
             "Basic MarketView AI indicators",
