@@ -1,22 +1,18 @@
-import { UserCreate, UserResponse, Token, EmailVerificationRequest, ApiError } from '@/lib/auth/types';
+import { UserCreate, UserResponse, Token, EmailVerificationRequest } from '@/lib/auth/types';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 async function handleResponse<T>(response: Response): Promise<T> {
-  if (!response.ok) {
-    const error: ApiError = await response.json().catch(() => ({
+   if (!response.ok) {
+    const errorData = await response.json().catch(() => ({
       detail: 'Network error occurred'
     }));
-    throw new Error(error.detail || `HTTP error! status: ${response.status}`);
+    throw new Error(errorData.detail || `HTTP error! status: ${response.status}`);
   }
   
   const result = await response.json();
-  
-  if (result.success !== undefined && result.data !== undefined) {
-    return result.data; 
-  }
-  
   return result;
+  
 }
 
 export const authService = {
@@ -27,6 +23,7 @@ export const authService = {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(userData),
+      // credentials: 'include'
     });
 
     return handleResponse<UserResponse>(response);
@@ -46,19 +43,17 @@ export const authService = {
   },
 
   async login(credentials: { email: string; password: string }): Promise<Token> {
-    const formData = new URLSearchParams();
-    formData.append('email', credentials.email);
-    formData.append('password', credentials.password);
+    // const formData = new URLSearchParams();
+    // formData.append('username', credentials.email);
+    // formData.append('password', credentials.password);
 
     const response = await fetch(`${API_BASE_URL}/auth-ms/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        email: credentials.email,
-        password: credentials.password
-      }),
+      body: JSON.stringify(credentials),
+      // credentials: 'include',
     });
 
     return handleResponse<Token>(response);

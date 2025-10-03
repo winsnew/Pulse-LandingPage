@@ -10,7 +10,7 @@ import { tokenService } from '@/lib/auth/utils';
 const API_DASHBOARD_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL || '';
 
 export default function Login() {
-  const router = useRouter();
+  // const router = useRouter();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
