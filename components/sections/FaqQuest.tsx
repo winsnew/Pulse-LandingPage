@@ -39,6 +39,7 @@ const FaqQuestion = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1, duration: 0.6 }}
                             viewport={{ once: true }}
+                            layout
                         >
                             <button
                                 onClick={() => toggle(index)}
@@ -59,10 +60,12 @@ const FaqQuestion = () => {
                                 {openIndex === index && (
                                     <motion.div
                                         key="content"
-                                        initial={{ opacity: 0, height: 0 }}
-                                        animate={{ opacity: 1, height: "auto" }}
-                                        exit={{ opacity: 0, height: 0 }}
+                                        initial={{ opacity: 0}}
+                                        animate={{ opacity: 1}}
+                                        exit={{ opacity: 0}}
                                         transition={{ duration: 0.4, ease: "easeInOut" }}
+                                        layout
+                                        className="overflow-hidden"
                                     >
                                         <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
                                             {faq.answer}
