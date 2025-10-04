@@ -1,4 +1,3 @@
-// types/auth.ts
 export interface UserCreate {
   email: string;
   password: string;
