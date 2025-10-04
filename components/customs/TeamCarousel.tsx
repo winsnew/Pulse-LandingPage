@@ -78,8 +78,8 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
   titleSize = "2xl",
   titleColor = "rgb(163, 163, 163)",
   background,
-  cardWidth = 300,
-  cardHeight = 330,
+  cardWidth = 220,
+  cardHeight =260,
   cardRadius = 20,
   showArrows = false,
   showDots = false,
@@ -414,7 +414,7 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
                       }}
                     >
                       <h3 className="text-lg font-semibold">{member.name}</h3>
-                      <p className="text-sm opacity-90">{member.role}</p>
+                      <p className="text-sm opacity-70">{member.role}</p>
                     </div>
                   )}
                 </motion.div>
