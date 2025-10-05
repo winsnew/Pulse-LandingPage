@@ -10,7 +10,7 @@ import AuthFooter from "@/components/sections/AuthFooter"
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
 
-  const isAuthPage = pathname === "/login" || pathname === "/signup" || pathname === "/verify-email"
+  const isAuthPage = pathname === "/login" || pathname === "/signup" || pathname === "/verify-email" || pathname === "/forgot-password"
 
   return (
     <NavbarProvider>

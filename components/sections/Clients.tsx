@@ -30,10 +30,10 @@ const ClientLabel = () => {
                     viewport={{ once: true }}
                 >
                     <div className="marquee">
-                        <div className="track flex">
-                            {[...companies, ...companies].map((company,idx) => (
+                        <div className="track">
+                            {companies.map((company) => (
                                 <div
-                                    key={`${company.name}-${idx}`}
+                                    key={company.name}
                                     className="flex-shrink-0 group transition-transform duration-300 hover:scale-105 px-4"
                                 >
                                     <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary/30 transition-all">

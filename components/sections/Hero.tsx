@@ -187,7 +187,7 @@ const Hero = () => {
                                 transition={{ duration: 1, ease: easeOut }}
 
                             >
-                                <div className="h-auto bg-transparent rounded-t-[0.9rem]" />
+                                <div className="h-[1.4rem] bg-transparent rounded-t-[0.9rem]" />
                                 <motion.div
                                     className="rounded-b-[0.9rem] overflow-hidden hidden md:block"
                                     initial="hidden"
@@ -213,10 +213,10 @@ const Hero = () => {
                                     variants={fadeUpVariant(0.4)}
                                 >
                                     <Image
-                                        src="/assets/mobileview.jpg"
+                                        src="/assets/mobile.png"
                                         className="w-full h-auto"
                                         width={350}
-                                        height={600}
+                                        height={700}
                                         alt="Pulse AI Mobile Dashboard"
                                         priority
                                     />

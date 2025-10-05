@@ -10,7 +10,7 @@ import { tokenService } from '@/lib/auth/utils';
 const API_DASHBOARD_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL || '';
 
 export default function Login() {
-  // const router = useRouter();
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -39,10 +39,10 @@ export default function Login() {
         throw new Error('Access token is missing in response');
       }
       
-      const redirectUrl = `${API_DASHBOARD_URL}?token=${encodeURIComponent(tokens.access_token)}`;
+      const redirectUrl = `${API_DASHBOARD_URL}?token=${encodeURIComponent(tokens.access_token)}&refresh_token=${encodeURIComponent(tokens.refresh_token)}`;
       console.log('Redirecting to:', redirectUrl);
       
-      window.location.href = redirectUrl;
+      router.push(redirectUrl)
       
     } catch (err) {
       console.error('Login error:', err);
@@ -152,9 +152,7 @@ export default function Login() {
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-white/10"></div>
                 </div>
-                <div className="relative flex justify-center text-xs">
-                  <span className="px-3 bg-transparent text-slate-400">or</span>
-                </div>
+                  
               </div>
 
               {/* Google login */}

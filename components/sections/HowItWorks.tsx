@@ -137,7 +137,7 @@ const HowItWorksCircuitPrecise = () => {
         ScrollTrigger.create({
             trigger: pinWrapperRef.current,
             start: "top top",
-            end: () => `bottom bottom`,
+            end: () => `+=${stepsHeight}`,
             pin: container,
             scrub: 0.8,
             pinSpacing: true,

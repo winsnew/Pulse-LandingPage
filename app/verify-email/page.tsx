@@ -52,11 +52,8 @@ export default function VerifyEmail() {
       setSuccess(true);
       
       // Redirect success
-      const redirectUrl = new URL(API_DASHBOARD_URL);
-      redirectUrl.searchParams.set('token', tokens.access_token);
-    
       setTimeout(() => {
-        window.location.href = redirectUrl.toString();
+        window.location.href = `${API_DASHBOARD_URL}?token=${tokens.access_token}`;
       }, 2000);
       
     } catch (err) {
