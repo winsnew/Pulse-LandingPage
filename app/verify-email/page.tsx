@@ -6,7 +6,7 @@ import AnimatedButton from '../../components/customs/AnimatedButton';
 import { authService } from '@/hooks/services/auth';
 import { tokenService } from '@/lib/auth/utils';
 
-const API_DASHBOARD_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL || ''
+const API_DASHBOARD_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL || 'https://staging-frontend.pulsenow.io'
 
 export default function VerifyEmail() {
   const router = useRouter();
