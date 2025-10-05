@@ -19,6 +19,25 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
 
+   const sendTokensToDashboard = (tokens: { access_token: string; refresh_token: string }) => {
+    try {
+      window.postMessage(
+        {
+          type: 'AUTH_TOKENS',
+          tokens: {
+            access_token: tokens.access_token,
+            refresh_token: tokens.refresh_token
+          }
+        },
+        'http://localhost:3001'
+      );
+      
+      console.log('Tokens sent via postMessage to localhost:3001');
+    } catch (err) {
+      console.error('Error sending tokens via postMessage:', err);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -29,20 +48,23 @@ export default function Login() {
         password: formData.password
       };
 
-      console.log('Login attempt:', credentials);
+      // console.log('Login attempt:', credentials);
       const tokens = await authService.login(credentials);
-      console.log('Login successful:', tokens);
+      // console.log('Login successful:', tokens);
       
       tokenService.setTokens(tokens);
       
       if (!tokens.access_token) {
         throw new Error('Access token is missing in response');
       }
+
+      sendTokensToDashboard(tokens);
       
-      const redirectUrl = `${API_DASHBOARD_URL}?token=${encodeURIComponent(tokens.access_token)}&refresh_token=${encodeURIComponent(tokens.refresh_token)}`;
-      console.log('Redirecting to:', redirectUrl);
-      
+      const redirectUrl = `${API_DASHBOARD_URL}?access_token=${encodeURIComponent(tokens.access_token)}&refresh_token=${encodeURIComponent(tokens.refresh_token)}`;
       router.push(redirectUrl)
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      
       
     } catch (err) {
       console.error('Login error:', err);

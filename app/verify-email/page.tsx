@@ -25,6 +25,24 @@ export default function VerifyEmail() {
     }
   }, [email, router]);
 
+  const sendTokensToDashboard = (tokens: { access_token: string; refresh_token: string }) => {
+    try {
+      window.postMessage(
+        {
+          type: 'AUTH_TOKENS',
+          tokens: {
+            access_token: tokens.access_token,
+            refresh_token: tokens.refresh_token
+          }
+        },
+        API_DASHBOARD_URL
+      );
+      
+    } catch (err) {
+      console.error('Error sending tokens:', err);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -38,22 +56,20 @@ export default function VerifyEmail() {
         code
       };
 
-      console.log('Verifying email:', verificationData);
-      
+      // console.log('Verifying email:', verificationData);
       const tokens = await authService.verifyEmail(verificationData);
+      // console.log('Email verification successful:', tokens);
       
-      console.log('Email verification successful:', tokens);
-      
-      // Store tokens
-      // localStorage.setItem('access_token', tokens.access_token);
-      // localStorage.setItem('refresh_token', tokens.refresh_token);
       tokenService.setTokens(tokens);
+      sendTokensToDashboard(tokens);
       
       setSuccess(true);
       
-      // Redirect success
       setTimeout(() => {
-        window.location.href = `${API_DASHBOARD_URL}?token=${tokens.access_token}`;
+        const redirectUrl = `${API_DASHBOARD_URL}?access_token=${encodeURIComponent(tokens.access_token)}&refresh_token=${encodeURIComponent(tokens.refresh_token)}`;
+        router.push(redirectUrl);
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
       }, 2000);
       
     } catch (err) {
@@ -65,7 +81,7 @@ export default function VerifyEmail() {
   };
 
   const handleResendCode = async () => {
-    console.log('Resending verification code to:', email);
+    // console.log('Resending verification code to:', email);
     alert('Verification code has been resent to your email.');
   };
 
