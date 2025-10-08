@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
+  // output: "export",
   optimizeFonts: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -9,6 +9,15 @@ const nextConfig = {
   webpack: (config) => {
     config.devtool = false; 
     return config;
+  },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/login',
+        permanent: false, 
+      },
+    ]
   },
 };
 

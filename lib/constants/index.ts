@@ -72,10 +72,10 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const navigation: NavigationItem[] = [
-    { id: "0", title: "About", url: "about" },
-    { id: "1", title: "Features", url: "/#features" },
-    { id: "2", title: "How to use", url: "/#how-it-works" },
-    { id: "3", title: "Pricing", url: "/#pricing" },
+    // { id: "0", title: "About", url: "about" },
+    // { id: "1", title: "Features", url: "/#features" },
+    // { id: "2", title: "How to use", url: "/#how-it-works" },
+    // { id: "3", title: "Pricing", url: "/#pricing" },
     { id: "4", title: "Sign up", url: "/signup", onlyMobile: true },
     { id: "5", title: "Sign in", url: "/login", onlyMobile: true },
 ];

@@ -17,7 +17,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       {!isAuthPage && <Header />}
       <Gradient />
       {children}
-      {!isAuthPage ? <Footer /> : <AuthFooter/>}
+      {!isAuthPage ? <AuthFooter /> : <AuthFooter/>}
     </NavbarProvider>
   )
 }
