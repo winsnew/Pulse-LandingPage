@@ -156,7 +156,7 @@ export default function Login() {
                 </button>
               </div>
 
-              <div className="flex items-start space-x-2">
+              <div className="flex items-start justify-center space-x-2">
                 <input
                   type="checkbox"
                   id="agreeToTerms"
