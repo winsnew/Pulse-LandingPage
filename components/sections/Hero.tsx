@@ -88,14 +88,14 @@ const Hero = () => {
                     >
 
                         <motion.h1
-                            className="text-3xl text-center mb-6 font-medium text-gray-900 dark:text-gray-50 sm:text-6xl"
+                            className="text-3xl text-center mb-6 font-medium text-gray-300 dark:text-gray-50 sm:text-6xl"
                             variants={fadeUpVariant(0.2)}
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
                         >
                             Trade with the Market's{" "}
-                        <span className="animate-text-gradient inline-flex bg-gradient-to-r from-neutral-900 vial-slate-500 to-neutral-500 bg-[200%_auto] bg-clip-text leading-tight text-transparent dark:from-neutral-100 dark:via-slate-400 dark:to-neutral-400">
+                        <span className="animate-text-gradient inline-flex bg-gradient-to-r from-neutral-600 vial-slate-500 to-neutral-300 bg-[200%_auto] bg-clip-text leading-tight text-transparent dark:from-neutral-100 dark:via-slate-400 dark:to-neutral-400">
                             Pulse - Powered by AI Intelligence
                         </span>
                             
