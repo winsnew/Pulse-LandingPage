@@ -20,6 +20,7 @@ export default function Signup() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
+  const [agreeToTerms, setAgreeToTerms] = useState(false);
 
   const validatePassword = (password: string): boolean => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -36,6 +37,11 @@ export default function Signup() {
 
     if (!validatePassword(formData.password)) {
       setError('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character');
+      return;
+    }
+
+    if (!agreeToTerms) {
+      setError('Please agree to the beta terms and privacy policy');
       return;
     }
 
@@ -197,6 +203,28 @@ export default function Signup() {
                   'Create Account'
                 )}
               </AnimatedButton>
+
+              {/* Terms and Privacy Policy Checkbox */}
+              <div className="flex items-center justify-center space-x-2">
+                <input
+                  type="checkbox"
+                  id="agreeToTerms"
+                  checked={agreeToTerms}
+                  onChange={(e) => setAgreeToTerms(e.target.checked)}
+                  className="mt-1 w-4 h-4 text-blue-600 bg-white/5 border-white/10 rounded focus:ring-blue-500 focus:ring-2"
+                  disabled={isLoading}
+                />
+                <label htmlFor="agreeToTerms" className="text-slate-300 text-sm">
+                  I agree to the{' '}
+                  <Link href="/beta-terms" className="text-blue-300 hover:text-blue-200 underline">
+                    beta terms
+                  </Link>{' '}
+                  and{' '}
+                  <Link href="/privacy-policy" className="text-blue-300 hover:text-blue-200 underline">
+                    privacy policy
+                  </Link>
+                </label>
+              </div>
 
               {/* Divider */}
               <div className="relative my-4">
