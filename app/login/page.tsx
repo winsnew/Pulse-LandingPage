@@ -18,6 +18,7 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
+  const [agreeToTerms, setAgreeToTerms] = useState(false);
 
    const sendTokensToDashboard = (tokens: { access_token: string; refresh_token: string }) => {
     try {
@@ -41,7 +42,12 @@ export default function Login() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    if (!agreeToTerms) {
+      setError('Please agree to the beta terms and privacy policy');
+      return;
+    }
     setIsLoading(true)
+
     try {
       const credentials = {
         email: formData.email, 
@@ -148,6 +154,27 @@ export default function Login() {
                 >
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
+              </div>
+
+              <div className="flex items-start space-x-2">
+                <input
+                  type="checkbox"
+                  id="agreeToTerms"
+                  checked={agreeToTerms}
+                  onChange={(e) => setAgreeToTerms(e.target.checked)}
+                  className="mt-1 w-4 h-4 text-blue-600 bg-white/5 border-white/10 rounded focus:ring-blue-500 focus:ring-2"
+                  disabled={isLoading}
+                />
+                <label htmlFor="agreeToTerms" className="text-slate-300 text-sm">
+                  I agree to the{' '}
+                  <Link href="/beta-terms" className="text-blue-300 hover:text-blue-200 underline">
+                    beta terms
+                  </Link>{' '}
+                  and{' '}
+                  <Link href="/privacy-policy" className="text-blue-300 hover:text-blue-200 underline">
+                    privacy policy
+                  </Link>
+                </label>
               </div>
 
               {/* Forgot password */}
