@@ -21,22 +21,95 @@ export default function Signup() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
   const [agreeToTerms, setAgreeToTerms] = useState(false);
+  const [passwordErrors, setPasswordErrors] = useState<string[]>([]);
 
-  const validatePassword = (password: string): boolean => {
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    return passwordRegex.test(password);
+  const validatePassword = (password: string): { isValid: boolean; errors: string[] } => {
+    const errors: string[] = [];
+
+    // Check minimum length
+    if (password.length < 8) {
+      errors.push('Password must be at least 8 characters long');
+    }
+
+    // Check for uppercase letters
+    if (!/(?=.*[A-Z])/.test(password)) {
+      errors.push('Password must contain at least one uppercase letter');
+    }
+
+    // Check for lowercase letters
+    if (!/(?=.*[a-z])/.test(password)) {
+      errors.push('Password must contain at least one lowercase letter');
+    }
+
+    // Check for numbers
+    if (!/(?=.*\d)/.test(password)) {
+      errors.push('Password must contain at least one number');
+    }
+
+    // Check for special characters
+    if (!/(?=.*[@$!%*?&])/.test(password)) {
+      errors.push('Password must contain at least one special character (@$!%*?&)');
+    }
+
+    // Check for sequential patterns (like 123, abc, ABC)
+    if (/(012|123|234|345|456|567|678|789|abc|bcd|cde|def|efg|fgh|ghi|hij|ijk|jkl|klm|lmn|mno|nop|opq|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz|ABC|BCD|CDE|DEF|EFG|FGH|GHI|HIJ|IJK|JKL|KLM|LMN|MNO|NOP|OPQ|PQR|QRS|RST|STU|TUV|UVW|VWX|WXY|XYZ)/i.test(password)) {
+      errors.push('Password contains sequential characters (like 123, abc, ABC)');
+    }
+
+    // Check for repetitive characters (like aaa, 111, AAA)
+    if (/(.)\1\1/.test(password)) {
+      errors.push('Password contains repetitive characters (like aaa, 111)');
+    }
+
+    // Check if characters are mixed properly (not in blocks)
+    const hasMixedPattern = /[a-z].*[A-Z]|[A-Z].*[a-z]/.test(password) && 
+                           /[a-zA-Z].*[0-9]|[0-9].*[a-zA-Z]/.test(password) &&
+                           /[a-zA-Z0-9].*[@$!%*?&]|[@$!%*?&].*[a-zA-Z0-9]/.test(password);
+    
+    if (!hasMixedPattern) {
+      errors.push('Password must have mixed character types (letters, numbers, symbols should be interleaved)');
+    }
+
+    const commonPatterns = [/qwerty/i, /asdfgh/i, /zxcvbn/i, /password/i, /123456/i];
+    for (const pattern of commonPatterns) {
+      if (pattern.test(password)) {
+        errors.push('Password contains common keyboard patterns');
+        break;
+      }
+    }
+
+    return {
+      isValid: errors.length === 0,
+      errors
+    };
+  };
+
+  const handlePasswordChange = (value: string) => {
+    setFormData(prev => ({ ...prev, password: value }));
+    if (value.length > 0) {
+      const validation = validatePassword(value);
+      setPasswordErrors(validation.errors);
+    } else {
+      setPasswordErrors([]);
+    }
+    
+    if (error) setError('');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    
+    // Validate password match
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
       return;
     }
 
-    if (!validatePassword(formData.password)) {
-      setError('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character');
+    // Validate password strength
+    const passwordValidation = validatePassword(formData.password);
+    if (!passwordValidation.isValid) {
+      setError('Please fix the password requirements below');
       return;
     }
 
@@ -102,7 +175,6 @@ export default function Signup() {
               </div>
             )}
 
-
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Name field */}
               <div className="relative">
@@ -157,7 +229,7 @@ export default function Signup() {
                   type={showPassword ? 'text' : 'password'}
                   placeholder="Password"
                   value={formData.password}
-                  onChange={(e) => handleInputChange('password', e.target.value)}
+                  onChange={(e) => handlePasswordChange(e.target.value)}
                   className="w-full pl-10 pr-10 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-200 text-sm"
                   required
                 />
@@ -169,6 +241,58 @@ export default function Signup() {
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
               </div>
+
+              {/* Password Requirements */}
+              {formData.password.length > 0 && (
+                <div className="bg-white/5 border border-white/10 rounded-lg p-3">
+                  <p className="text-slate-300 text-sm font-medium mb-2">Password Requirements:</p>
+                  <ul className="text-xs space-y-1">
+                    <li className={`flex items-center ${formData.password.length >= 8 ? 'text-green-400' : 'text-red-400'}`}>
+                      <span className="w-2 h-2 rounded-full bg-current mr-2"></span>
+                      At least 8 characters long
+                    </li>
+                    <li className={`flex items-center ${/(?=.*[A-Z])/.test(formData.password) ? 'text-green-400' : 'text-red-400'}`}>
+                      <span className="w-2 h-2 rounded-full bg-current mr-2"></span>
+                      One uppercase letter
+                    </li>
+                    <li className={`flex items-center ${/(?=.*[a-z])/.test(formData.password) ? 'text-green-400' : 'text-red-400'}`}>
+                      <span className="w-2 h-2 rounded-full bg-current mr-2"></span>
+                      One lowercase letter
+                    </li>
+                    <li className={`flex items-center ${/(?=.*\d)/.test(formData.password) ? 'text-green-400' : 'text-red-400'}`}>
+                      <span className="w-2 h-2 rounded-full bg-current mr-2"></span>
+                      One number
+                    </li>
+                    <li className={`flex items-center ${/(?=.*[@$!%*?&])/.test(formData.password) ? 'text-green-400' : 'text-red-400'}`}>
+                      <span className="w-2 h-2 rounded-full bg-current mr-2"></span>
+                      One special character (@$!%*?&)
+                    </li>
+                    <li className={`flex items-center ${!/(012|123|234|345|456|567|678|789|abc|bcd|cde|def|efg|fgh|ghi|hij|ijk|jkl|klm|lmn|mno|nop|opq|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz|ABC|BCD|CDE|DEF|EFG|FGH|GHI|HIJ|IJK|JKL|KLM|LMN|MNO|NOP|OPQ|PQR|QRS|RST|STU|TUV|UVW|VWX|WXY|XYZ)/i.test(formData.password) ? 'text-green-400' : 'text-red-400'}`}>
+                      <span className="w-2 h-2 rounded-full bg-current mr-2"></span>
+                      No sequential patterns
+                    </li>
+                    <li className={`flex items-center ${!/(.)\1\1/.test(formData.password) ? 'text-green-400' : 'text-red-400'}`}>
+                      <span className="w-2 h-2 rounded-full bg-current mr-2"></span>
+                      No repetitive characters
+                    </li>
+                  </ul>
+                  
+                  {/* Specific error messages */}
+                  {passwordErrors.length > 0 && (
+                    <div className="mt-2 p-2 bg-red-500/10 border border-red-500/20 rounded">
+                      <p className="text-red-300 text-xs font-medium mb-1">Current issues:</p>
+                      <ul className="text-red-300 text-xs space-y-1">
+                        {passwordErrors.map((error, index) => (
+                          <li key={index} className="flex items-start">
+                            <span className="mr-1">•</span>
+                            {error}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* Confirm Password field */}
               <div className="relative">
@@ -191,6 +315,20 @@ export default function Signup() {
                   {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
               </div>
+
+              {/* Password match indicator */}
+              {formData.confirmPassword.length > 0 && (
+                <div className={`text-xs p-2 rounded ${
+                  formData.password === formData.confirmPassword 
+                    ? 'bg-green-500/10 text-green-400 border border-green-500/20' 
+                    : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                }`}>
+                  {formData.password === formData.confirmPassword 
+                    ? '✓ Passwords match' 
+                    : '✗ Passwords do not match'
+                  }
+                </div>
+              )}
 
               {/* Signup button */}
               <AnimatedButton type="submit" variant="primary" className="w-full mt-6" disabled={isLoading}>
@@ -231,21 +369,7 @@ export default function Signup() {
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-white/10"></div>
                 </div>
-                {/* <div className="relative flex justify-center text-xs">
-                  <span className="px-3 bg-transparent text-slate-400">or</span>
-                </div> */}
               </div>
-
-              {/* Google signup */}
-              {/* <AnimatedButton type="button" variant="secondary" className="w-full">
-                <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24">
-                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                </svg>
-                Continue with Google
-              </AnimatedButton> */}
             </form>
 
             {/* Login link */}

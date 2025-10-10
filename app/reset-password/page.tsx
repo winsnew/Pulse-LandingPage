@@ -2,7 +2,7 @@
 import React, { useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { Lock, ArrowLeft, Loader2, CheckCircle, Eye, EyeOff } from "lucide-react";
+import { Lock, ArrowLeft, Loader2, CheckCircle, Eye, EyeOff, Mail } from "lucide-react";
 import AnimatedButton from "@/components/customs/AnimatedButton";
 import { authService } from "@/hooks/services/auth";
 
@@ -20,16 +20,97 @@ function ResetPasswordContent() {
   const [success, setSuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-  // Extract token dari URL
+  const [passwordErrors, setPasswordErrors] = useState<string[]>([]);
   const token = searchParams.get("token");
+
+  const validatePassword = (password: string): { isValid: boolean; errors: string[] } => {
+    const errors: string[] = [];
+
+    // Check minimum length
+    if (password.length < 8) {
+      errors.push('Password must be at least 8 characters long');
+    }
+
+    // Check for uppercase letters
+    if (!/(?=.*[A-Z])/.test(password)) {
+      errors.push('Password must contain at least one uppercase letter');
+    }
+
+    // Check for lowercase letters
+    if (!/(?=.*[a-z])/.test(password)) {
+      errors.push('Password must contain at least one lowercase letter');
+    }
+
+    // Check for numbers
+    if (!/(?=.*\d)/.test(password)) {
+      errors.push('Password must contain at least one number');
+    }
+
+    // Check for special characters
+    if (!/(?=.*[@$!%*?&])/.test(password)) {
+      errors.push('Password must contain at least one special character (@$!%*?&)');
+    }
+
+    // Check for sequential patterns (like 123, abc, ABC)
+    if (/(012|123|234|345|456|567|678|789|abc|bcd|cde|def|efg|fgh|ghi|hij|ijk|jkl|klm|lmn|mno|nop|opq|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz|ABC|BCD|CDE|DEF|EFG|FGH|GHI|HIJ|IJK|JKL|KLM|LMN|MNO|NOP|OPQ|PQR|QRS|RST|STU|TUV|UVW|VWX|WXY|XYZ)/i.test(password)) {
+      errors.push('Password contains sequential characters (like 123, abc, ABC)');
+    }
+
+    // Check for repetitive characters (like aaa, 111, AAA)
+    if (/(.)\1\1/.test(password)) {
+      errors.push('Password contains repetitive characters (like aaa, 111)');
+    }
+
+    // Check if characters are mixed properly (not in blocks)
+    const hasMixedPattern = /[a-z].*[A-Z]|[A-Z].*[a-z]/.test(password) && 
+                           /[a-zA-Z].*[0-9]|[0-9].*[a-zA-Z]/.test(password) &&
+                           /[a-zA-Z0-9].*[@$!%*?&]|[@$!%*?&].*[a-zA-Z0-9]/.test(password);
+    
+    if (!hasMixedPattern) {
+      errors.push('Password must have mixed character types (letters, numbers, symbols should be interleaved)');
+    }
+
+    // Check for common keyboard patterns (like qwerty, asdfgh)
+    const commonPatterns = [/qwerty/i, /asdfgh/i, /zxcvbn/i, /password/i, /123456/i];
+    for (const pattern of commonPatterns) {
+      if (pattern.test(password)) {
+        errors.push('Password contains common keyboard patterns');
+        break;
+      }
+    }
+
+    return {
+      isValid: errors.length === 0,
+      errors
+    };
+  };
+
+  const handlePasswordChange = (value: string) => {
+    setFormData(prev => ({ ...prev, password: value }));
+    
+    // Real-time password validation feedback
+    if (value.length > 0) {
+      const validation = validatePassword(value);
+      setPasswordErrors(validation.errors);
+    } else {
+      setPasswordErrors([]);
+    }
+    
+    if (error) setError('');
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    
+    if (name === "password") {
+      handlePasswordChange(value);
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
+    
     if (error) setError("");
   };
 
@@ -44,19 +125,15 @@ function ResetPasswordContent() {
       return false;
     }
 
-    if (formData.password.length < 8) {
-      setError("Password must be at least 8 characters long");
+    // Use the enhanced password validation
+    const passwordValidation = validatePassword(formData.password);
+    if (!passwordValidation.isValid) {
+      setError("Please fix the password requirements below");
       return false;
     }
 
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
-      return false;
-    }
-
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/;
-    if (!passwordRegex.test(formData.password)) {
-      setError("Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character");
       return false;
     }
 
@@ -108,17 +185,6 @@ function ResetPasswordContent() {
     return (
       <div className="min-h-screen relative overflow-hidden">
         <div className="absolute inset-0"></div>
-
-        {/* Back Button */}
-        {/* <div className="absolute top-10 left-15 z-20">
-          <Link
-            href="/login"
-            className="inline-flex items-center text-slate-400 hover:text-white transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Login
-          </Link>
-        </div> */}
 
         {/* Content */}
         <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
@@ -204,17 +270,6 @@ function ResetPasswordContent() {
     <div className="min-h-screen relative overflow-hidden">
       <div className="absolute inset-0"></div>
 
-      {/* Back Button */}
-      {/* <div className="absolute top-10 left-15 z-20">
-        <Link
-          href="/login"
-          className="inline-flex items-center text-slate-400 hover:text-white transition-colors"
-        >
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          Back to Login
-        </Link>
-      </div> */}
-
       {/* Content */}
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
         <div className="w-[80%] max-w-md mx-auto">
@@ -283,6 +338,58 @@ function ResetPasswordContent() {
                 </button>
               </div>
 
+              {/* Password Requirements */}
+              {formData.password.length > 0 && (
+                <div className="bg-white/5 border border-white/10 rounded-lg p-3">
+                  <p className="text-slate-300 text-sm font-medium mb-2">Password Requirements:</p>
+                  <ul className="text-xs space-y-1">
+                    <li className={`flex items-center ${formData.password.length >= 8 ? 'text-green-400' : 'text-red-400'}`}>
+                      <span className="w-2 h-2 rounded-full bg-current mr-2"></span>
+                      At least 8 characters long
+                    </li>
+                    <li className={`flex items-center ${/(?=.*[A-Z])/.test(formData.password) ? 'text-green-400' : 'text-red-400'}`}>
+                      <span className="w-2 h-2 rounded-full bg-current mr-2"></span>
+                      One uppercase letter
+                    </li>
+                    <li className={`flex items-center ${/(?=.*[a-z])/.test(formData.password) ? 'text-green-400' : 'text-red-400'}`}>
+                      <span className="w-2 h-2 rounded-full bg-current mr-2"></span>
+                      One lowercase letter
+                    </li>
+                    <li className={`flex items-center ${/(?=.*\d)/.test(formData.password) ? 'text-green-400' : 'text-red-400'}`}>
+                      <span className="w-2 h-2 rounded-full bg-current mr-2"></span>
+                      One number
+                    </li>
+                    <li className={`flex items-center ${/(?=.*[@$!%*?&])/.test(formData.password) ? 'text-green-400' : 'text-red-400'}`}>
+                      <span className="w-2 h-2 rounded-full bg-current mr-2"></span>
+                      One special character (@$!%*?&)
+                    </li>
+                    <li className={`flex items-center ${!/(012|123|234|345|456|567|678|789|abc|bcd|cde|def|efg|fgh|ghi|hij|ijk|jkl|klm|lmn|mno|nop|opq|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz|ABC|BCD|CDE|DEF|EFG|FGH|GHI|HIJ|IJK|JKL|KLM|LMN|MNO|NOP|OPQ|PQR|QRS|RST|STU|TUV|UVW|VWX|WXY|XYZ)/i.test(formData.password) ? 'text-green-400' : 'text-red-400'}`}>
+                      <span className="w-2 h-2 rounded-full bg-current mr-2"></span>
+                      No sequential patterns
+                    </li>
+                    <li className={`flex items-center ${!/(.)\1\1/.test(formData.password) ? 'text-green-400' : 'text-red-400'}`}>
+                      <span className="w-2 h-2 rounded-full bg-current mr-2"></span>
+                      No repetitive characters
+                    </li>
+                  </ul>
+                  
+                  {/* Specific error messages */}
+                  {passwordErrors.length > 0 && (
+                    <div className="mt-2 p-2 bg-red-500/10 border border-red-500/20 rounded">
+                      <p className="text-red-300 text-xs font-medium mb-1">Current issues:</p>
+                      <ul className="text-red-300 text-xs space-y-1">
+                        {passwordErrors.map((error, index) => (
+                          <li key={index} className="flex items-start">
+                            <span className="mr-1">•</span>
+                            {error}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* Confirm Password field */}
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -306,6 +413,20 @@ function ResetPasswordContent() {
                   {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
               </div>
+
+              {/* Password match indicator */}
+              {formData.confirmPassword.length > 0 && (
+                <div className={`text-xs p-2 rounded ${
+                  formData.password === formData.confirmPassword 
+                    ? 'bg-green-500/10 text-green-400 border border-green-500/20' 
+                    : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                }`}>
+                  {formData.password === formData.confirmPassword 
+                    ? '✓ Passwords match' 
+                    : '✗ Passwords do not match'
+                  }
+                </div>
+              )}
 
               {/* Submit button */}
               <AnimatedButton
@@ -350,27 +471,6 @@ function ResetPasswordContent() {
         </div>
       </div>
     </div>
-  );
-}
-
-// Tambahkan komponen Mail yang diperlukan
-function Mail(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect width="20" height="16" x="2" y="4" rx="2" />
-      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-    </svg>
   );
 }
 
