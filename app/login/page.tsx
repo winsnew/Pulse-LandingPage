@@ -5,7 +5,7 @@ import { Mail, Lock, Eye, EyeOff, Loader2 } from 'lucide-react';
 import AnimatedButton from '../../components/customs/AnimatedButton';
 import { authService } from '@/hooks/services/auth';
 import { useRouter } from 'next/navigation';
-import { tokenService } from '@/lib/auth/utils';
+import { tokenService, isValidEmail } from '@/lib/auth/utils';
 
 const API_DASHBOARD_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL || 'https://staging-frontend.pulsenow.io';
 
@@ -18,7 +18,6 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
-  const [agreeToTerms, setAgreeToTerms] = useState(false);
 
    const sendTokensToDashboard = (tokens: { access_token: string; refresh_token: string }) => {
     try {
@@ -42,18 +41,19 @@ export default function Login() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    if (!agreeToTerms) {
-      setError('Please agree to the beta terms and privacy policy');
+
+    const credentials = {
+      email: formData.email, 
+      password: formData.password
+    };
+
+    if (!isValidEmail(credentials.email)) {
+      setError('Please enter a valid email address');
       return;
     }
+    
     setIsLoading(true)
-
     try {
-      const credentials = {
-        email: formData.email, 
-        password: formData.password
-      };
-
       // console.log('Login attempt:', credentials);
       const tokens = await authService.login(credentials);
       // console.log('Login successful:', tokens);
@@ -70,11 +70,8 @@ export default function Login() {
       router.push(redirectUrl)
       localStorage.removeItem('access_token');
       localStorage.removeItem('refresh_token');
-      
-      
     } catch (err) {
-      console.error('Login error:', err);
-      setError(err instanceof Error ? err.message : 'Login failed. Please try again.');
+      setError('Login failed. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -156,7 +153,8 @@ export default function Login() {
                 </button>
               </div>
 
-              <div className="flex items-start justify-center space-x-2">
+              { /* No need for checkbox for terms and conditions in login page. User already agreed on signup. */ }
+              {/* <div className="flex items-start justify-center space-x-2">
                 <input
                   type="checkbox"
                   id="agreeToTerms"
@@ -175,7 +173,7 @@ export default function Login() {
                     privacy policy
                   </Link>
                 </label>
-              </div>
+              </div> */}
 
               {/* Forgot password */}
               <div className="text-right">

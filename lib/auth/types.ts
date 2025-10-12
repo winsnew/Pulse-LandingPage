@@ -51,6 +51,15 @@ export interface PasswordChange {
   password: string;  
 }
 
+export interface PasswordValid {
+  subceed: boolean;
+  exceed: boolean;
+  hasUpper: boolean;
+  hasLower: boolean;
+  hasNumber: boolean;
+  hasSpecial: boolean;
+}
+
 export interface ApiResponse {
   message: string;
   success?: boolean;

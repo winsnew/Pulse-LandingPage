@@ -1,3 +1,4 @@
+import {tokenService} from '@/lib/auth/utils'
 import { UserCreate, UserResponse, Token, EmailVerificationRequest, ApiError, ApiResponse, PasswordResetRequest, PasswordResetConfirm } from '@/lib/auth/types';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -46,20 +47,19 @@ export const authService = {
   },
 
   async login(credentials: { email: string; password: string }): Promise<Token> {
-    const formData = new URLSearchParams();
-    formData.append('username', credentials.email);
-    formData.append('password', credentials.password);
+    // const formData = new URLSearchParams();
+    // formData.append('username', credentials.email);
+    // formData.append('password', credentials.password);
 
     const response = await fetch(`${API_BASE_URL}/auth-ms/login`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       },
-      // body: JSON.stringify({
-      //   email: credentials.email,
-      //   password: credentials.password
-      // }),
-      body: formData
+      body: JSON.stringify({
+        email: credentials.email,
+        password: credentials.password
+      }),
     });
 
     return handleResponse<Token>(response);
@@ -96,7 +96,6 @@ export const authService = {
   },
 
   async checkAuthStatus() {
-    const { tokenService } = await import('@/lib/auth/utils');
     const accessToken = tokenService.getAccessToken();
     
     if (!accessToken) {

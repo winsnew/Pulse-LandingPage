@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Mail, ArrowLeft, Loader2, CheckCircle } from "lucide-react";
 import AnimatedButton from "../../components/customs/AnimatedButton";
 import { authService } from "@/hooks/services/auth";
+import { isValidEmail } from "@/lib/auth/utils";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -15,9 +16,14 @@ export default function ForgotPassword() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    setIsLoading(true);
 
+    if (!isValidEmail(email)) {
+      setError("Please enter a valid email address");
+      return;
+    }
+    
     try {
+      setIsLoading(true);
       // Construct reset URL - sesuaikan dengan route reset password Anda
       const resetUrl = `${window.location.origin}/reset-password`;
 
@@ -26,12 +32,7 @@ export default function ForgotPassword() {
       setEmailSent(true);
       setSuccess(true);
     } catch (err) {
-      console.error("Password reset request error:", err);
-      setError(
-        err instanceof Error
-          ? err.message
-          : "Failed to send reset email. Please try again."
-      );
+      setError("Failed to send reset email. Please try again.");
       setSuccess(false);
     } finally {
       setIsLoading(false);
@@ -127,8 +128,7 @@ export default function ForgotPassword() {
                 Reset Your Password
               </h1>
               <p className="text-slate-400 text-sm">
-                Enter your email address and we'll send you a link to reset your
-                password
+                Enter your email address and we'll send you a link to reset your password
               </p>
             </div>
 
