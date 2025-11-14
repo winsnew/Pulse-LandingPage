@@ -24,7 +24,6 @@ export default function ForgotPassword() {
     
     try {
       setIsLoading(true);
-      // Construct reset URL - sesuaikan dengan route reset password Anda
       const resetUrl = `${window.location.origin}/reset-password`;
 
       await authService.requestPasswordReset(email, resetUrl);

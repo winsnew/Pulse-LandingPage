@@ -7,7 +7,7 @@ import { authService } from '@/hooks/services/auth';
 import { useRouter } from 'next/navigation';
 import { tokenService, isValidEmail } from '@/lib/auth/utils';
 
-const API_DASHBOARD_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL || 'https://staging-frontend.pulsenow.io';
+const API_DASHBOARD_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL;
 
 export default function Login() {
   const router = useRouter();

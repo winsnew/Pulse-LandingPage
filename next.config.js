@@ -10,15 +10,15 @@ const nextConfig = {
     config.devtool = false; 
     return config;
   },
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/login',
-        permanent: false, 
-      },
-    ]
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/',
+  //       destination: '/login',
+  //       permanent: false, 
+  //     },
+  //   ]
+  // },
 };
 
 module.exports = nextConfig;
